@@ -1,0 +1,16 @@
+<div layout:decorate="~{HeaderAndFooter}" layout:fragment="conteudo">
+  <table>
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="prod : ${@carrinhoController.produtosAdicionados}">
+        <td th:text="${prod.nome}">Produto 1</td>
+        <td th:text="${prod.valorProduto}">R$ 100,00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

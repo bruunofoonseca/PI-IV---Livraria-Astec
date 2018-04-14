@@ -1,6 +1,11 @@
 {
     "elements": {},
     "attributes": {
+        "th:text": {},
+        "th:src": {},
+        "th:action": {},
+        "th:each": {},
+        "th:href": {},
         "layout:fragment": {}
     }
 }
