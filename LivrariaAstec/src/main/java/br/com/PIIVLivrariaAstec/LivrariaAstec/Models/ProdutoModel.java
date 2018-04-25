@@ -9,22 +9,60 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author Bruno Fonseca
  * edit Diogo.Felix
  */
+@Entity
+@Table(name = "TB_PRODUTO")
 public class ProdutoModel implements Serializable {
      // Atributos
+    @Id
+    @Column(name = "ID_PRODUTO")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Size(min = 1, max = 100, message = "Nome inválido")
+    @Column(name = "NM_PRODUTO", length = 100, nullable = false)
     private String nome;
     private String fabricante;
+
+    @Digits(integer = 6, fraction = 0)
+    @Column(name = "QT_PRODUTO", precision = 6, nullable = false)
     private int qtdProduto;
+
+    @Digits(integer = 6, fraction = 2)
+    @Column(name = "VL_PRODUTO", precision = 6, scale = 2, nullable = false)
     private BigDecimal valorProduto;
     private boolean status;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DT_FABRICACAO", nullable = false)
     private Date dtFabricacao;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DT_CADASTRO", nullable = false)
+    private Date dtCadastro;
     private int garantia;
+
+    @Size(min = 1, max = 1000)
+    @Column(name = "DS_PRODUTO", length = 1000)
     private String descricao;
     private String peso;
     private String altura;
@@ -33,7 +71,18 @@ public class ProdutoModel implements Serializable {
     private String numPaginas;
     private String idioma;
     private String acabamento;
+    
+    @ManyToMany
+    @JoinTable(name = "TB_PRODUTO_CATEGORIA",
+        joinColumns = {
+          @JoinColumn(name = "ID_PRODUTO")
+        },
+        inverseJoinColumns = {
+          @JoinColumn(name = "ID_CATEGORIA")
+        })
     private Set<CategoriaModel> categorias;
+      
+    @OneToMany(mappedBy = "produto")
     private Set<ImagemProduto> imagens;
 
     // Constructor
