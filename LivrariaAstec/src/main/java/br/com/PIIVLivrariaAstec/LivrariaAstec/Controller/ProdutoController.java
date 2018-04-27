@@ -23,17 +23,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping
 public class ProdutoController {
-  private ProdutoService service = new ProdutoServiceJpaImpl();
+    private ProdutoService service = new ProdutoServiceJpaImpl();
 
-  @GetMapping
-  public ModelAndView listar() {
-    List<ProdutoModel> lista = service.listar(0, 100);
-    return new ModelAndView("Home").addObject("produtos", lista);
-  }
+    @GetMapping
+    public ModelAndView listar() {
+      List<ProdutoModel> lista = service.listar(0, 100);
+      return new ModelAndView("Home").addObject("produtos", lista);
+    }
 
-  @GetMapping("/{id}")
-  public ModelAndView mostrarDetalhe(@PathVariable("id") Long id) {
-    ProdutoModel p = service.obter(id);
-    return new ModelAndView("detalhe").addObject("produto", p);
-  }
+    @GetMapping("/{id}")
+    public ModelAndView mostrarDetalhe(@PathVariable("id") Long id) {
+      ProdutoModel p = service.obter(id);
+      return new ModelAndView("detalhe").addObject("produto", p);
+    }
 }

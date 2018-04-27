@@ -30,28 +30,27 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope("session")
 public class CarrinhoController implements Serializable {
 
-  private ProdutoService service = new ProdutoServiceJpaImpl();
-  
-  private List<ProdutoModel> produtosAdicionados = new ArrayList<ProdutoModel>();
+    private ProdutoService service = new ProdutoServiceJpaImpl();
 
-  public List<ProdutoModel> getProdutosAdicionados() {
-    return produtosAdicionados;
-  }
+    private List<ProdutoModel> produtosAdicionados = new ArrayList<ProdutoModel>();
 
-  @GetMapping
-  public ModelAndView mostrarCarrinho() {
-    return new ModelAndView("Carrinho");
-  }
+    public List<ProdutoModel> getProdutosAdicionados() {
+      return produtosAdicionados;
+    }
 
-  @PostMapping("/{id}")
-  public ModelAndView adicionarProduto(@PathVariable("id") Long id, 
-	  RedirectAttributes redirectAttributes) {
-    ProdutoModel p = service.obter(id);
-    produtosAdicionados.add(p);
-    
-    // POST-REDIRECT-GET
-    //redirectAttributes.addAttribute("prod", p);
-    return new ModelAndView("redirect:/carrinho");
-  }
+    @GetMapping
+    public ModelAndView mostrarCarrinho() {
+      return new ModelAndView("Carrinho");
+    }
 
+    @PostMapping("/{id}")
+    public ModelAndView adicionarProduto(@PathVariable("id") Long id, 
+            RedirectAttributes redirectAttributes) {
+      ProdutoModel p = service.obter(id);
+      produtosAdicionados.add(p);
+
+      // POST-REDIRECT-GET
+      //redirectAttributes.addAttribute("prod", p);
+      return new ModelAndView("redirect:/carrinho");
+    }
 }
