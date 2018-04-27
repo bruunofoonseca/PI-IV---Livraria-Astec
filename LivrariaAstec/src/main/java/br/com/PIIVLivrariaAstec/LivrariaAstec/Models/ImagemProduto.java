@@ -24,66 +24,83 @@
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "TB_IMAGEM")
 public class ImagemProduto implements Serializable {
 
-  private Long id;
+    @Id
+    @Column(name = "ID_IMAGEM")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  private String nomeArquivo;
+    @Column(name = "NOME_IMAGEM", length = 255, nullable = false)
+    private String nomeArquivo;
 
-  private String legenda;
+    @Column(name = "LEGENDA_IMAGEM", length = 1000)
+    private String legenda;
 
-  private ProdutoModel produto;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PRODUTO")
+    private ProdutoModel produto;
 
-  public ImagemProduto() {
+    public ImagemProduto() {
 
-  }
+    }
 
-  public ImagemProduto(Long id, String nomeArquivo, String legenda) {
-    this.id = id;
-    this.nomeArquivo = nomeArquivo;
-    this.legenda = legenda;
-  }
+    public ImagemProduto(Long id, String nomeArquivo, String legenda) {
+      this.id = id;
+      this.nomeArquivo = nomeArquivo;
+      this.legenda = legenda;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+      return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+      this.id = id;
+    }
 
-  public String getNomeArquivo() {
-    return nomeArquivo;
-  }
+    public String getNomeArquivo() {
+      return nomeArquivo;
+    }
 
-  public void setNomeArquivo(String nomeArquivo) {
-    this.nomeArquivo = nomeArquivo;
-  }
+    public void setNomeArquivo(String nomeArquivo) {
+      this.nomeArquivo = nomeArquivo;
+    }
 
-  public String getLegenda() {
-    return legenda;
-  }
+    public String getLegenda() {
+      return legenda;
+    }
 
-  public void setLegenda(String legenda) {
-    this.legenda = legenda;
-  }
+    public void setLegenda(String legenda) {
+      this.legenda = legenda;
+    }
 
-  public ProdutoModel getProduto() {
-    return produto;
-  }
+    public ProdutoModel getProduto() {
+      return produto;
+    }
 
-  public void setProduto(ProdutoModel produto) {
-    this.produto = produto;
-  }
+    public void setProduto(ProdutoModel produto) {
+      this.produto = produto;
+    }
 
-  public String getUrlArquivo() {
-    return "http://localhost:8080/imagens/" + nomeArquivo;
-  }
+    public String getUrlArquivo() {
+      return "/img/" + nomeArquivo;
+    }
 
-  @Override
-  public String toString() {
-    return "ImagemProduto{" + "id=" + id + ", legenda=" + legenda + ", nomeArquivo=" + nomeArquivo + '}';
-  }
-
+    @Override
+    public String toString() {
+      return "ImagemProduto{" + "id=" + id + ", legenda=" + legenda + ", nomeArquivo=" + nomeArquivo + '}';
+    }
 }

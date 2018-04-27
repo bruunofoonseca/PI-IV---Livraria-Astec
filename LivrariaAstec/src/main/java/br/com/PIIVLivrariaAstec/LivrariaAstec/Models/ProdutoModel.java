@@ -32,55 +32,80 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "TB_PRODUTO")
 public class ProdutoModel implements Serializable {
-     // Atributos
+    // Atributos
     @Id
     @Column(name = "ID_PRODUTO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Size(min = 1, max = 100, message = "Nome inválido")
-    @Column(name = "NM_PRODUTO", length = 100, nullable = false)
+    @Column(name = "NOME_PRODUTO", length = 100, nullable = false)
     private String nome;
+    
+    @Size(min = 1, max = 100, message = "Fabricante inválido")
+    @Column(name = "FABRICANTE_PRODUTO", length = 100, nullable = false)
     private String fabricante;
 
     @Digits(integer = 6, fraction = 0)
-    @Column(name = "QT_PRODUTO", precision = 6, nullable = false)
+    @Column(name = "QUANTIDADE_PRODUTO", precision = 6, nullable = false)
     private int qtdProduto;
 
     @Digits(integer = 6, fraction = 2)
-    @Column(name = "VL_PRODUTO", precision = 6, scale = 2, nullable = false)
+    @Column(name = "VALOR_PRODUTO", precision = 6, scale = 2, nullable = false)
     private BigDecimal valorProduto;
+    
+    @Column(name = "STATUS_PRODUTO", nullable = false)
     private boolean status;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DT_FABRICACAO", nullable = false)
+    @Column(name = "DATA_FABRICACAO", nullable = false)
     private Date dtFabricacao;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DT_CADASTRO", nullable = false)
+    @Column(name = "DATA_CADASTRO", nullable = false)
     private Date dtCadastro;
-    private int garantia;
 
     @Size(min = 1, max = 1000)
-    @Column(name = "DS_PRODUTO", length = 1000)
+    @Column(name = "DESCRICAO_PRODUTO", length = 1000)
     private String descricao;
-    private String peso;
-    private String altura;
-    private String largura;
-    private String profundidade;
-    private String numPaginas;
+    
+    @Digits(integer = 6, fraction = 2)
+    @Column(name = "PESO_PRODUTO", precision = 6, scale = 2, nullable = false)
+    private BigDecimal peso;
+    
+    @Digits(integer = 6, fraction = 2)
+    @Column(name = "ALTURA_PRODUTO", precision = 6, scale = 2, nullable = false)
+    private BigDecimal altura;
+    
+    @Digits(integer = 6, fraction = 2)
+    @Column(name = "LARGURA_PRODUTO", precision = 6, scale = 2, nullable = false)
+    private BigDecimal largura;
+    
+    @Digits(integer = 6, fraction = 2)
+    @Column(name = "PROFUNDIDADE_PRODUTO", precision = 6, scale = 2, nullable = false)
+    private BigDecimal profundidade;
+    
+    @Digits(integer = 6, fraction = 0)
+    @Column(name = "NUMPAGES_PRODUTO", precision = 6, nullable = false)
+    private int numPaginas;
+    
+    @Size(min = 1, max = 100, message = "Idioma inválido")
+    @Column(name = "IDIOMA_PRODUTO", length = 100, nullable = false)
     private String idioma;
+    
+    @Size(min = 1, max = 100, message = "Acabamento inválido")
+    @Column(name = "ACABAMENTO_PRODUTO", length = 100, nullable = false)
     private String acabamento;
     
-    @ManyToMany
-    @JoinTable(name = "TB_PRODUTO_CATEGORIA",
-        joinColumns = {
-          @JoinColumn(name = "ID_PRODUTO")
-        },
-        inverseJoinColumns = {
-          @JoinColumn(name = "ID_CATEGORIA")
-        })
-    private Set<CategoriaModel> categorias;
+//    @ManyToMany
+//    @JoinTable(name = "TB_PRODUTO_CATEGORIA",
+//        joinColumns = {
+//          @JoinColumn(name = "ID_PRODUTO")
+//        },
+//        inverseJoinColumns = {
+//          @JoinColumn(name = "ID_CATEGORIA")
+//        })
+//    private Set<CategoriaModel> categorias;
       
     @OneToMany(mappedBy = "produto")
     private Set<ImagemProduto> imagens;
@@ -98,17 +123,16 @@ public class ProdutoModel implements Serializable {
             BigDecimal valorProduto, 
             boolean status, 
             Date dtFabricacao, 
-            int garantia, 
             String descricao, 
-            String peso, 
-            String altura, 
-            String largura, 
-            String profundidade, 
-            String numPaginas, 
+            BigDecimal peso, 
+            BigDecimal altura, 
+            BigDecimal largura, 
+            BigDecimal profundidade, 
+            int numPaginas, 
             String idioma, 
-            String acabamento, 
-            Set<CategoriaModel> categorias, 
-            Set<ImagemProduto> imagens
+            String acabamento//, 
+//            Set<CategoriaModel> categorias, 
+//            Set<ImagemProduto> imagens
         ) {
 
         this.id = id;
@@ -118,7 +142,6 @@ public class ProdutoModel implements Serializable {
         this.valorProduto = valorProduto;
         this.status = status;
         this.dtFabricacao = dtFabricacao;
-        this.garantia = garantia;
         this.descricao = descricao;
         this.peso = peso;
         this.altura = altura;
@@ -127,8 +150,8 @@ public class ProdutoModel implements Serializable {
         this.numPaginas = numPaginas;
         this.idioma = idioma;
         this.acabamento = acabamento;
-        this.categorias = categorias;
-        this.imagens = imagens;
+//        this.categorias = categorias;
+//        this.imagens = imagens;
     }
 
     public Long getId() {
@@ -187,14 +210,6 @@ public class ProdutoModel implements Serializable {
         this.dtFabricacao = dtFabricacao;
     }
 
-    public int getGarantia() {
-        return garantia;
-    }
-
-    public void setGarantia(int garantia) {
-        this.garantia = garantia;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -203,43 +218,43 @@ public class ProdutoModel implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getPeso() {
+    public BigDecimal getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(BigDecimal peso) {
         this.peso = peso;
     }
 
-    public String getAltura() {
+    public BigDecimal getAltura() {
         return altura;
     }
 
-    public void setAltura(String altura) {
+    public void setAltura(BigDecimal altura) {
         this.altura = altura;
     }
 
-    public String getLargura() {
+    public BigDecimal getLargura() {
         return largura;
     }
 
-    public void setLargura(String largura) {
+    public void setLargura(BigDecimal largura) {
         this.largura = largura;
     }
 
-    public String getProfundidade() {
+    public BigDecimal getProfundidade() {
         return profundidade;
     }
 
-    public void setProfundidade(String profundidade) {
+    public void setProfundidade(BigDecimal profundidade) {
         this.profundidade = profundidade;
     }
 
-    public String getNumPaginas() {
+    public int getNumPaginas() {
         return numPaginas;
     }
 
-    public void setNumPaginas(String numPaginas) {
+    public void setNumPaginas(int numPaginas) {
         this.numPaginas = numPaginas;
     }
 
@@ -259,19 +274,19 @@ public class ProdutoModel implements Serializable {
         this.acabamento = acabamento;
     }
 
-    public Set<CategoriaModel> getCategorias() {
-        return categorias;
-    }
-
-    public void setCategorias(Set<CategoriaModel> categorias) {
-        this.categorias = categorias;
-    }
-
-    public Set<ImagemProduto> getImagens() {
-        return imagens;
-    }
-
-    public void setImagens(Set<ImagemProduto> imagens) {
-        this.imagens = imagens;
-    }
+//    public Set<CategoriaModel> getCategorias() {
+//        return categorias;
+//    }
+//
+//    public void setCategorias(Set<CategoriaModel> categorias) {
+//        this.categorias = categorias;
+//    }
+//
+//    public Set<ImagemProduto> getImagens() {
+//        return imagens;
+//    }
+//
+//    public void setImagens(Set<ImagemProduto> imagens) {
+//        this.imagens = imagens;
+//    }
 }

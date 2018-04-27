@@ -7,7 +7,7 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
-import br.com.PIIVLivrariaAstec.LivrariaAstec.service.fakeimpl.ProdutoServiceFakeImpl;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl.ProdutoServiceJpaImpl;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope("session")
 public class CarrinhoController implements Serializable {
 
-  private ProdutoService service = new ProdutoServiceFakeImpl();
+  private ProdutoService service = new ProdutoServiceJpaImpl();
   
   private List<ProdutoModel> produtosAdicionados = new ArrayList<ProdutoModel>();
 

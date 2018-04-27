@@ -7,7 +7,7 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
-import br.com.PIIVLivrariaAstec.LivrariaAstec.service.fakeimpl.ProdutoServiceFakeImpl;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl.ProdutoServiceJpaImpl;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping
 public class ProdutoController {
-  private ProdutoService service = new ProdutoServiceFakeImpl();
+  private ProdutoService service = new ProdutoServiceJpaImpl();
 
   @GetMapping
   public ModelAndView listar() {
