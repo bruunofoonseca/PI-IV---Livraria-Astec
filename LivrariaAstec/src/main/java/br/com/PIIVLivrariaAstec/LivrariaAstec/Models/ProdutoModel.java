@@ -11,12 +11,14 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -97,15 +99,9 @@ public class ProdutoModel implements Serializable {
     @Column(name = "ACABAMENTO_PRODUTO", length = 100, nullable = false)
     private String acabamento;
     
-//    @ManyToMany
-//    @JoinTable(name = "TB_PRODUTO_CATEGORIA",
-//        joinColumns = {
-//          @JoinColumn(name = "ID_PRODUTO")
-//        },
-//        inverseJoinColumns = {
-//          @JoinColumn(name = "ID_CATEGORIA")
-//        })
-//    private Set<CategoriaModel> categorias;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_SUBCATEGORIA")
+    private SubCategoriaModel subCategoria;
       
     @OneToMany(mappedBy = "produto")
     private Set<ImagemProduto> imagens;

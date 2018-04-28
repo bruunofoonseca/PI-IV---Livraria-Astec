@@ -8,79 +8,95 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author BruunoFoonseca
  */
+@Entity
+@Table(name = "TB_CATEGORIA")
 public class CategoriaModel implements Serializable {
+    
+    @Id
+    @Column(name = "ID_CATEGORIA")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-  private Integer id;
+    @Size(min = 1, max = 100, message = "Nome inválido")
+    @Column(name = "NOME_CATEGORIA", length = 100, nullable = false)
+    private String nome;
 
-  private String nome;
+    @OneToMany(mappedBy = "categoria")
+    private Set<SubCategoriaModel> subCategorias;
 
-  private Set<ProdutoModel> produtos;
+    public CategoriaModel() {
 
-  public CategoriaModel() {
-
-  }
-
-  public CategoriaModel(Integer id, String nome) {
-    this.id = id;
-    this.nome = nome;
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getNome() {
-    return nome;
-  }
-
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
-
-  public Set<ProdutoModel> getProdutos() {
-    return produtos;
-  }
-
-  public void setProdutos(Set<ProdutoModel> produtos) {
-    this.produtos = produtos;
-  }
-
-  @Override
-  public String toString() {
-    return "Categoria{" + "id=" + id + ", nome=" + nome + '}';
-  }
-
-  @Override
-  public int hashCode() {
-    int hash = 3;
-    hash = 47 * hash + Objects.hashCode(this.id);
-    return hash;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (obj == null) {
-      return false;
     }
 
-    if (getClass() != obj.getClass()) {
-      return false;
+    public CategoriaModel(Integer id, String nome) {
+      this.id = id;
+      this.nome = nome;
     }
 
-    final CategoriaModel other = (CategoriaModel) obj;
-    if (!Objects.equals(this.id, other.id)) {
-      return false;
+    public Integer getId() {
+      return id;
     }
 
-    return true;
-  }
+    public void setId(Integer id) {
+      this.id = id;
+    }
+
+    public String getNome() {
+      return nome;
+    }
+
+    public void setNome(String nome) {
+      this.nome = nome;
+    }
+
+    public Set<SubCategoriaModel> getSubCategorias() {
+      return subCategorias;
+    }
+
+    public void setSubCategorias(Set<SubCategoriaModel> subCategorias) {
+      this.subCategorias = subCategorias;
+    }
+
+    @Override
+    public String toString() {
+      return "Categoria{" + "id=" + id + ", nome=" + nome + '}';
+    }
+
+    @Override
+    public int hashCode() {
+      int hash = 3;
+      hash = 47 * hash + Objects.hashCode(this.id);
+      return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (obj == null) {
+        return false;
+      }
+
+      if (getClass() != obj.getClass()) {
+        return false;
+      }
+
+      final CategoriaModel other = (CategoriaModel) obj;
+      if (!Objects.equals(this.id, other.id)) {
+        return false;
+      }
+
+      return true;
+    }
 }
