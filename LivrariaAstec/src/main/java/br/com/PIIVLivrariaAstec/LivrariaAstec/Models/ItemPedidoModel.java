@@ -5,18 +5,44 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 
 /**
  *
  * @author Bruno Fonseca
  */
-public class ItemPedidoModel {
-     // Atributos
-    private Integer id;
+@Entity
+@Table(name = "TB_ITEM_PEDIDO")
+public class ItemPedidoModel implements Serializable {
+    // Atributos
+    @Id
+    @Column(name = "ID_IMAGEM")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PRODUTO")
     private ProdutoModel produto;
-    private float valorParcial;
+
+    @Digits(integer = 6, fraction = 2)
+    @Column(name = "VALOR_PARCIAL", precision = 6, scale = 2, nullable = false)
+    private BigDecimal valorParcial;
+    
+    @Digits(integer = 6, fraction = 0)
+    @Column(name = "QUANTIDADE", precision = 6, nullable = false)
     private int qtd;
 
     public ProdutoModel getProduto() {
@@ -27,11 +53,11 @@ public class ItemPedidoModel {
         this.produto = produto;
     }
 
-    public float getValorParcial() {
+    public BigDecimal getValorParcial() {
         return valorParcial;
     }
 
-    public void setValorParcial(float valorParcial) {
+    public void setValorParcial(BigDecimal valorParcial) {
         this.valorParcial = valorParcial;
     }
 
@@ -43,11 +69,11 @@ public class ItemPedidoModel {
         this.qtd = qtd;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

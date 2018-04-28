@@ -28,7 +28,7 @@ public class CategoriaModel implements Serializable {
     @Id
     @Column(name = "ID_CATEGORIA")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Size(min = 1, max = 100, message = "Nome inválido")
     @Column(name = "NOME_CATEGORIA", length = 100, nullable = false)
@@ -41,16 +41,16 @@ public class CategoriaModel implements Serializable {
 
     }
 
-    public CategoriaModel(Integer id, String nome) {
+    public CategoriaModel(Long id, String nome) {
       this.id = id;
       this.nome = nome;
     }
 
-    public Integer getId() {
+    public Long getId() {
       return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
       this.id = id;
     }
 
@@ -72,7 +72,7 @@ public class CategoriaModel implements Serializable {
 
     @Override
     public String toString() {
-      return "Categoria{" + "id=" + id + ", nome=" + nome + '}';
+      return "CategoriaModel{" + "id=" + id + ", nome=" + nome + '}';
     }
 
     @Override

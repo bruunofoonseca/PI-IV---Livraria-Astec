@@ -9,6 +9,7 @@ import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl.ProdutoServiceJpaImpl;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping
 public class ProdutoController {
-    private ProdutoService service = new ProdutoServiceJpaImpl();
+    @Autowired
+    private ProdutoService service;
 
     @GetMapping
     public ModelAndView listar() {

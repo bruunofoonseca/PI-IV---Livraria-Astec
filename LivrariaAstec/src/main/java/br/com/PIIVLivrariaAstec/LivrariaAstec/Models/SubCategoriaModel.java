@@ -29,7 +29,7 @@ public class SubCategoriaModel implements Serializable {
     @Id
     @Column(name = "ID_SUB_CATEGORIA")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     
     @Size(min = 1, max = 100, message = "Nome inválido")
     @Column(name = "NOME_SUB_CATEGORIA", length = 100, nullable = false)
@@ -41,4 +41,56 @@ public class SubCategoriaModel implements Serializable {
     
     @OneToMany(mappedBy = "subCategoria")
     private Set<ProdutoModel> produtos;
+    
+    public SubCategoriaModel() {
+
+    }
+
+    public SubCategoriaModel(Long id, String nome, CategoriaModel categoria, Set<ProdutoModel> produtos) {
+        this.id = id;
+        this.nome = nome;
+        this.categoria = categoria;
+        this.produtos = produtos;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public CategoriaModel getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaModel categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<ProdutoModel> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(Set<ProdutoModel> produtos) {
+        this.produtos = produtos;
+    }
+    
+    @Override
+    public String toString() {
+      return "SubCategoriaModel(" + 
+                "id="+ id +
+                ", nome=" + nome + 
+                ", categoria=" + categoria + 
+                ", produtos=" + produtos + ")";
+    }
 }

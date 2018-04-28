@@ -20,6 +20,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -105,6 +106,9 @@ public class ProdutoModel implements Serializable {
       
     @OneToMany(mappedBy = "produto")
     private Set<ImagemProduto> imagens;
+    
+    @OneToOne(mappedBy = "produto")
+    private ItemPedidoModel item;
 
     // Constructor
     public ProdutoModel(){
@@ -126,9 +130,9 @@ public class ProdutoModel implements Serializable {
             BigDecimal profundidade, 
             int numPaginas, 
             String idioma, 
-            String acabamento//, 
-//            Set<CategoriaModel> categorias, 
-//            Set<ImagemProduto> imagens
+            String acabamento, 
+            SubCategoriaModel subCategoria, 
+            Set<ImagemProduto> imagens
         ) {
 
         this.id = id;
@@ -146,8 +150,8 @@ public class ProdutoModel implements Serializable {
         this.numPaginas = numPaginas;
         this.idioma = idioma;
         this.acabamento = acabamento;
-//        this.categorias = categorias;
-//        this.imagens = imagens;
+        this.subCategoria = subCategoria;
+        this.imagens = imagens;
     }
 
     public Long getId() {
@@ -270,19 +274,41 @@ public class ProdutoModel implements Serializable {
         this.acabamento = acabamento;
     }
 
-//    public Set<CategoriaModel> getCategorias() {
-//        return categorias;
-//    }
-//
-//    public void setCategorias(Set<CategoriaModel> categorias) {
-//        this.categorias = categorias;
-//    }
-//
-//    public Set<ImagemProduto> getImagens() {
-//        return imagens;
-//    }
-//
-//    public void setImagens(Set<ImagemProduto> imagens) {
-//        this.imagens = imagens;
-//    }
+    public SubCategoriaModel getSubCategoria() {
+        return subCategoria;
+    }
+
+    public void setSubCategoria(SubCategoriaModel subCategoria) {
+        this.subCategoria = subCategoria;
+    }
+
+    public Set<ImagemProduto> getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(Set<ImagemProduto> imagens) {
+        this.imagens = imagens;
+    }
+    
+    @Override
+    public String toString() {
+      return "ProdutoModel(" +
+                "id=" + id +
+                ", nome=" + nome +
+                ", fabricante=" + fabricante +
+                ", qtdProduto=" + qtdProduto +
+                ", valorProduto=" + valorProduto +
+                ", status=" + status +
+                ", dtFabricacao=" + dtFabricacao +
+                ", descricao=" + descricao +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", largura=" + largura +
+                ", profundidade=" + profundidade +
+                ", numPaginas=" + numPaginas +
+                ", idioma=" + idioma +
+                ", acabamento=" + acabamento +
+                ", subCategoria=" + subCategoria +
+                ", imagens=" + imagens + ")";
+    }
 }
