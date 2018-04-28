@@ -27,9 +27,7 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
     @Override
     public List<ProdutoModel> listar(int offset, int quantidade) {
         Query query = entityManager.createQuery(
-	    "SELECT DISTINCT p FROM Produto p")
-	    .setFirstResult(offset)
-	    .setMaxResults(quantidade);
+	    "SELECT p FROM ProdutoModel p",ProdutoModel.class);
 
         List<ProdutoModel> resultados = query.getResultList();
         return resultados;
