@@ -1,0 +1,114 @@
+/** inicio do navbar principal  **/
+
+#navFixed{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+#iconeMenu{
+    color:#007bff;
+    font-size:25px; 
+}
+.navbar-brand {
+    margin-bottom:5px;
+}
+#mobileCarLog .log{
+    font-size: 35px;
+    color:#ffffff;
+    margin-right:10px;
+}
+.media.float-md-right i{
+    font-size: 40px;
+    color:#ffffff;
+}
+.media.float-md-right a{
+    font-size: 15px;
+    color:#ffffff;
+    margin-right:10px;  
+}
+.media.float-md-right a span{
+    color:#ffc107; 
+}
+#btnCarDesk i{
+    font-size: 30px;
+    margin:0px;
+    padding:0px;
+    color:#ffffff;  
+}
+.input-group-append .btn-light i{
+    color:#007bff;
+}
+/** Fim do navbar principal  **/
+
+/** inicio do navbar de categorias  **/
+/** Fim do navbar de categorias  **/
+
+/** inicio do slider**/
+/** Fim do slider**/
+
+/** inicio Produtos em destaque**/
+/** Fim Produtos em destaque**/
+
+/** inicio Produtos Novos**/
+.card.text-center{
+    width: 100%;
+    margin:5px;
+    padding:5px; 
+}
+.card.text-center:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card.text-center img{
+    max-height: 160px;
+    min-height: 160px;
+    max-width: auto;
+    margin:auto;
+}
+.card-title{
+    color:#007bff;
+}
+.card-body .preco-produto{
+    text-align: right;
+    font-size:25px;
+}
+.card-body .col-12{
+    margin-top:2px;
+}
+.card-body .col-12 a i{
+    font-size:15px;
+    color:#ffc107;
+}
+.frase-btn-carrinho{
+    font-size:15px;
+}
+/** Fim Produtos Novos**/
+
+
+/** inicio Footer**/
+.navbar-toggler{
+    margin-top: 15px;
+}
+
+/** fim Footer**/
+
+
+/** Elementos **/
+
+hr{
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:lightgrey;
+    height: 1px;
+}
+.finalVenda{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    box-shadow: 0px -2px 20px #818181;
+    z-index: 1000;
+}

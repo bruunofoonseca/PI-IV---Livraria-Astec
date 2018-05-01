@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Livraria Astec - Carrinho</title>
+    <title>Livraria Astec - Cadastro de usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -21,7 +21,7 @@
 
 
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
@@ -35,172 +35,141 @@
     </div>
     <div class="container">
         <div class="row">
-            <!-- INICIO DA LISTAGEM DE PRODUTOS -->
+
+
+
+
             <div class="col-12">
-
-                <div class="row">
-
-
-
-                    <div class="col-12">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="#">Home</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">Carrinho</li>
-                            </ol>
-                        </nav>
-                        <h3 style="margin-bottom:20px">Meu Carrinho (x Itens)</h3>
-
-                    </div>
-
-                    <div class="col-sm-12 col-md-6">
-                        <h5>Item(s)</h5>
-                    </div>
-                    <div class="col-2 d-none d-md-block">
-                        <h5>Preço</h5>
-                    </div>
-                    <div class="col-2 d-none d-md-block">
-                        <h5>Quantidade</h5>
-                    </div>
-                    <div class="col-2 d-none d-md-block">
-                        <h5>Subtotal</h5>
-                    </div>
-                    <br>
-                    <br>
-                    <!-- INICIO PRODUTO -->
-                    <div class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
-                        <div class="row" style="width: 100%;margin-left:0px;margin-right:0px">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="row" style="width:100%;margin-left:0px;margin-right:0px">
-                                    <div class="col-4">
-                                        <img class="img-fluid" src="./imagens/products/15.jpg" alt="Card image cap">
-                                    </div>
-                                    <div class="col-8">
-                                        <h5 class="card-title" style="font-size:17px">Aqui vai o Titulo do Livro</h5>
-                                        <h6 style="font-size:12px;color: darkgrey">-Autor do livro</h6>
-                                        <p class="card-text d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-
-                                    <div class="w-100"></div>
-                                    <div class="col offset-4  d-block d-md-none">
-                                        <br>
-                                        <a class="material-icons" href="#" style="color: #007bff;font-size:15px;">remove_circle_outline</a>
-                                        <span style="font-size:20px">1</span>
-                                        <a class="material-icons" href="#" style="color: #007bff;font-size:15px">add_circle_outline</a>
-                                    </div>
-                                    <div class="col  d-block d-md-none" style="text-align:right;margin-top:10px">
-                                        <label for="" style="color:lightgray;font-size:12px;text-decoration: line-through">De R$ 250,00</label>
-                                        <br>
-                                        <label style="color: #4CAF50">
-                                            <span style="font-size: 12px">R$</span> 222,00</label>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-md-2 d-none d-md-block">
-                                <label for="" style="color:lightgray;font-size:12px;text-decoration: line-through">De R$ 250,00</label>
-                                <br>
-                                <label style="color: #4CAF50;font-size: 25px">
-                                    <span style="font-size: 12px">R$</span> 222,00</label>
-                            </div>
-                            <div class="col-md-2 d-none d-md-block">
-                                <a class="material-icons" href="#" style="color: #007bff;font-size:20px;">remove_circle_outline</a>
-                                <span style="font-size:25px">2</span>
-                                <a class="material-icons" href="#" style="color: #007bff;font-size:20px">add_circle_outline</a>
-                            </div>
-                            <div class="col-md-2 d-none d-md-block">
-                                <label for="" style="color:lightgray;font-size:12px;text-decoration: line-through">De R$ 500,00</label>
-                                <br>
-                                <label style="color: #4CAF50;font-size: 25px">
-                                    <span style="font-size: 12px">R$</span> 444,00</label>
-                            </div>
-
-                        </div>
-                        <a class="material-icons" href="#" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
-                    </div>
-                    <!-- FIM PRODUTO -->
-                    <br>
-                </div>
-                <!-- FIM DA LISTAGEM DE PRODUTOS -->
-                <br>
-                <br>
-                <div class="row">
-                    <!-- INICIO DO INPUT DE DESCONTO -->
-                    <div class="col-sm-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12">
-                                <h6 style="color:#007bff">Incluir desconto ou vale presente</h6>
-                            </div>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-primary" type="button">
-                                            <i class="material-icons">card_giftcard</i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- FIM DO INPUT DE DESCONTO -->
-
-
-                    <!-- INICIO DA FINALIZAÇAO DA COMPRA -->
-                    <div class="col-sm-12 col-md-6  border-left border-primary">
-                        <div class="row">
-                            <div class="col">
-                                <label for="">Subtotal (x Itens)</label>
-                            </div>
-                            <div class="col" style="text-align:right">
-                                <label for="">R$
-                                    <span>444,00</span>
-                                </label>
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col">
-                                <label for="">Frete:</label>
-                            </div>
-                            <div class="col" style="text-align:right">
-
-                                <div class="input-group mb-3">
-                                    <input type="number" class="form-control" placeholder="CEP" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">Ok</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col">
-                                <label for="">Valor total a pagar:</label>
-                            </div>
-                            <div class="col" style="text-align:right">
-                                <label for="" style="color:lightgray;font-size:12px;text-decoration: line-through">De R$ 500,00</label>
-                                <br>
-                                <label style="color: #4CAF50;font-size: 25px">
-                                    <span style="font-size: 12px">R$</span> 444,00</label>
-
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col d-none d-md-block">
-                                <div style="padding: 20px;">
-                                    <button class="btn btn-success btn-block">FINALIZAR VENDA</button>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- FIM DA FINALIZAÇAO DA COMPRA -->
-
-                </div>
-
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Cadastro de Usuario</li>
+                    </ol>
+                </nav>
 
             </div>
+
+            <div class="col-12">
+
+                <h3 style="margin-bottom:20px">Cadastro de Usuario</h3>
+
+            </div>
+
+            <div class="col-12">
+                <form class="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">* Nome</label>
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="Nome" required>
+                            <div class="valid-feedback">
+                                ok!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">* Sobrenome</label>
+                            <input type="text" class="form-control" id="validationCustom02" placeholder="Sobrenome" required>
+                            <div class="valid-feedback">
+                                ok!
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustomEmail">* E-mail</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">
+                                        <i class="material-icons">mail_outline</i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="Usuario@email.com" aria-describedby="inputGroupPrepend"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Por favor coloque um e-mail valido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationPassword">* Senha</label>
+                            <input type="password" class="form-control" id="validationPassword" placeholder="" required>
+                            <div class="valid-feedback">
+                                ok!
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor coloque uma senha valida.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom08">* País</label>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="País" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque uma cidade valida.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom03">* Cidade</label>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="Cidade" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque uma cidade valida.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom04">* Estado</label>
+                            <input type="text" class="form-control" id="validationCustom04" placeholder="Estado" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque um Estado valido.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">* CEP</label>
+                            <input type="text" class="form-control" id="validationCustom05" placeholder="CEP" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque um CEP valido.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom06">* Endereço</label>
+                            <input type="text" class="form-control" id="validationCustom06" placeholder="Rua , 1a" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque um endereço valido.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom07">Complemento</label>
+                            <input type="text" class="form-control" id="validationCustom07" placeholder="Bloco, andar...">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                <a href="#">Concordo com os termos de uso</a>
+                            </label>
+                            <div class="invalid-feedback">
+                                Você precisa concordar com os termos de uso para cadastrar-se.
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                    <button class="btn btn-outline-warning" type="">Cancelar</button>
+                </form>
+            </div>
+
+
+
+
+
         </div>
+        <br>
+        <br>
+
+    </div>
+    </div>
 
 
 
@@ -359,7 +328,7 @@
                     <!-- Logo -->
                     <div class="col-6 col-md-2">
                         <a class="navbar-brand" href="#">
-                            <img src="./imagens/logo3-07.png" height="40px" alt="Livraria Astec">
+                            <img src="./imagens/logo3-07.png" href="index.html" height="40px" alt="Livraria Astec">
                         </a>
                     </div>
                     <!-- botao mobile CARRINHO E LOGIN -->
@@ -370,7 +339,7 @@
                             </div>
                             <div class="col-6">
                                 <div>
-                                    <button class="btn btn-warning car" href="#">
+                                    <button class="btn btn-warning car" href="carrinho.html">
                                         <i class="material-icons" style="font-size: 20px;margin:0px;padding:0px;color:#ffffff">shopping_cart</i>
                                     </button>
                                     <span class="badge badge-pill badge-danger" style="position: absolute;top:0px;right:0px;margin:auto">1</span>
@@ -397,7 +366,7 @@
                     <div class="col-1 col-md-1 order-12 d-none d-md-block">
                         <div>
 
-                            <button class="btn btn-warning" id="btnCarDesk" href="#">
+                            <button class="btn btn-warning" id="btnCarDesk" href="carrinho.html">
                                 <i class="material-icons">shopping_cart</i>
                                 <span class="badge badge-pill badge-danger" style="position: absolute;top:0px">1</span>
                             </button>
@@ -482,11 +451,9 @@
             </ul>
         </nav>
 
-        <div class="finalVenda d-block d-md-none" style="background: white;padding: 20px;">
-            <button class="btn btn-success btn-block">FINALIZAR VENDA</button>
-        </div>
 
         <!-- fim do nav das categorias -->
+
 
     </div>
 

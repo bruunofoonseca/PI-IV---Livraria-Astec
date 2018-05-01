@@ -30,7 +30,7 @@ public class ProdutoController {
     @GetMapping
     public ModelAndView listar() {
       List<ProdutoModel> lista = service.listar(0, 100);
-      return new ModelAndView("Home").addObject("produtos", lista);
+      return new ModelAndView("listagemProdutos").addObject("produtos", lista);
     }
 
     @GetMapping("/{id}")
