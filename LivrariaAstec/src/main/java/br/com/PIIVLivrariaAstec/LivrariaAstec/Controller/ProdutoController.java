@@ -5,10 +5,13 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.CategoriaModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.service.CategoriaService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl.ProdutoServiceJpaImpl;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,10 +29,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProdutoController {
     @Autowired
     private ProdutoService service;
+    
+    @Autowired
+    private CategoriaService categoriaService;
 
     @GetMapping
     public ModelAndView listar() {
       List<ProdutoModel> lista = service.listar(0, 100);
+      
+      List<CategoriaModel> categorias = categoriaService.listar();
+      
       return new ModelAndView("listagemProdutos").addObject("produtos", lista);
     }
 

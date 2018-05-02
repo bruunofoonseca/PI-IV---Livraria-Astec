@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
@@ -29,7 +30,7 @@ import javax.validation.constraints.Digits;
 public class ItemPedidoModel implements Serializable {
     // Atributos
     @Id
-    @Column(name = "ID_IMAGEM")
+    @Column(name = "ID_ITEM_PEDIDO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -44,6 +45,10 @@ public class ItemPedidoModel implements Serializable {
     @Digits(integer = 6, fraction = 0)
     @Column(name = "QUANTIDADE", precision = 6, nullable = false)
     private int qtd;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PEDIDO")
+    private PedidoModel pedido;
 
     public ProdutoModel getProduto() {
         return produto;

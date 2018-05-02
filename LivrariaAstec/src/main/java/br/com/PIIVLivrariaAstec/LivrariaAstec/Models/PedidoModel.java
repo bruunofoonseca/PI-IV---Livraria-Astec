@@ -5,20 +5,43 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
 
 /**
  *
  * @author Bruno Fonseca
  */
+@Entity
+@Table(name = "TB_PEDIDO")
 public class PedidoModel {
+
+    @Id
+    @Column(name = "ID_PEDIDO")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private FilialModel filial;
-    private ClienteModel cliente;
-    private List<ItemPedidoModel> itens = new ArrayList<>();
+
+//    private ClienteModel cliente;
+
+    @OneToMany(mappedBy = "pedido")
+    private Set<ItemPedidoModel> itens;
+
+    @Digits(integer = 6, fraction = 2)
+    @Column(name = "VALOR_TOTAL", precision = 6, scale = 2, nullable = false)
     private float valorTotal;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DATA_VENDA", nullable = false)
     private Date dataVenda;
 
     public Date getDataVenda() {
@@ -44,31 +67,23 @@ public class PedidoModel {
     public void setId(Integer id) {
         this.id = id;
     }
-    
-    public FilialModel getFilial() {
-        return filial;
-    }
 
-    public void setFilial(FilialModel filial) {
-        this.filial = filial;
-    }
+//    public ClienteModel getCliente() {
+//        return cliente;
+//    }
+//
+//    public void setCliente(ClienteModel cliente) {
+//        this.cliente = cliente;
+//    }
 
-    public ClienteModel getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(ClienteModel cliente) {
-        this.cliente = cliente;
-    }
-
-    public List<ItemPedidoModel> getItens() {
+    public Set<ItemPedidoModel> getItens() {
         return itens;
     }
 
-    public void setItens(List<ItemPedidoModel> itens) {
+    public void setItens(Set<ItemPedidoModel> itens) {
         this.itens = itens;
     }
-    
+
     public void setItem(ItemPedidoModel item) {
         this.itens.add(item);
     }

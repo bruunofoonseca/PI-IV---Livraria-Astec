@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -23,6 +25,11 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "TB_CATEGORIA")
+@NamedQueries({
+  @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM CategoriaModel c "
+          + "INNER JOIN SubCategoriaModel sc ON sc.categoria.id = c.id"),
+  @NamedQuery(name = "Categoria.findById", query = "SELECT c FROM CategoriaModel c WHERE c.id = :idCat")
+})
 public class CategoriaModel implements Serializable {
     
     @Id
