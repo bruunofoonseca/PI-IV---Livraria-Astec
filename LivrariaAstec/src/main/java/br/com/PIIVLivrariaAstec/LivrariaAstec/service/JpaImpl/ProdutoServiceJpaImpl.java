@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author bruno.falmeida
+ * @author bruno.falmeida, diogo.Sfelix
  */
 @Repository
 public class ProdutoServiceJpaImpl implements ProdutoService {
@@ -42,7 +42,14 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
 
     @Override
     public ProdutoModel obter(long idProduto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = entityManager.createQuery(
+                "SELECT p FROM ProdutoModel p "
+                + "LEFT JOIN FETCH p.subCategoria "
+                + "LEFT JOIN FETCH p.imagens "
+                + "WHERE p.id = :idProd");
+        query.setParameter("idProd", idProduto);
+        ProdutoModel p = (ProdutoModel) query.getSingleResult();
+        return p;
     }
 
     @Override
