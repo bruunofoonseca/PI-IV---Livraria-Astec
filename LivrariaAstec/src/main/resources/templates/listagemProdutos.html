@@ -6,7 +6,7 @@
             <img class="" src="./imagens/products/15.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title" th:text="${prod.nome}">Nao foi possivel carregar</h5>
-                <p class="card-text d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus ultrices elementum.
+                <p class="card-text d-none d-md-block" th:text="${prod.descricao}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus ultrices elementum.
                     Duis vel est nec libero venenatis accumsan ut vel ex. </p>
                 <p class="card-text d-block d-md-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
@@ -15,7 +15,7 @@
                         <label for="">R$</label>
                     </div>
                     <div class="col-9">
-                        <h5 class="preco-produto">222,50</h5>
+                        <h5 class="preco-produto" th:text="${prod.valorProduto}">99999,99</h5>
                     </div>
                     <div class="col-12">
                         <!-- <a href="#" class="btn btn-outline-primary btn-large btn-block">Detalhes</a> -->

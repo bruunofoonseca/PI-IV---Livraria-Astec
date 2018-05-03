@@ -52,7 +52,15 @@
                             </ol>
                         </nav>
                         <h3 style="margin-bottom:20px">Meu Carrinho (x Itens)</h3>
-
+                        Logica
+                       <!-- <div th:if="${!@sessaoController.numerosDigitados.isEmpty()}"
+                             th:each="num : ${@sessaoController.numerosDigitados}">
+                            <span th:text="${num}"></span>
+                        </div>
+                        -->
+                        <div th:each="num : ${@sessaoController.numerosDigitados}">
+                            <span th:text="${num}"></span>
+                        </div>
                     </div>
 
                     <div class="col-sm-12 col-md-6">

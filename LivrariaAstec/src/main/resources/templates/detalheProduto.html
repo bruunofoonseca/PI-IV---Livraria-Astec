@@ -47,28 +47,36 @@
                                     <div class="col text-center">
                                         <h5 th:text="|R$ ${produto.valorProduto}|">9999,99</h5>
                                     </div>
+                                    <div>
+                                        aqui
+                                        <form th:action="@{/sessao}" method="post">
+                                            <input type="hidden" th:value="${produto.id}" id="numero" name="numero"/>
+                                            <button type="submit">Enviar</button>
+                                        </form>
+                                    </div>
                                     <div class="col d-none d-md-block">
-                                        <a href="#" class="btn btn-primary btn-grid-carrinho btn-block" style="color: #ffc107">
-                                            <i class="material-icons">add_circle_outlineshopping_cart</i>
-                                            <span class="frase-btn-carrinho">Add ao carrinho</span>
-
+                                        <div th:if="${produto.status} == true">
+                                            <a href="#" class="btn btn-primary btn-grid-carrinho btn-block" style="color: #ffc107">
+                                                <i class="material-icons">add_circle_outlineshopping_cart</i>
+                                                <span class="frase-btn-carrinho">Add carrinho</span>
+                                        </div>
+                                         <div th:if="${produto.status} == false">
+                                            <a href="#" class="btn btn-primary btn-grid-carrinho btn-block" style="color: #ffc107">
+                                                <i class="material-icons">add_circle_outlineshopping_cart</i>
+                                                <span class="frase-btn-carrinho">Produto Indisponivel, Avise me!</span>
+                                        </div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
+                            <!-- 
                             <div class="col-12 d-block d-md-none">
                                 <a href="#" class="btn btn-primary btn-grid-carrinho btn-block" style="color: #ffc107">
-                                    <div th:if="${produto.status} == true">
                                         <i class="material-icons">add_circle_outlineshopping_cart</i>
-                                        <span class="frase-btn-carrinho">carrinho</span>
-                                    </div>
-                                    <div th:if="${produto.status} == false">
-                                        <i class="material-icons"></i>
-                                        <span class="frase-btn-carrinho">Produto Indisponivel</span>
-                                    </div>
+                                        <span class="frase-btn-carrinho">Add carrinho</span>
                                 </a>
                             </div>
-
+                            -->
                         </div>
                         <br>
                         <br>
