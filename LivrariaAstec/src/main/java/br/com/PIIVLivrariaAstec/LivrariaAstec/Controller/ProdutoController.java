@@ -44,7 +44,6 @@ public class ProdutoController {
 
     @GetMapping("/{id}")
     public ModelAndView mostrarDetalhe(@PathVariable("id") Long id) {
-        System.out.println("mostrarDetalhe");
       ProdutoModel p = service.obter(id);
       return new ModelAndView("detalheProduto").addObject("produto", p);
     }
