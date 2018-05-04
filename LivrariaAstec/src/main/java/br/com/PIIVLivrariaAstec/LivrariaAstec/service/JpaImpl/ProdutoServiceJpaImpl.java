@@ -44,7 +44,7 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
     public ProdutoModel obter(long idProduto) {
         Query query = entityManager.createQuery(
                 "SELECT p FROM ProdutoModel p "
-                + "LEFT JOIN FETCH p.subCategoria "
+                + "LEFT JOIN FETCH p.categoria "
                 + "LEFT JOIN FETCH p.imagens "
                 + "WHERE p.id = :idProd");
         query.setParameter("idProd", idProduto);

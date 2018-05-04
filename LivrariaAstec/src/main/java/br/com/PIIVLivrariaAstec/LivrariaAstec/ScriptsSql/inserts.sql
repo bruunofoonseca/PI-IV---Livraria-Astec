@@ -17,17 +17,7 @@ insert tb_produto values (5, 'CAPA DURA', 1.2, 'PORQUE FAZEMOS O QUE FAZEMOS, VO
 insert tb_produto values (6, 'CAPA DURA', 1.2, 'CONHEÇA A SUPREENDENTE HISTORIA POR DE TRAS DA MAIOR SERIE DE TERROR DOS ULTIMOS TEMPOS', '2015-05-01 18:45', '2014-08-15 10:00', 'EDITORA PANINI', 'PORTUGUES', 23.5, 'THE WALKING DEAD - A HISTORIA', 521, 1, 12.5, 25, TRUE, 118.78, 6);
 
 /* CATEGORIAS */
-insert tb_categoria values (1, 'LIVROS');
-insert tb_categoria values (2, 'PAPELARIA');
-insert tb_categoria values (3, 'INFORMATICA');
-insert tb_categoria values (4, 'FILMES E SERIES');
-
-/* SUB CATEGORIAS */
-insert tb_sub_categoria values (1, 'LITERATURA ESTRANGEIRA', 1);
-insert tb_sub_categoria values (2, 'LITERATURA NACIONAL', 1);
-insert tb_sub_categoria values (3, 'ESCOLAR', 2);
-insert tb_sub_categoria values (4, 'DESENHO E PINTURA', 2);
-insert tb_sub_categoria values (5, 'NOTEBOOKS', 3);
-insert tb_sub_categoria values (6, 'LINHA GAMER', 3);
-insert tb_sub_categoria values (7, 'PRE-VENDAS', 4);
-insert tb_sub_categoria values (8, 'LANÇAMENTOS', 4);
+insert tb_categoria values (1, 'LITERATURA ESTRANGEIRA');
+insert tb_categoria values (2, 'LITERATURA NACIONAL');
+insert tb_categoria values (3, 'TERROR');
+insert tb_categoria values (4, 'COMÉDIA');

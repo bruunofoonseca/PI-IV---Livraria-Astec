@@ -101,8 +101,8 @@ public class ProdutoModel implements Serializable {
     private String acabamento;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_SUBCATEGORIA")
-    private SubCategoriaModel subCategoria;
+    @JoinColumn(name = "ID_CATEGORIA")
+    private CategoriaModel categoria;
       
     @OneToMany(mappedBy = "produto")
     private Set<ImagemProduto> imagens;
@@ -131,7 +131,7 @@ public class ProdutoModel implements Serializable {
             int numPaginas, 
             String idioma, 
             String acabamento, 
-            SubCategoriaModel subCategoria, 
+            CategoriaModel categoria, 
             Set<ImagemProduto> imagens
         ) {
 
@@ -150,7 +150,7 @@ public class ProdutoModel implements Serializable {
         this.numPaginas = numPaginas;
         this.idioma = idioma;
         this.acabamento = acabamento;
-        this.subCategoria = subCategoria;
+        this.categoria = categoria;
         this.imagens = imagens;
     }
 
@@ -274,12 +274,12 @@ public class ProdutoModel implements Serializable {
         this.acabamento = acabamento;
     }
 
-    public SubCategoriaModel getSubCategoria() {
-        return subCategoria;
+    public CategoriaModel getCategoria() {
+        return categoria;
     }
 
-    public void setSubCategoria(SubCategoriaModel subCategoria) {
-        this.subCategoria = subCategoria;
+    public void setCategoria(CategoriaModel categoria) {
+        this.categoria = categoria;
     }
 
     public Set<ImagemProduto> getImagens() {
@@ -308,7 +308,7 @@ public class ProdutoModel implements Serializable {
                 ", numPaginas=" + numPaginas +
                 ", idioma=" + idioma +
                 ", acabamento=" + acabamento +
-                ", subCategoria=" + subCategoria +
+                ", subCategoria=" + categoria +
                 ", imagens=" + imagens + ")";
     }
 }

@@ -5,6 +5,7 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
@@ -17,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -24,7 +26,7 @@ import javax.validation.constraints.Digits;
  */
 @Entity
 @Table(name = "TB_PEDIDO")
-public class PedidoModel {
+public class PedidoModel implements Serializable {
 
     @Id
     @Column(name = "ID_PEDIDO")
@@ -43,7 +45,48 @@ public class PedidoModel {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATA_VENDA", nullable = false)
     private Date dataVenda;
+    
+    @Size(min = 1, max = 100, message = "Forma de pagamento inválida")
+    @Column(name = "FORMA_DE_PAGAMENTO", length = 100, nullable = false)
+    private String formaDePagamento;
+    
+    @Size(min = 1, max = 100, message = "Número de cartão inválido")
+    @Column(name = "NUMERO_CARTAO", length = 100, nullable = true)
+    private String numeroCartao;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DATA_VENCIMENTO_CARTAO", nullable = true)
+    private Date dataVencimento;
+    
+    @Size(min = 1, max = 100, message = "Nome no cartão inválido")
+    @Column(name = "NOME_CARTAO", length = 100, nullable = true)
+    private String nomeNoCartao;
+    
+    @Digits(integer = 6, fraction = 0)
+    @Column(name = "CVV_CARTAO", precision = 6, nullable = true)
+    private int CVV;
+    
+    @Size(min = 1, max = 100, message = "status inválido")
+    @Column(name = "STATUS_PEDIDO", length = 100, nullable = false)
+    private String statusPedido;
 
+    public PedidoModel() {
+
+    }
+
+    public PedidoModel(Integer id, Set<ItemPedidoModel> itens, float valorTotal, Date dataVenda, String formaDePagamento, String numeroCartao, Date dataVencimento, String nomeNoCartao, int CVV, String statusPedido) {
+        this.id = id;
+        this.itens = itens;
+        this.valorTotal = valorTotal;
+        this.dataVenda = dataVenda;
+        this.formaDePagamento = formaDePagamento;
+        this.numeroCartao = numeroCartao;
+        this.dataVencimento = dataVencimento;
+        this.nomeNoCartao = nomeNoCartao;
+        this.CVV = CVV;
+        this.statusPedido = statusPedido;
+    }
+    
     public Date getDataVenda() {
         return dataVenda;
     }
@@ -86,5 +129,53 @@ public class PedidoModel {
 
     public void setItem(ItemPedidoModel item) {
         this.itens.add(item);
+    }
+
+    public String getFormaDePagamento() {
+        return formaDePagamento;
+    }
+
+    public void setFormaDePagamento(String formaDePagamento) {
+        this.formaDePagamento = formaDePagamento;
+    }
+
+    public String getNumeroCartao() {
+        return numeroCartao;
+    }
+
+    public void setNumeroCartao(String numeroCartao) {
+        this.numeroCartao = numeroCartao;
+    }
+
+    public Date getDataVencimento() {
+        return dataVencimento;
+    }
+
+    public void setDataVencimento(Date dataVencimento) {
+        this.dataVencimento = dataVencimento;
+    }
+
+    public String getNomeNoCartao() {
+        return nomeNoCartao;
+    }
+
+    public void setNomeNoCartao(String nomeNoCartao) {
+        this.nomeNoCartao = nomeNoCartao;
+    }
+
+    public int getCVV() {
+        return CVV;
+    }
+
+    public void setCVV(int CVV) {
+        this.CVV = CVV;
+    }
+
+    public String getStatusPedido() {
+        return statusPedido;
+    }
+
+    public void setStatusPedido(String statusPedido) {
+        this.statusPedido = statusPedido;
     }
 }

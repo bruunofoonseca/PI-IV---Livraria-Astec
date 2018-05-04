@@ -7,8 +7,6 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -49,6 +47,18 @@ public class ItemPedidoModel implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_PEDIDO")
     private PedidoModel pedido;
+
+    public ItemPedidoModel() {
+
+    }
+
+    public ItemPedidoModel(Long id, ProdutoModel produto, BigDecimal valorParcial, int qtd, PedidoModel pedido) {
+        this.id = id;
+        this.produto = produto;
+        this.valorParcial = valorParcial;
+        this.qtd = qtd;
+        this.pedido = pedido;
+    }
 
     public ProdutoModel getProduto() {
         return produto;
