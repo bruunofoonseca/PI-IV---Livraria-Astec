@@ -9,7 +9,6 @@ import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.CategoriaModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.CategoriaService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
-import br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl.ProdutoServiceJpaImpl;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,29 +22,29 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author bruno.falmeida
  */
-
 @Controller
 @RequestMapping
 public class ProdutoController {
+
     @Autowired
     private ProdutoService service;
-    
+
     @Autowired
     private CategoriaService categoriaService;
 
     @GetMapping
     public ModelAndView listar() {
-      List<ProdutoModel> lista = service.listar(0, 100);
-      
-      List<CategoriaModel> categorias = categoriaService.listar();
-      
-      return new ModelAndView("listagemProdutos").addObject("produtos", lista);
+        List<ProdutoModel> lista = service.listar(0, 100);
+
+        List<CategoriaModel> categorias = categoriaService.listar();
+
+        return new ModelAndView("listagemProdutos").addObject("produtos", lista);
     }
 
     @GetMapping("/{id}")
     public ModelAndView mostrarDetalhe(@PathVariable("id") Long id) {
         System.out.println("mostrarDetalhe");
-      ProdutoModel p = service.obter(id);
-      return new ModelAndView("detalheProduto").addObject("produto", p);
+        ProdutoModel p = service.obter(id);
+        return new ModelAndView("detalheProduto").addObject("produto", p);
     }
 }
