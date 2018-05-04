@@ -10,9 +10,12 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -33,7 +36,9 @@ public class PedidoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    private ClienteModel cliente;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CLIENTE")
+    private UsuarioModel cliente;
 
     @OneToMany(mappedBy = "pedido")
     private Set<ItemPedidoModel> itens;
@@ -111,14 +116,6 @@ public class PedidoModel implements Serializable {
         this.id = id;
     }
 
-//    public ClienteModel getCliente() {
-//        return cliente;
-//    }
-//
-//    public void setCliente(ClienteModel cliente) {
-//        this.cliente = cliente;
-//    }
-
     public Set<ItemPedidoModel> getItens() {
         return itens;
     }
@@ -177,5 +174,13 @@ public class PedidoModel implements Serializable {
 
     public void setStatusPedido(String statusPedido) {
         this.statusPedido = statusPedido;
+    }
+
+    public UsuarioModel getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(UsuarioModel cliente) {
+        this.cliente = cliente;
     }
 }

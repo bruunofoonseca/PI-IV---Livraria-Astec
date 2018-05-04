@@ -69,6 +69,9 @@ public class UsuarioModel implements Serializable {
     
     @OneToMany(mappedBy = "usuario")
     private Set<EnderecoModel> enderecos;
+    
+    @OneToMany(mappedBy = "cliente")
+    private Set<PedidoModel> pedidos;
 
     // constructor
     public UsuarioModel() {
