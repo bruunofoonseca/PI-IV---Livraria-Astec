@@ -1,51 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Livraria Astec - Cadastro de usuario</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-
-
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-
-</head>
-
-<body>
-
-    <div class="ajustar">
-        <br>
-    </div>
+<div layout:decorate="~{index}" layout:fragment="conteudo"> 
     <div class="container">
         <div class="row">
-
-
-
-
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="#">Home</a>
+                            <a href="/">Home</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Cadastro de Usuario</li>
                     </ol>
                 </nav>
 
@@ -83,21 +44,69 @@
                                         <i class="material-icons">mail_outline</i>
                                     </span>
                                 </div>
-                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="Usuario@email.com" aria-describedby="inputGroupPrepend"
-                                    required>
+                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
+                                       required>
                                 <div class="invalid-feedback">
-                                    Por favor coloque um e-mail valido.
+                                    Por favor coloque um e-mail valido. Ex: usuario@email.com
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationPassword">* Senha</label>
-                            <input type="password" class="form-control" id="validationPassword" placeholder="" required>
+                            <input type="password" class="form-control" id="validationPassword" placeholder="Senha" required>
                             <div class="valid-feedback">
                                 ok!
                             </div>
                             <div class="invalid-feedback">
                                 Por favor coloque uma senha valida.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationPassword">* Confirmar a Senha</label>
+                            <input type="password" class="form-control" id="validationPassword" placeholder="Confirme sua senha" required>
+                            <div class="valid-feedback">
+                                ok!
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor certifique-se de que as senhas coincidem.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationPassword">* Número do CPF</label>
+                            <input type="number" class="form-control" id="validationPassword" placeholder="Digite apenas números" required>
+                            <div class="valid-feedback">
+                                ok!
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor coloque um CPF válido.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <select name="Estados">
+                                <option selected="" value="">Selecione...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">* Data de Nascimento</label>
+                            <input type="number" class="form-control" id="validationCustom02" placeholder="DD/MM/AAAA" required>
+                            <div class="valid-feedback">
+                                ok!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">* Telefone</label>
+                            <input type="number" class="form-control" id="validationCustom02" placeholder="Ex:(11)5631-4962" required>
+                            <div class="valid-feedback">
+                                ok!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">* Celular</label>
+                            <input type="number" class="form-control" id="validationCustom02" placeholder="Ex:(11)91831-4962" required>
+                            <div class="valid-feedback">
+                                ok!
                             </div>
                         </div>
                     </div>
@@ -106,8 +115,69 @@
                             <label for="validationCustom08">* País</label>
                             <input type="text" class="form-control" id="validationCustom03" placeholder="País" required>
                             <div class="invalid-feedback">
-                                Por favor coloque uma cidade valida.
+                                Por favor coloque um país válido.
                             </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">* CEP</label>
+                            <input type="number" class="form-control" id="validationCustom05" placeholder="CEP" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque um CEP valido.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom06">* Endereço</label>
+                            <input type="text" class="form-control" id="validationCustom06" placeholder="Ex: Rua Tonis" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque um endereço valido.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom03">* Número</label>
+                            <input type="number" class="form-control" id="validationCustom03" placeholder="Ex: 260" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom07">Complemento</label>
+                            <input type="text" class="form-control" id="validationCustom07" placeholder="Bloco, andar...">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom03">* Bairro</label>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="Bairro" required>
+                            <div class="invalid-feedback">
+                                Por favor coloque um bairro valido.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <select name="Estados">
+                                <option selected="" value="">---Selecione o Estado---</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom03">* Cidade</label>
@@ -115,32 +185,6 @@
                             <div class="invalid-feedback">
                                 Por favor coloque uma cidade valida.
                             </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom04">* Estado</label>
-                            <input type="text" class="form-control" id="validationCustom04" placeholder="Estado" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque um Estado valido.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom05">* CEP</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="CEP" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque um CEP valido.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom06">* Endereço</label>
-                            <input type="text" class="form-control" id="validationCustom06" placeholder="Rua , 1a" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque um endereço valido.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom07">Complemento</label>
-                            <input type="text" class="form-control" id="validationCustom07" placeholder="Bloco, andar...">
-
                         </div>
                     </div>
 
@@ -159,305 +203,8 @@
                     <button class="btn btn-outline-warning" type="">Cancelar</button>
                 </form>
             </div>
-
-
-
-
-
         </div>
         <br>
         <br>
-
     </div>
-    </div>
-
-
-
-
-
-    </div>
-    <footer>
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid" style="width:100%">
-                <div class="row justify-content-center" style="width:100%">
-                    <div class="col-12 col-md-3">
-                        <button class="navbar-toggler btn-block" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            Conta
-                        </button>
-                        <div class="collapse navbar-collapse btn-block" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Home
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Features</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Disabled</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <button class="navbar-toggler btn-block" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            Contato
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav2">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Home
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Features</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Disabled</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <button class="navbar-toggler btn-block" type="button" data-toggle="collapse" data-target="#navbarNav3" aria-controls="navbarNav3"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            Ofertas
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav3">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Home
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Features</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Disabled</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-3 justify-content-sm-center">
-                        <div class="row">
-                            <div class="col-12">
-                                <label class="navbar-toggler btn-block" style="font-size:15px">Midias sociais</label>
-                                <div class="row justify-content-start">
-                                    <div class="col">
-                                        <img src="./imagens/redes-sociais/facebook.png" class="img-fluid" alt="logo facebook">
-                                    </div>
-                                    <div class="col">
-                                        <img src="./imagens/redes-sociais/twitter.png" class="img-fluid" alt="logo twitter">
-                                    </div>
-                                    <div class="col">
-                                        <img src="./imagens/redes-sociais/youtube.png" class="img-fluid" alt="logo youtube">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label class="navbar-toggler btn-block" style="font-size:15px">Metodos de pagamento</label>
-                                <br>
-                                <img src="./imagens/payment_methods.png" class="img-fluid" alt="Payments Methods">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-    </footer>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="width:80%">
-            <div class="modal-content">
-                <div class="modal-header btn btn-primary">
-                    <h5 class="modal-title" id="exampleModalLongTitle" style="color:#ffffff">Categorias</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action">Drama</a>
-                        <a href="#" class="list-group-item list-group-item-action">Romance</a>
-                        <a href="#" class="list-group-item list-group-item-action">Suspense</a>
-                        <a href="#" class="list-group-item list-group-item-action">Ficção Cientifica</a>
-                        <a href="#" class="list-group-item list-group-item-action">Fantasia</a>
-                        <a href="#" class="list-group-item list-group-item-action">Aventura</a>
-                        <a href="#" class="list-group-item list-group-item-action">Comédia</a>
-                        <a href="#" class="list-group-item list-group-item-action">Terror</a>
-                        <a href="#" class="list-group-item list-group-item-action">Autoajuda</a>
-                        <a href="#" class="list-group-item list-group-item-action">Religiosos</a>
-                        <a href="#" class="list-group-item list-group-item-action">Estudos</a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <br>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="navFixed">
-        <!-- Inicio do navbar Principal -->
-        <nav class="navbar navbar-dark bg-primary">
-            <div class="container-fluid" style="padding-right:0px">
-                <div class="row" style="width:100%">
-                    <!-- botao mobile menu -->
-                    <div class="col-3 col-md-1 d-block d-md-none">
-                        <button class="btn btn-light btn-sm" type="button" data-toggle="modal" data-target="#exampleModalLong">
-                            <i class="material-icons" id="iconeMenu">view_headline</i>
-                        </button>
-                    </div>
-                    <!-- Logo -->
-                    <div class="col-6 col-md-2">
-                        <a class="navbar-brand" href="#">
-                            <img src="./imagens/logo3-07.png" href="index.html" height="40px" alt="Livraria Astec">
-                        </a>
-                    </div>
-                    <!-- botao mobile CARRINHO E LOGIN -->
-                    <div class="col-3 d-block d-md-none justify-content-end" id="mobileCarLog">
-                        <div class="row">
-                            <div class="col-6">
-                                <i class="material-icons log">input</i>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <button class="btn btn-warning car" href="carrinho.html">
-                                        <i class="material-icons" style="font-size: 20px;margin:0px;padding:0px;color:#ffffff">shopping_cart</i>
-                                    </button>
-                                    <span class="badge badge-pill badge-danger" style="position: absolute;top:0px;right:0px;margin:auto">1</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- botao desktop LOGIN -->
-                    <div class="col-3 col-md-3 order-11 d-none d-md-block">
-
-                        <div class="media float-md-right">
-                            <i class="material-icons align-self-center mr-3">input</i>
-                            <div class="media-body">
-                                <h5 class="mt-0"></h5>
-                                <a href="#" class="mb-0">Entre
-                                    <span href="#">ou Cadastre-se</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- botao desktop  CARRINHO-->
-                    <div class="col-1 col-md-1 order-12 d-none d-md-block">
-                        <div>
-
-                            <button class="btn btn-warning" id="btnCarDesk" href="carrinho.html">
-                                <i class="material-icons">shopping_cart</i>
-                                <span class="badge badge-pill badge-danger" style="position: absolute;top:0px">1</span>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <!-- SEARCHR BAR-->
-                    <div class="col-sm-12 col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="search" class="form-control" placeholder="O que procura?" aria-label="busca" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-light" type="button">
-                                    <i class="material-icons">search</i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
-        <!-- Fim do navbar Principal -->
-
-        <!-- Inicio do nav das categorias -->
-
-        <nav class="nav nav-pills nav-fill d-none d-md-block border-bottom border-primary" style="background:#f8f9fa">
-            <ul class="nav nav-item nav-pills">
-
-                <li class="nav-item nav-link dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas as Categorias</a>
-                    <div class="dropdown-menu">
-                        <div class="row">
-                            <div class="col">
-                                <a href="#" class="dropdown-item">Drama</a>
-                                <a href="#" class="dropdown-item">Romance</a>
-                                <a href="#" class="dropdown-item">Suspense</a>
-                                <a href="#" class="dropdown-item">Ficção Cientifica</a>
-
-                                <a href="#" class="dropdown-item">Religiosos</a>
-                                <a href="#" class="dropdown-item">Estudos</a>
-                            </div>
-                            <div class="col">
-                                <a href="#" class="dropdown-item">Fantasia</a>
-                                <a href="#" class="dropdown-item">Aventura</a>
-                                <a href="#" class="dropdown-item">Comédia</a>
-                                <a href="#" class="dropdown-item">Terror</a>
-                                <a href="#" class="dropdown-item">Autoajuda</a>
-                            </div>
-                            <div class="col">
-
-
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                </li>
-                <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                    <a class="nav-link" href="#">Romance</a>
-                </li>
-                <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                    <a class="nav-link" href="#">Drama</a>
-                </li>
-                <li class="nav-item nav-link ">
-                    <a class="nav-link" href="#">Fantasia</a>
-                </li>
-                <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                    <a class="nav-link" href="#">Aventura</a>
-                </li>
-                <li class="nav-item nav-link d-none d-xl-block">
-                    <a class="nav-link" href="#">Ficção cientifica</a>
-                </li>
-                <li class="nav-item nav-link">
-                    <a class="nav-link" href="#">Suspense</a>
-                </li>
-                <li class="nav-item nav-link">
-                    <a class="nav-link" href="#">Estudos</a>
-                </li>
-            </ul>
-        </nav>
-
-
-        <!-- fim do nav das categorias -->
-
-
-    </div>
-
-
-</body>
-
-</html>
+</div>
