@@ -71,7 +71,7 @@
                     <br>
                     <!-- INICIO PRODUTO -->
                     <div class="row">
-                        <div th:each="prod : ${prod}">
+                        <div th:each="p : ${@carrinhoController.itens}">
                             <div class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
                                 <div class="row" style="width: 100%;margin-left:0px;margin-right:0px">
                                     <div class="col-sm-12 col-md-6">
@@ -80,21 +80,21 @@
                                                 <img class="img-fluid" src="./imagens/products/15.jpg" alt="Card image cap">
                                             </div>
                                             <div class="col-8">
-                                                <h5 class="card-title" style="font-size:17px" th:text="${prod.nome}">Aqui vai o Titulo do Livro</h5>
-                                                <h6 style="font-size:12px;color: darkgrey" th:text="${prod.fabricante}">-Autor do livro</h6>
+                                                <h5 class="card-title" style="font-size:17px" th:text="${p.produto.nome}">Aqui vai o Titulo do Livro</h5>
+                                                <h6 style="font-size:12px;color: darkgrey" th:text="${p.produto.fabricante}">-Autor do livro</h6>
                                             </div>
 
                                             <div class="w-100"></div>
                                             <div class="col offset-4  d-block d-md-none">
                                                 <br>
                                                 <a class="material-icons" href="#" style="color: #007bff;font-size:15px;">remove_circle_outline</a>
-                                                <span style="font-size:20px">1</span>
+                                                <span style="font-size:20px" th:text="${p.qtd}">1</span>
                                                 <a class="material-icons" href="#" style="color: #007bff;font-size:15px">add_circle_outline</a>
                                             </div>
                                             <div class="col  d-block d-md-none" style="text-align:right;margin-top:10px">
                                                 <br>
                                                 <label style="color: #4CAF50">
-                                                    <span style="font-size: 12px" th:text="|R$ ${prod.valorProduto}|"></span> 9999,99</label>
+                                                    <span style="font-size: 12px" th:text="|R$ ${p.valorParcial}|"></span> 9999,99</label>
                                             </div>
                                         </div>
 
@@ -102,11 +102,11 @@
                                     <div class="col-md-2 d-none d-md-block">
                                         <br>
                                         <label style="color: #4CAF50;font-size: 25px">
-                                            <span style="font-size: 25px" th:text="|R$ ${prod.valorProduto}|"></label>
+                                            <span style="font-size: 25px" th:text="|R$ ${p.valorParcial}|"></label>
                                     </div>
                                     <div class="col-md-2 d-none d-md-block">
                                         <a class="material-icons" href="#" style="color: #007bff;font-size:20px;">remove_circle_outline</a>
-                                        <span style="font-size:25px">2</span>
+                                        <span style="font-size:25px" th:text="${p.qtd}">2</span>
                                         <a class="material-icons" href="#" style="color: #007bff;font-size:20px">add_circle_outline</a>
                                     </div>
                                     <div class="col-md-2 d-none d-md-block">

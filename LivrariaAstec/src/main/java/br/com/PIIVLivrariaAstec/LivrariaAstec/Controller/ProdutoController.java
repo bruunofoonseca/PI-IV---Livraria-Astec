@@ -38,12 +38,13 @@ public class ProdutoController {
 
         List<CategoriaModel> categorias = categoriaService.listar();
 
-        return new ModelAndView("listagemProdutos").addObject("produtos", lista);
+        return new ModelAndView("listagemProdutos")
+                .addObject("produtos", lista)
+                .addObject("categorias", categorias);
     }
 
     @GetMapping("/{id}")
     public ModelAndView mostrarDetalhe(@PathVariable("id") Long id) {
-        System.out.println("mostrarDetalhe");
         ProdutoModel p = service.obter(id);
         return new ModelAndView("detalheProduto").addObject("produto", p);
     }

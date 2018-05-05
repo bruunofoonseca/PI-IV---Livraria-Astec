@@ -5,15 +5,18 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemPedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl.ProdutoServiceJpaImpl;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,24 +32,26 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope("session")
 public class CarrinhoController implements Serializable {
 
-    private ProdutoService service = new ProdutoServiceJpaImpl();
+    @Autowired
+    private ProdutoService service;
 
-    private List<ProdutoModel> produtosAdicionados = new ArrayList<ProdutoModel>();
-
-    public List<ProdutoModel> getProdutosAdicionados() {
-      return produtosAdicionados;
-    }
+    public List<ItemPedidoModel> itens = new ArrayList<>();
 
     @GetMapping
     public ModelAndView mostrarCarrinho() {
       return new ModelAndView("Carrinho");
     }
 
-    @PostMapping("/{id}")
-    public ModelAndView adicionarProduto(@PathVariable("id") Long id, 
+    @PostMapping
+    public ModelAndView adicionarProduto(@ModelAttribute("numero") Long id, 
             RedirectAttributes redirectAttributes) {
       ProdutoModel p = service.obter(id);
-      produtosAdicionados.add(p);
+      ItemPedidoModel item = new ItemPedidoModel();
+      item.setProduto(p);
+      item.setQtd(1);
+      item.setValorParcial(p.getValorProduto());
+      
+      this.itens.add(item);
 
       // POST-REDIRECT-GET
       //redirectAttributes.addAttribute("prod", p);
