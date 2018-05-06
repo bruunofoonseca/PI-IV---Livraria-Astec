@@ -16,16 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/cadastroCliente")
-public class ClientesController {
+public class ClienteController {
     
     @GetMapping
     public ModelAndView cadastroCliente(){
         return new ModelAndView("cadastroCliente");
     }
     
-    @GetMapping("/xpto")
-    public ModelAndView teste(){
-        return new ModelAndView("index");
-    }
     
 }

@@ -22,12 +22,21 @@
                         <a href="detalheProduto.html" th:href="@{/{id}(id=${prod.id})}" class="btn btn-outline-primary btn-large btn-block">Detalhes</a>
                     </div>
                     <div class="col-12">
-
+                        <!--
                         <a href="#" class="btn btn-primary btn-grid-carrinho btn-block">
                             <i class="material-icons">add_circle_outlineshopping_cart</i>
                             <span class="frase-btn-carrinho">Add ao carrinho</span>
-
                         </a>
+                        -->
+                        <form th:action="@{/carrinho}" method="post">
+                            <div class="col d-none d-md-block">
+                                <input type="hidden" th:value="${prod.id}" id="numero" name="numero"/>
+                                <button class="frase-btn-carrinho" type="submit">
+                                    <i class="material-icons">add_circle_outlineshopping_cart</i>
+                                    <span class="frase-btn-carrinho">Add ao carrinho</span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

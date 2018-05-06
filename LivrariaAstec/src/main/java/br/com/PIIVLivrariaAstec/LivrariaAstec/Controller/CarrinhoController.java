@@ -25,7 +25,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
- * @author fernando.tsuda
+ * @author Bruno Fonseca
+ * edit diogo.Sfelix
  */
 @Controller
 @RequestMapping("/carrinho")
@@ -52,9 +53,21 @@ public class CarrinhoController implements Serializable {
       item.setValorParcial(p.getValorProduto());
       
       this.itens.add(item);
-
+      
       // POST-REDIRECT-GET
-      //redirectAttributes.addAttribute("prod", p);
       return new ModelAndView("redirect:/carrinho");
+    }
+    
+    @PostMapping("/validandoPedido")
+    public ModelAndView validandoPedido(
+            //@ModelAttribute("numero") Long id,
+            //@ModelAttribute("qtd") int qtd,
+            RedirectAttributes redirectAttributes
+    ){
+        //System.out.println("Id" + id);
+        //System.out.println("qtd" + qtd);
+        
+        System.out.println("Passei pelo validador");
+        return new ModelAndView("redirect:/cadastroCliente");
     }
 }
