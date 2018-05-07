@@ -1,46 +1,48 @@
 <div layout:decorate="~{index}" layout:fragment="conteudo"> 
     <div class="row">
-    <!-- <div class="col-sm-12 col-md-4 col-lg-3"> -->
-    <div th:each="prod : ${produtos}" class="col-sm-12 col-md-4 col-lg-3">
-        <div class="card text-center">
-            <img class="" src="./imagens/products/15.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" th:text="${prod.nome}">Nao foi possivel carregar</h5>
-                <p class="card-text d-none d-md-block" th:text="${prod.descricao}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus ultrices elementum.
-                    Duis vel est nec libero venenatis accumsan ut vel ex. </p>
-                <p class="card-text d-block d-md-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <!-- <div class="col-sm-12 col-md-4 col-lg-3"> -->
+        <div th:each="prod : ${produtos}" class="col-sm-12 col-md-4 col-lg-3" style="max-height:400px;min-height: 400px; margin-bottom: 10px" >
+            <div class="card text-center" style="max-height:400px;min-height: 400px">
+                <img class="" src="./imagens/products/15.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${prod.nome}">Nao foi possivel carregar</h5>
+                    <!--<p class="card-text d-none d-md-block" th:text="${prod.descricao}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus ultrices elementum.
+                        Duis vel est nec libero venenatis accumsan ut vel ex. </p> -->
 
-                <div class="row">
-                    <div class="col-3">
-                        <label for="">R$</label>
-                    </div>
-                    <div class="col-9">
-                        <h5 class="preco-produto" th:text="${prod.valorProduto}">99999,99</h5>
-                    </div>
-                    <div class="col-12">
-                        <!-- <a href="#" class="btn btn-outline-primary btn-large btn-block">Detalhes</a> -->
-                        <a href="detalheProduto.html" th:href="@{/{id}(id=${prod.id})}" class="btn btn-outline-primary btn-large btn-block">Detalhes</a>
-                    </div>
-                    <div class="col-12">
-                        <!--
-                        <a href="#" class="btn btn-primary btn-grid-carrinho btn-block">
-                            <i class="material-icons">add_circle_outlineshopping_cart</i>
-                            <span class="frase-btn-carrinho">Add ao carrinho</span>
-                        </a>
-                        -->
-                        <form th:action="@{/carrinho}" method="post">
-                            <div class="col d-none d-md-block">
+                    
+                    <div class="row ajuste-dos-botoes">
+                        <div class="col-3">
+                            <label for="">R$</label>
+                        </div>
+                        <div class="col-9">
+                            <h5 class="preco-produto" th:text="${prod.valorProduto}">99999,99</h5>
+                        </div>
+
+                        <div class="col-12">
+                            <!-- <a href="#" class="btn btn-outline-primary btn-large btn-block">Detalhes</a> -->
+                            <a href="detalheProduto.html" th:href="@{/{id}(id=${prod.id})}" class="btn btn-outline-primary btn-large btn-block">Detalhes</a>
+                        </div>
+                        <form th:action="@{/carrinho}" method="post" style="padding: 0px;width: 100%">
+                            <div class="col">
                                 <input type="hidden" th:value="${prod.id}" id="numero" name="numero"/>
-                                <button class="frase-btn-carrinho" type="submit">
-                                    <i class="material-icons">add_circle_outlineshopping_cart</i>
+                                <button class="frase-btn-carrinho btn btn-primary btn-grid-carrinho btn-block" type="submit" style="margin-top: 3px;color:#ffc107;width: 100%">
+                                    <i class="material-icons" style="font-size: 12px">add_circle_outlineshopping_cart</i>
                                     <span class="frase-btn-carrinho">Add ao carrinho</span>
                                 </button>
                             </div>
                         </form>
+                        <div class="col-12">
+                            <!--
+                            <a href="#" class="btn btn-primary btn-grid-carrinho btn-block">
+                                <i class="material-icons">add_circle_outlineshopping_cart</i>
+                                <span class="frase-btn-carrinho">Add ao carrinho</span>
+                            </a>
+                            -->
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>

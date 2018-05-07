@@ -112,3 +112,10 @@ hr{
     box-shadow: 0px -2px 20px #818181;
     z-index: 1000;
 }
+.ajuste-dos-botoes{
+    position: absolute;
+    bottom: 5px;
+    margin-top: auto;
+    margin-right: auto;
+    
+}
