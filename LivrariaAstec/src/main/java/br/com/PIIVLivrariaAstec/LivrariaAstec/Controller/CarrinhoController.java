@@ -5,11 +5,14 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemIds;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemPedidoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoTemp;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl.ProdutoServiceJpaImpl;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -40,7 +44,16 @@ public class CarrinhoController implements Serializable {
 
     @GetMapping
     public ModelAndView mostrarCarrinho() {
-      return new ModelAndView("Carrinho");
+        List<ItemIds> temp = new ArrayList<>();
+        for (ItemPedidoModel item : itens) {
+            ItemIds i = new ItemIds();
+            i.setIdProduto(item.getProduto().getId());
+            i.setQtd(item.getQtd());
+            temp.add(i);
+        }
+        PedidoTemp ptemp = new PedidoTemp();
+        ptemp.setItems(temp);
+        return new ModelAndView("Carrinho").addObject("ptemp", ptemp);
     }
 
     @PostMapping
@@ -58,9 +71,9 @@ public class CarrinhoController implements Serializable {
       return new ModelAndView("redirect:/carrinho");
     }
     
-    @PostMapping("/validandoPedido")
+    //@PostMapping("/validandoPedido")
     public ModelAndView validandoPedido(
-            //@ModelAttribute("numero") Long id,
+            //@ModelAttribute("itens") Long id,
             //@ModelAttribute("qtd") int qtd,
             RedirectAttributes redirectAttributes
     ){
@@ -68,6 +81,24 @@ public class CarrinhoController implements Serializable {
         //System.out.println("qtd" + qtd);
         
         System.out.println("Passei pelo validador");
+        return new ModelAndView("redirect:/cadastroCliente");
+    }
+   
+    @PostMapping("/validandoPedido")
+    public ModelAndView teste(
+            @ModelAttribute("ptemp") PedidoTemp ptemp,
+            RedirectAttributes redirectAttributes
+    ){
+        
+        for(ItemPedidoModel i : itens){
+            for(ItemIds w : ptemp.getItems()){
+                if(i.getProduto().getId() == w.getIdProduto()){
+                    i.setQtd(w.getQtd());
+                    i.setValorParcial(i.getProduto().getValorProduto().multiply(BigDecimal.valueOf(w.getQtd())));
+                }
+            }
+        }
+        
         return new ModelAndView("redirect:/cadastroCliente");
     }
 }
