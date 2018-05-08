@@ -1,5 +1,13 @@
 <div layout:decorate="~{index}" layout:fragment="conteudo"> 
     <div class="row">
+
+                        <div class="col-12">
+                            <hr>
+                            <h3 style="margin-bottom:20px">Produtos Novos</h3>
+
+                        </div>
+                    </div>
+    <div class="row">
         <!-- <div class="col-sm-12 col-md-4 col-lg-3"> -->
         <div th:each="prod : ${produtos}" class="col-sm-12 col-md-4 col-lg-3" style="max-height:400px;min-height: 400px; margin-bottom: 10px" >
             <div class="card text-center" style="max-height:400px;min-height: 400px">
