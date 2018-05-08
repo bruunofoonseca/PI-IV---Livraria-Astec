@@ -1,5 +1,17 @@
 /** inicio do navbar principal  **/
 
+#fieldCad{
+    border-style: solid;
+    border-color: gray;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#fieldCad label{
+    font-weight: bold;
+    font-family: "Sans Serif", serif;
+}
+
 #navFixed{
     position: fixed;
     width: 100%;
@@ -111,6 +123,21 @@ hr{
     width: 100%;
     box-shadow: 0px -2px 20px #818181;
     z-index: 1000;
+}
+
+#btnSalvar{
+    width: 150px;
+    background-color:#007bff; 
+}
+#btnCancelar{
+    width: 100px;
+    background-color: white;
+    border: solid;
+    border-width    : thin;
+}
+
+#btnCancelar:hover{
+    background-color: #007bff;
 }
 .ajuste-dos-botoes{
     position: absolute;
