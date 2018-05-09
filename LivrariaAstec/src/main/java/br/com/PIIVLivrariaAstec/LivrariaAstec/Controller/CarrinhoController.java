@@ -33,10 +33,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * edit diogo.Sfelix
  */
 @Controller
-@RequestMapping("/carrinho")
+@RequestMapping("/Carrinho")
 @Scope("session")
 public class CarrinhoController implements Serializable {
-
+  
     @Autowired
     private ProdutoService service;
 
@@ -68,7 +68,7 @@ public class CarrinhoController implements Serializable {
       this.itens.add(item);
       
       // POST-REDIRECT-GET
-      return new ModelAndView("redirect:/carrinho");
+      return new ModelAndView("redirect:/Carrinho");
     }
     
     //@PostMapping("/validandoPedido")

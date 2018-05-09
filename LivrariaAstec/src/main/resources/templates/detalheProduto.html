@@ -48,7 +48,7 @@
                                         <h5 th:text="|R$ ${produto.valorProduto}|">9999,99</h5>
                                     </div>
                                     <div>
-                                        <form th:action="@{/carrinho}" method="post">
+                                        <form th:action="@{/Carrinho/validandoPedido}" method="post">
                                             <div class="col d-none d-md-block">
                                                 <!--<a href="#" class="btn btn-primary btn-grid-carrinho btn-block" style="color: #ffc107">
                                                     <i class="material-icons">add_circle_outlineshopping_cart</i>
@@ -62,7 +62,7 @@
                                         </form>
                                     </div>
                                     <div class="col-12 d-block d-md-none">
-                                        <form th:action="@{/carrinho}" method="post">
+                                        <form th:action="@{/Carrinho}" method="post">
                                             <input type="hidden" th:value="${produto.id}" id="numero" name="numero"/>
                                             <button type="submit" class="btn btn-primary btn-grid-carrinho btn-block" style="color: #ffc107"><i class="material-icons" >add_circle_outlineshopping_cart</i>
                                                 <span class="frase-btn-carrinho">Add carrinho</span></button>

@@ -6,6 +6,7 @@
         <title>Livraria Astec - Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -88,16 +89,6 @@
 
                         </div>
                     </div>
-
-                    <div class="row">
-
-                        <div class="col-12">
-                            <hr>
-                            <h3 style="margin-bottom:20px">Produtos Novos</h3>
-
-                        </div>
-                    </div>
-
                     <div class="row">
                         <!-- Card -->
                         <div layout:fragment="conteudo">
@@ -135,9 +126,6 @@
                                                     </div>
                                                 </div>
                                             </div> -->
-
-
-
                     </div>
                 </div>
             </div>
@@ -305,8 +293,8 @@
                                 </div>
                                 <div class="col-6">
                                     <div>
-                                        <button class="btn btn-warning car" href="/carrinho">
-                                            <i class="material-icons" style="font-size: 20px;margin:0px;padding:0px;color:#ffffff">shopping_cart</i>
+                                        <button class="btn btn-warning" >
+                                            <a href="/Carrinho"><i class="material-icons" style="font-size: 20px;margin:0px;padding:0px;color:#ffffff">shopping_cart</i></a>
                                         </button>
                                         <span class="badge badge-pill badge-danger" style="position: absolute;top:0px;right:0px;margin:auto">1</span>
                                     </div>
@@ -316,14 +304,13 @@
 
                         <!-- botao desktop LOGIN -->
                         <div class="col-3 col-md-3 order-11 d-none d-md-block">
-
                             <div class="media float-md-right">
                                 <i class="material-icons align-self-center mr-3">input</i>
                                 <div class="media-body">
                                     <h5 class="mt-0"></h5>
-                                    <a href="/cadastroCliente" class="mb-0">Entre
-                                        <span href="/cadastroCliente">ou Cadastre-se</span>
-                                    </a>
+                                    <button type="button" class="btn btn-primary">
+                                        <a href="/login">Entre ou Cadastre-se</a>
+                                    </button>
 
                                 </div>
                             </div>
@@ -331,12 +318,10 @@
                         <!-- botao desktop  CARRINHO-->
                         <div class="col-1 col-md-1 order-12 d-none d-md-block">
                             <div>
-
-                                <button class="btn btn-warning" id="btnCarDesk" href="/carrinho">
-                                    <i class="material-icons">shopping_cart</i>
-                                    <span class="badge badge-pill badge-danger" style="position: absolute;top:0px">1</span>
+                                
+                                <button type="submit" class="btn" id="btnCarDesk" >
+                                    <a href="/Carrinho"><i class="material-icons">shopping_cart</i></a>
                                 </button>
-
                             </div>
 
                         </div>

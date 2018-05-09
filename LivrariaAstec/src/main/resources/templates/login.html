@@ -1,129 +1,114 @@
 <div layout:decorate="~{index}" layout:fragment="conteudo"> 
-    <div class="container">
-        <div class="row">
+     <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="col-12">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Login</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                    </div>     
 
-            <div class="col-12">
+                    <div style="padding-top:30px" class="panel-body" >
 
-                <h2 style="margin-bottom:20px">Login</h3>
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-            </div>
-            
-            <div class="col-12">
-                <form class="needs-validation" novalidate>
-                    <fieldset id="fieldCad">
-                        
-                        <div class="col-12">
+                        <form id="loginform" class="form-horizontal" role="form">
 
-                            <h3 style="margin-bottom:5px">Já sou cadastrado</h3>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="material-icons">email</i></span>
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Digite seu email">                                        
+                                    </div>
 
-                        </div>
-                        
-                        <div class="col-12">
-                            <label for="validationCustomEmail">* E-mail</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend">
-                                        <i class="material-icons">mail_outline</i>
-                                    </span>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="material-icons">vpn_key</i></span>
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="Digite sua senha">
+                                    </div>
+
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Botão -->
+
+                                    <div class="col-sm-12 controls">
+                                      <a id="btn-login" href="#" class="btn btn-success">Login</a>
+                                    </div>
                                 </div>
-                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
-                                       required>
-                                <div class="invalid-feedback">
-                                    Por favor coloque um e-mail valido. Ex: usuario@email.com
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <label for="validationPassword">* Senha</label>
-                            <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend">
-                                    <i class="material-icons">vpn_key</i>
-                                </span>
-                            </div>
-                            <input type="password" class="form-control" id="validationPassword" placeholder="Senha" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                            <div class="invalid-feedback">
-                                Por favor coloque uma senha valida.
-                            </div>
-                            </div>
-                        </div>
-                        </br>
-                    <button class="btn" type="submit" id="btnSalvar">Login</button>
-                    
-                    <div class="col-12">
-                            <label for="validationCustomEmail">* E-mail</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend">
-                                        <i class="material-icons">mail_outline</i>
-                                    </span>
-                                </div>
-                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
-                                       required>
-                                <div class="invalid-feedback">
-                                    Por favor coloque um e-mail valido. Ex: usuario@email.com
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <!--
-            <div class="col-md-7">
-                <form class="needs-validation" novalidate>
-                    <fieldset id="fieldCad">
-                        
-                        
-                        <div class="col-12">
-
-                            <h3 style="margin-bottom:20px">Cadastre-se no site</h3>
-
-                        </div>
-                        
-                        
-                        <div class="col-12">
-                            <label for="validationCustomEmail">* E-mail</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend">
-                                        <i class="material-icons">mail_outline</i>
-                                    </span>
-                                </div>
-                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
-                                       required>
-                                <div class="invalid-feedback">
-                                    Por favor coloque um e-mail valido. Ex: usuario@email.com
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationPassword">* Senha</label>
-                            <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend">
-                                    <i class="material-icons">vpn_key</i>
-                                </span>
-                            </div>
-                            <input type="password" class="form-control" id="validationPassword" placeholder="Senha" required>
-                            <a href="#">Esqueceu sua senha?</a>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                            <div class="invalid-feedback">
-                                Por favor coloque uma senha valida.
-                            </div>
-                            </div>
-                        </div>
-                    <button class="btn" type="submit" id="btnSalvar">Login</button>
-                    </fieldset>
-                </form>
-            </div>
-            -->
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Não tenho conta! 
+                                        <a href="/cadastroCliente" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            Cadastre-se
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </form>     
+                        </div>                     
+                    </div>  
         </div>
-        <br>
-        <br>
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title">Sign Up</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                        </div>  
+                        <div class="panel-body" >
+                            <form id="signupform" class="form-horizontal" role="form">
+
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="firstname" class="col-md-3 control-label">First Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="passwd" placeholder="Password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="icode" class="col-md-3 control-label">Invitation Code</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="icode" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- Botão-->                                        
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                        <span style="margin-left:8px;">or</span>  
+                                    </div>
+                                </div>
+
+                                <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
+                                    </div>                                           
+
+                                </div>
+                            </form>
+                         </div>
+                    </div>
+         </div> 
     </div>
 </div>

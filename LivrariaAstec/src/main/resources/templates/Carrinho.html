@@ -33,9 +33,10 @@
                     <br>
                     <!-- INICIO PRODUTO -->
 
-                    <div th:if="${@carrinhoController.itens.isEmpty()}">Vazio</div>
+                    <div th:if="${@carrinhoController.itens.isEmpty()} == true" >Vazio</div>
 
-                    <form action="/carrinho/validandoPedido" method="POST" th:object="${ptemp}">
+                    
+                    <form action="/Carrinho/validandoPedido" method="POST" th:object="${ptemp}">
                                 
                     <div th:each="p, status : ${@carrinhoController.itens}" class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
                         <div class="row" style="width: 100%;margin-left:0px;margin-right:0px">

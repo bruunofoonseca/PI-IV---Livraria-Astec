@@ -30,7 +30,7 @@
                             <!-- <a href="#" class="btn btn-outline-primary btn-large btn-block">Detalhes</a> -->
                             <a href="detalheProduto.html" th:href="@{/{id}(id=${prod.id})}" class="btn btn-outline-primary btn-large btn-block">Detalhes</a>
                         </div>
-                        <form th:action="@{/carrinho}" method="post" style="padding: 0px;width: 100%">
+                        <form th:action="@{/Carrinho}" method="post" style="padding: 0px;width: 100%">
                             <div class="col">
                                 <input type="hidden" th:value="${prod.id}" id="numero" name="numero"/>
                                 <button class="frase-btn-carrinho btn btn-primary btn-grid-carrinho btn-block" type="submit" style="margin-top: 3px;color:#ffc107;width: 100%">
