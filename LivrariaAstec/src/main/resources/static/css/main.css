@@ -14,6 +14,23 @@
 }
 
 
+#oi{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+#barra{
+    height: 230px;
+    padding-left: 30px;
+    border-left-style: solid;
+    border-left-color: #818181;
+    border-left-width: thin;
+}
+
+#entreCad{
+    color: #fcde05;
+}
+
 #fieldCad label{
     font-weight: bold;
     font-family: "Sans Serif", serif;
@@ -136,6 +153,17 @@ hr{
     width: 150px;
     background-color:#007bff; 
 }
+
+#btnLogin{
+    width: 150px;
+    background-color:#007bff; 
+    padding-left: 20px;
+}
+
+#letraCad{
+    color: #fcde05;
+}
+
 #btnCancelar{
     width: 100px;
     background-color: white;
@@ -150,6 +178,13 @@ hr{
 #btnCarDesk{
     background-color:#007bff;
 }
+
+#btnCarApp{
+    background-color:#007bff;
+    padding-top: 2px;   
+    padding-bottom: 2px;
+}
+
 .ajuste-dos-botoes{
     position: absolute;
     bottom: 5px;
@@ -157,3 +192,7 @@ hr{
     margin-right: auto;
     
 }
+
+
+
+
