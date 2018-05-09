@@ -7,6 +7,10 @@
  * Author:  User
  * Created: 01/05/2018
  */
+/* CRIANDO BANCO */
+CREATE DATABASE LIVRARIADB;
+
+USE LIVRARIADB;
 
 /* CATEGORIAS */
 insert tb_categoria values (1, 'LITERATURA ESTRANGEIRA');

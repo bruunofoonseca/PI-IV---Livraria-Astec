@@ -59,31 +59,42 @@ public class CarrinhoController implements Serializable {
     @PostMapping
     public ModelAndView adicionarProduto(@ModelAttribute("numero") Long id, 
             RedirectAttributes redirectAttributes) {
+       /* 
       ProdutoModel p = service.obter(id);
+      
       ItemPedidoModel item = new ItemPedidoModel();
       item.setProduto(p);
       item.setQtd(1);
       item.setValorParcial(p.getValorProduto());
       
       this.itens.add(item);
+      */
+        System.out.println("Post adicionarProduto");
+       
+        
+        ProdutoModel p = service.obter(id);
       
+        ItemPedidoModel item = new ItemPedidoModel();
+      
+        item.setProduto(p);
+        item.setQtd(1);
+        item.setValorParcial(p.getValorProduto());
+        
+        
+        for (ItemPedidoModel it : itens){
+            System.out.println("entrei for");
+            if(it.getProduto().getId() == id){
+                it.setQtd(it.getQtd()+1);
+                break;
+            }
+        }
+        
+        this.itens.add(item);
+        
       // POST-REDIRECT-GET
       return new ModelAndView("redirect:/Carrinho");
     }
-    
-    //@PostMapping("/validandoPedido")
-    public ModelAndView validandoPedido(
-            //@ModelAttribute("itens") Long id,
-            //@ModelAttribute("qtd") int qtd,
-            RedirectAttributes redirectAttributes
-    ){
-        //System.out.println("Id" + id);
-        //System.out.println("qtd" + qtd);
-        
-        System.out.println("Passei pelo validador");
-        return new ModelAndView("redirect:/cadastroCliente");
-    }
-   
+      
     @PostMapping("/validandoPedido")
     public ModelAndView teste(
             @ModelAttribute("ptemp") PedidoTemp ptemp,
@@ -99,6 +110,6 @@ public class CarrinhoController implements Serializable {
             }
         }
         
-        return new ModelAndView("redirect:/cadastroCliente");
+        return new ModelAndView("redirect:/login");
     }
 }
