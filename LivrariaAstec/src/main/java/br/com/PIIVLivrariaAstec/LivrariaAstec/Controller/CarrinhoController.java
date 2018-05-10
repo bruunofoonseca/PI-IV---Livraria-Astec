@@ -69,30 +69,40 @@ public class CarrinhoController implements Serializable {
       
       this.itens.add(item);
       */
-        System.out.println("Post adicionarProduto");
-       
         
         ProdutoModel p = service.obter(id);
       
         ItemPedidoModel item = new ItemPedidoModel();
-      
-        item.setProduto(p);
-        item.setQtd(1);
-        item.setValorParcial(p.getValorProduto());
         
-        
-        for (ItemPedidoModel it : itens){
-            System.out.println("entrei for");
-            if(it.getProduto().getId() == id){
-                it.setQtd(it.getQtd()+1);
-                break;
+        if(!itens.isEmpty()) {
+//            List<ItemPedidoModel> aux = itens;
+            boolean adicionou = false;
+            for (ItemPedidoModel i : itens){
+                if(i.getProduto().getId() == id){
+                    i.setQtd(i.getQtd()+1);
+                    i.setValorParcial(i.getProduto().getValorProduto().multiply(BigDecimal.valueOf(i.getQtd())));
+                    adicionou = true;
+                    break;
+                }
             }
+            
+            if(!adicionou) {
+                item.setProduto(p);
+                item.setQtd(1);
+                item.setValorParcial(p.getValorProduto());
+
+                this.itens.add(item);
+            }
+        } else {
+            item.setProduto(p);
+            item.setQtd(1);
+            item.setValorParcial(p.getValorProduto());
+                
+            this.itens.add(item);
         }
-        
-        this.itens.add(item);
-        
-      // POST-REDIRECT-GET
-      return new ModelAndView("redirect:/Carrinho");
+
+        // POST-REDIRECT-GET
+        return new ModelAndView("redirect:/Carrinho");
     }
       
     @PostMapping("/validandoPedido")
