@@ -90,7 +90,6 @@ public class CarrinhoController implements Serializable {
         }
         
         this.itens.add(item);
-        
       // POST-REDIRECT-GET
       return new ModelAndView("redirect:/Carrinho");
     }
