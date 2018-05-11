@@ -30,9 +30,9 @@
                     <br>
                     <br>
                     <!-- INICIO PRODUTO -->
-                    <div th:if="${@carrinhoController.itens.isEmpty()} == true" >Vazio</div>
+                    <div th:if="${@carrinhoController.pedido.itens.isEmpty()} == true" >Vazio</div>
                     <form action="/Carrinho/validandoPedido" method="POST" th:object="${ptemp}">
-                        <div th:each="p, status : ${@carrinhoController.itens}" class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
+                        <div th:each="p, status : ${@carrinhoController.pedido.itens}" class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
                             <div class="row" style="width: 100%;margin-left:0px;margin-right:0px">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="row" style="width:100%;margin-left:0px;margin-right:0px">
@@ -146,8 +146,8 @@
                             </div>
                             <div class="col" style="text-align:right">
                                 <br>
-                                <label style="color: #4CAF50;font-size: 25px">
-                                    <span style="font-size: 12px">R$</span> 444,00</label>
+                                <label style="color: #4CAF50;font-size: 25px" >
+                                    <span style="font-size: 25px" th:text="|R$ ${@carrinhoController.pedido.valorTotal}|">R$</span></label>
                             </div>
                             
                             <div class="w-100"></div>

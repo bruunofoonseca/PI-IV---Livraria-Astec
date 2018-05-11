@@ -7,6 +7,7 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemIds;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemPedidoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoTemp;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
@@ -37,15 +38,14 @@ public class CarrinhoController implements Serializable {
     @Autowired
     private ProdutoService service;
 
-    public List<ItemPedidoModel> itens = new ArrayList<>();
-    
-    
+//    public List<ItemPedidoModel> itens = new ArrayList<>();
+    public PedidoModel pedido = new PedidoModel();
 
     @GetMapping
     public ModelAndView mostrarCarrinho() {
         List<ItemIds> temp = new ArrayList<>();
-        if(!itens.isEmpty()) {
-            for (ItemPedidoModel item : itens) {
+        if(!pedido.getItens().isEmpty()) {
+            for (ItemPedidoModel item : pedido.getItens()) {
                 ItemIds i = new ItemIds();
                 i.setIdProduto(item.getProduto().getId());
                 i.setQtd(item.getQtd());
@@ -65,9 +65,9 @@ public class CarrinhoController implements Serializable {
 
         ItemPedidoModel item = new ItemPedidoModel();
 
-        if (!itens.isEmpty()) {
+        if (!pedido.getItens().isEmpty()) {
             boolean adicionou = false;
-            for (ItemPedidoModel i : itens) {
+            for (ItemPedidoModel i : pedido.getItens()) {
                 if (i.getProduto().getId() == id) {
                     i.setQtd(i.getQtd() + 1);
                     i.setValorParcial(i.getProduto().getValorProduto().multiply(BigDecimal.valueOf(i.getQtd())));
@@ -81,17 +81,17 @@ public class CarrinhoController implements Serializable {
                 item.setQtd(1);
                 item.setValorParcial(p.getValorProduto());
 
-                this.itens.add(item);
+                this.pedido.setItem(item);
             }
         } else {
             item.setProduto(p);
             item.setQtd(1);
             item.setValorParcial(p.getValorProduto());
 
-            this.itens.add(item);
+            this.pedido.setItem(item);
         }
 
-
+        atualizaValorTotal();
 
         // POST-REDIRECT-GET
         return new ModelAndView("redirect:/Carrinho");
@@ -102,7 +102,7 @@ public class CarrinhoController implements Serializable {
             @ModelAttribute("ptemp") PedidoTemp ptemp,
             RedirectAttributes redirectAttributes) {
 
-        for (ItemPedidoModel i : itens) {
+        for (ItemPedidoModel i : pedido.getItens()) {
             for (ItemIds w : ptemp.getItems()) {
                 if (i.getProduto().getId() == w.getIdProduto()) {
                     i.setQtd(w.getQtd());
@@ -118,13 +118,22 @@ public class CarrinhoController implements Serializable {
     public ModelAndView Remove(@PathVariable("id") Long id,
             RedirectAttributes redirectAttributes) {
 
-        for (ItemPedidoModel i : itens) {
+        for (ItemPedidoModel i : pedido.getItens()) {
                 if (i.getProduto().getId() == id) {
-                    itens.remove(i);
+                    pedido.getItens().remove(i);
                     break;
                 }
         }
 
         return new ModelAndView("redirect:/Carrinho");
+    }
+    
+    public void atualizaValorTotal() {
+        float aux = 0;
+        for(ItemPedidoModel i : this.pedido.getItens()) {
+            aux += i.getValorParcial().floatValue();
+        }
+        
+        this.pedido.setValorTotal(aux);
     }
 }

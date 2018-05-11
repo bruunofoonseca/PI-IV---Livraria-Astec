@@ -2,10 +2,17 @@
     "elements": {},
     "attributes": {
         "th:text": {},
+        "th:if": {
+            "context": "div"
+        },
+        "th:object": {},
         "th:src": {},
         "th:action": {},
         "th:each": {},
         "th:href": {},
+        "th:field": {
+            "context": "input"
+        },
         "layout:fragment": {}
     }
 }

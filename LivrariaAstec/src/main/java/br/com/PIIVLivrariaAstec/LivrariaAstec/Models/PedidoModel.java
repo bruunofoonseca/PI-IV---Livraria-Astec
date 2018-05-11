@@ -6,7 +6,10 @@
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -76,7 +79,7 @@ public class PedidoModel implements Serializable {
     private String statusPedido;
 
     public PedidoModel() {
-
+        this.itens = new LinkedHashSet<>();
     }
 
     public PedidoModel(Integer id, Set<ItemPedidoModel> itens, float valorTotal, Date dataVenda, String formaDePagamento, String numeroCartao, Date dataVencimento, String nomeNoCartao, int CVV, String statusPedido) {
