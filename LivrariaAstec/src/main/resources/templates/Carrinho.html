@@ -57,14 +57,14 @@
                                         <div class="col d-block d-md-none" style="text-align:right;margin-top:10px">
                                             <br>
                                             <label style="color: #4CAF50">
-                                                <span style="font-size: 12px" th:text="|R$ ${p.valorParcial}|"></span> 9999,99</label>
+                                                <span style="font-size: 12px" th:text="|R$ ${p.produto.valorProduto}|"></span> 9999,99</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-none d-md-block">
                                     <br>
                                     <label style="color: #4CAF50;font-size: 25px">
-                                        <span style="font-size: 25px" th:text="|R$ ${p.valorParcial}|"></label>
+                                        <span style="font-size: 25px" th:text="|R$ ${p.produto.valorProduto}|" id="precoUnitario"></label>
                                 </div>
                                 <div class="col-md-2 d-none d-md-block">
                                     <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:20px;">remove_circle_outline</a> -->
@@ -131,10 +131,18 @@
                             <div class="col" style="text-align:right">
 
                                 <div class="input-group mb-3">
-                                    <input type="number" class="form-control" placeholder="CEP" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control" placeholder="CEP" aria-describedby="basic-addon2" required="" id="cep" name="cep">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">Ok</button>
+                                        <button class="btn btn-primary" type="button" onclick="pesquisacep()">Ok</button>
                                     </div>
+                                    <label>Rua</label>
+                                    <input type="text" id="rua" name="rua" disabled/>
+                                    <label>Bairro</label>
+                                    <input type="text" id="bairro" name="bairro" disabled/>
+                                    <label>Cidade</label>
+                                    <input type="text" id="cidade" name="cidade" disabled/>
+                                    <label>Estado</label>
+                                    <input type="text" id="estado" name="estado" disabled/>
                                 </div>
                             </div>
                             <div class="w-100"></div>
