@@ -13,7 +13,7 @@
                                 <li class="breadcrumb-item active" aria-current="page">Carrinho</li>
                             </ol>
                         </nav>
-                        <h3 style="margin-bottom:20px">Meu Carrinho (x Itens)</h3>
+                        <h3 style="margin-bottom:20px">Meu Carrinho </h3>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <h5>Item(s)</h5>
@@ -82,18 +82,12 @@
                             </div>
                             <a class="material-icons" th:href="@{'/Carrinho/' + ${p.produto.id}}" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
                         </div>
-                        <div style="padding: 20px;">
-                            <button class="btn btn-success btn-block" type="submit">FINALIZAR VENDA</button>
-                        </div>
-                    </form>
-                    <!-- FIM PRODUTO -->
-                    <br>
-                </div>
-                <!-- FIM DA LISTAGEM DE PRODUTOS -->
-                <br>
+                        <br>
+                        <br>
                 <br>
                 <div class="row">
                     <!-- INICIO DO INPUT DE DESCONTO -->
+                    <!--
                     <div class="col-sm-12 col-md-6">
                         <div class="row">
                             <div class="col-12">
@@ -111,13 +105,14 @@
                             </div>
                         </div>
                     </div>
+                    -->
                     <!-- FIM DO INPUT DE DESCONTO -->
 
                     <!-- INICIO DA FINALIZAÇAO DA COMPRA -->
                     <div class="col-sm-12 col-md-6  border-left border-primary">
                         <div class="row">
                             <div class="col">
-                                <label for="">Subtotal (x Itens)</label>
+                                <label for="">Subtotal (Itens)</label>
                             </div>
                             <div class="col" style="text-align:right">
                                 <label for="">R$
@@ -150,11 +145,11 @@
                                 <label for="">Valor total a pagar:</label>
                             </div>
                             <div class="col" style="text-align:right">
-                                <label for="" style="color:lightgray;font-size:12px;text-decoration: line-through">De R$ 500,00</label>
                                 <br>
                                 <label style="color: #4CAF50;font-size: 25px">
                                     <span style="font-size: 12px">R$</span> 444,00</label>
                             </div>
+                            
                             <div class="w-100"></div>
                             <div class="col d-none d-md-block">
                                 <form action="/carrinho/validandoPedido" method="POST">
@@ -164,11 +159,18 @@
                                         <button class="btn btn-success btn-block" type="submit">FINALIZAR VENDA</button>
                                     </div>
                                 </form>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                     <!-- FIM DA FINALIZAÇAO DA COMPRA -->
                 </div>
+                        
+                    </form>
+                    <!-- FIM PRODUTO -->
+                    <br>
+                </div>
+                <!-- FIM DA LISTAGEM DE PRODUTOS -->
+                
             </div>
         </div>
     </div>
