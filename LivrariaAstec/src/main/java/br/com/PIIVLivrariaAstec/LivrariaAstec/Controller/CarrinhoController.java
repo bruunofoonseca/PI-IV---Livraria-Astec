@@ -88,16 +88,11 @@ public class CarrinhoController implements Serializable {
 
             this.itens.add(item);
         }
-<<<<<<< HEAD
-        
-        this.itens.add(item);
-      // POST-REDIRECT-GET
-      return new ModelAndView("redirect:/Carrinho");
-=======
+
+
 
         // POST-REDIRECT-GET
         return new ModelAndView("redirect:/Carrinho");
->>>>>>> 023df9560c6996aa1f5b83ff879e4c289cb06b10
     }
 
     @PostMapping("/validandoPedido")
