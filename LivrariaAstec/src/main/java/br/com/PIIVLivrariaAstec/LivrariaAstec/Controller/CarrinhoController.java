@@ -38,6 +38,8 @@ public class CarrinhoController implements Serializable {
     private ProdutoService service;
 
     public List<ItemPedidoModel> itens = new ArrayList<>();
+    
+    
 
     @GetMapping
     public ModelAndView mostrarCarrinho() {
