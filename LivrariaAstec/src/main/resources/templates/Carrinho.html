@@ -14,9 +14,7 @@
                             </ol>
                         </nav>
                         <h3 style="margin-bottom:20px">Meu Carrinho (x Itens)</h3>
-
                     </div>
-
                     <div class="col-sm-12 col-md-6">
                         <h5>Item(s)</h5>
                     </div>
@@ -32,74 +30,64 @@
                     <br>
                     <br>
                     <!-- INICIO PRODUTO -->
-
                     <div th:if="${@carrinhoController.itens.isEmpty()} == true" >Vazio</div>
-
-                    
                     <form action="/Carrinho/validandoPedido" method="POST" th:object="${ptemp}">
-                                
-                    <div th:each="p, status : ${@carrinhoController.itens}" class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
-                        <div class="row" style="width: 100%;margin-left:0px;margin-right:0px">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="row" style="width:100%;margin-left:0px;margin-right:0px">
-                                    <div class="col-4">
-                                        <img class="img-fluid" src="./imagens/products/15.jpg" alt="Card image cap">
-                                    </div>
-                                    <div class="col-8">
-                                        <h5 class="card-title" style="font-size:17px" th:text="${p.produto.nome}">Aqui vai o Titulo do Livro</h5>
-                                        <h6 style="font-size:12px;color: darkgrey" th:text="${p.produto.fabricante}">-Autor do livro</h6>
-                                    </div>
+                        <div th:each="p, status : ${@carrinhoController.itens}" class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
+                            <div class="row" style="width: 100%;margin-left:0px;margin-right:0px">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row" style="width:100%;margin-left:0px;margin-right:0px">
+                                        <div class="col-4">
+                                            <img class="img-fluid" src="./imagens/products/15.jpg" alt="Card image cap">
+                                        </div>
+                                        <div class="col-8">
+                                            <h5 class="card-title" style="font-size:17px" th:text="${p.produto.nome}">Aqui vai o Titulo do Livro</h5>
+                                            <h6 style="font-size:12px;color: darkgrey" th:text="${p.produto.fabricante}">-Autor do livro</h6>
+                                        </div>
 
-                                    <div class="w-100"></div>
-                                    <div class="col offset-4  d-block d-md-none">
-                                        <br>
-                                        <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:15px;">remove_circle_outline</a> -->
-                                        <!-- <span style="font-size:20px" th:text="${p.qtd}">1</span>-->
-                                        <label>Qtd</label>
-                                        <!-- <input type="number" name="qtd" min="1" max="100" th:value="${p.qtd}" th:field="*{quantidade}"/> -->
-                                        <!-- <input type="hidden" th:value="${p.produto.id}" name="numero" th:field="*{idProduto}"/> -->
-                                        <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:15px">add_circle_outline</a> -->
-                                    </div>
-                                    <div class="col d-block d-md-none" style="text-align:right;margin-top:10px">
-                                        <br>
-                                        <label style="color: #4CAF50">
-                                            <span style="font-size: 12px" th:text="|R$ ${p.valorParcial}|"></span> 9999,99</label>
+                                        <div class="w-100"></div>
+                                        <div class="col offset-4  d-block d-md-none">
+                                            <br>
+                                            <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:15px;">remove_circle_outline</a> -->
+                                            <!-- <span style="font-size:20px" th:text="${p.qtd}">1</span>-->
+                                            <label>Qtd</label>
+                                            <!-- <input type="number" name="qtd" min="1" max="100" th:value="${p.qtd}" th:field="*{quantidade}"/> -->
+                                            <!-- <input type="hidden" th:value="${p.produto.id}" name="numero" th:field="*{idProduto}"/> -->
+                                            <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:15px">add_circle_outline</a> -->
+                                        </div>
+                                        <div class="col d-block d-md-none" style="text-align:right;margin-top:10px">
+                                            <br>
+                                            <label style="color: #4CAF50">
+                                                <span style="font-size: 12px" th:text="|R$ ${p.valorParcial}|"></span> 9999,99</label>
+                                        </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-2 d-none d-md-block">
+                                    <br>
+                                    <label style="color: #4CAF50;font-size: 25px">
+                                        <span style="font-size: 25px" th:text="|R$ ${p.valorParcial}|"></label>
+                                </div>
+                                <div class="col-md-2 d-none d-md-block">
+                                    <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:20px;">remove_circle_outline</a> -->
+                                    <!-- <span style="font-size:25px" th:text="${p.qtd}">2</span> -->
+                                    <label>Qtd</label>
+                                    <input type="hidden" th:field="*{items[__${status.index}__].idProduto}">
+                                    <input type="number" min="1" max="100" th:field="*{items[__${status.index}__].qtd}"/>
+                                    <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:20px">add_circle_outline</a> -->
+                                </div>
+                                <div class="col-md-2 d-none d-md-block">
+                                    <br>
+                                    <label style="color: #4CAF50;font-size: 25px">
+                                        <span style="font-size: 25px" th:text="${p.valorParcial}"></span></label>
+                                </div>
                             </div>
-                            <div class="col-md-2 d-none d-md-block">
-                                <br>
-                                <label style="color: #4CAF50;font-size: 25px">
-                                    <span style="font-size: 25px" th:text="|R$ ${p.valorParcial}|"></label>
-                            </div>
-                            <div class="col-md-2 d-none d-md-block">
-                                <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:20px;">remove_circle_outline</a> -->
-                                <!-- <span style="font-size:25px" th:text="${p.qtd}">2</span> -->
-                                <label>Qtd</label>
-                                <input type="hidden" th:field="*{items[__${status.index}__].idProduto}">
-                                <input type="number" min="1" max="100" th:field="*{items[__${status.index}__].qtd}"/>
-                                <!-- <a class="material-icons" href="#" style="color: #007bff;font-size:20px">add_circle_outline</a> -->
-                            </div>
-                            <div class="col-md-2 d-none d-md-block">
-                                <br>
-                                <label style="color: #4CAF50;font-size: 25px">
-                                    <span style="font-size: 25px" th:text="${p.valorParcial}"></span></label>
-                            </div>
-
+                            <a class="material-icons" th:href="@{'/Carrinho/' + ${p.produto.id}}" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
                         </div>
-                        <a class="material-icons" href="#" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
-                    </div>
-
-                    <div style="padding: 20px;">
-                            
-                            <!-- <input type="hidden" th:value="${p.qtd}" name="qtd"/> -->
+                        <div style="padding: 20px;">
                             <button class="btn btn-success btn-block" type="submit">FINALIZAR VENDA</button>
                         </div>
                     </form>
                     <!-- FIM PRODUTO -->
                     <br>
-
                 </div>
                 <!-- FIM DA LISTAGEM DE PRODUTOS -->
                 <br>
@@ -121,11 +109,9 @@
                                     <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <!-- FIM DO INPUT DE DESCONTO -->
-
 
                     <!-- INICIO DA FINALIZAÇAO DA COMPRA -->
                     <div class="col-sm-12 col-md-6  border-left border-primary">
@@ -160,7 +146,6 @@
                                 <br>
                                 <label style="color: #4CAF50;font-size: 25px">
                                     <span style="font-size: 12px">R$</span> 444,00</label>
-
                             </div>
                             <div class="w-100"></div>
                             <div class="col d-none d-md-block">
@@ -173,19 +158,10 @@
                                 </form>
                             </div>
                         </div>
-
                     </div>
                     <!-- FIM DA FINALIZAÇAO DA COMPRA -->
-
                 </div>
-
-
             </div>
         </div>
-
-
-
-
-
     </div>
 </div>
