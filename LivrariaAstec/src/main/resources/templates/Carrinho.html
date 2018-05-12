@@ -1,4 +1,4 @@
-<div layout:decorate="~{index}" layout:fragment="conteudo"> 
+<div layout:decorate="~{index2}" layout:fragment="conteudo"> 
     <div class="container">
         <div class="row">
             <!-- INICIO DA LISTAGEM DE PRODUTOS -->
@@ -110,62 +110,80 @@
 
                     <!-- INICIO DA FINALIZAÇAO DA COMPRA -->
                     <div class="col-sm-12 col-md-6  border-left border-primary">
-                        <div class="row">
-                            <div class="col">
-                                <label for="">Subtotal (Itens)</label>
-                            </div>
-                            <div class="col" style="text-align:right">
-                                <label for="">R$
-                                    <span>444,00</span>
-                                </label>
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col">
-                                <label for="">Frete:</label>
-                            </div>
-                            <div class="col" style="text-align:right">
-
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="CEP" aria-describedby="basic-addon2" required="" id="cep" name="cep">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="pesquisacep()">Ok</button>
-                                    </div>
-                                    <label>Rua</label>
-                                    <input type="text" id="rua" name="rua" disabled/>
-                                    <label>Bairro</label>
-                                    <input type="text" id="bairro" name="bairro" disabled/>
-                                    <label>Cidade</label>
-                                    <input type="text" id="cidade" name="cidade" disabled/>
-                                    <label>Estado</label>
-                                    <input type="text" id="estado" name="estado" disabled/>
+                        <br>
+                        <div class="w-100"></div>                            
+                            <div class="col-12">
+                                <div class="form-row">
+                                    <div class="input-group col-7">
+                                           <input type="text" class="form-control" placeholder="Digite seu CEP" aria-describedby="basic-addon2" required="" id="cep" name="cep">
+                                           <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="pesquisacep()">OK</button>
+                                            </div>
+                                       </div>
+                                    <br>
+                                       <div class="col-md-6 mb-3">
+                                           <label>Rua</label>
+                                           <input class="form-control" type="text" id="rua" name="rua" disabled/>
+                                           <div class="valid-feedback">
+                                               ok!
+                                           </div>
+                                       </div>
+                                       <div class="col-md-6 mb-3">
+                                           <label>Bairro</label>
+                                           <input class="form-control" type="text" id="bairro" name="bairro" disabled/>
+                                           <div class="valid-feedback">
+                                               ok!
+                                           </div>
+                                       </div>
+                                       <div class="col-md-6 mb-3">
+                                           <label>Cidade</label>
+                                           <input class="form-control" type="text" id="cidade" name="cidade" disabled/>                                           <div class="valid-feedback">
+                                               ok!
+                                           </div>
+                                       </div>
+                                       <div class="col-md-6 mb-3">
+                                           <label>Estado</label>
+                                           <input class="form-control" type="text" id="estado" name="estado" disabled/>                                         <div class="valid-feedback">
+                                               ok!
+                                           </div>
+                                       </div>
+                                    <div class="col-md-6 mb-3">
+                                           <label>Numero</label>
+                                           <input class="form-control" type="text" id="estado" name="estado"/>                                         <div class="valid-feedback">
+                                               ok!
+                                           </div>
+                                       </div>
+                                    <div class="col-md-6 mb-3">
+                                           <label>Complemento</label>
+                                           <input class="form-control" type="text" id="estado" name="estado"/>                                         <div class="valid-feedback">
+                                               ok!
+                                           </div>
+                                       </div>  
                                 </div>
                             </div>
-                            <div class="w-100"></div>
-                            <div class="col">
-                                <label for="">Valor total a pagar:</label>
-                            </div>
-                            <div class="col" style="text-align:right">
-                                <br>
-                                <label style="color: #4CAF50;font-size: 25px" >
-                                    <span style="font-size: 25px" th:text="|R$ ${@carrinhoController.pedido.valorTotal}|">R$</span></label>
-                            </div>
-                            
-                            <div class="w-100"></div>
-                            <div class="col d-none d-md-block">
-                                <form action="/carrinho/validandoPedido" method="POST">
-                                    <div style="padding: 20px;">
-                                        <!-- <input type="hidden" th:value="${p.produto.id}" name="numero"/> -->
-                                        <!-- <input type="hidden" th:value="${p.qtd}" name="qtd"/> -->
-                                        <button class="btn btn-success btn-block" type="submit">FINALIZAR VENDA</button>
-                                    </div>
-                                </form>
-                            </div> 
                         </div>
+                    <div class="col-12" style="float: right;">
+                        <div class="col" style="text-align:right;">
+                            <label style="color: #4CAF50;font-size: 20px; text-align: right;"></label>
+                            <span style="font-size: 20px">Valor total a pagar:</span>
+                            <br>
+                            <br>
+                            <label style="color: #4CAF50;font-size: 25px;">
+                                <span style="font-size: 25px" th:text="|R$ ${@carrinhoController.pedido.valorTotal}|">R$</span></label>
+                        </div>
+                        <br>
+                        <div class="col-3" style="float: right;">
+                            <form action="/carrinho/validandoPedido" method="POST">
+                                <div>
+                                    <button class="btn btn-success btn-block" type="submit">FINALIZAR VENDA</button>
+                                </div>
+                            </form>
+                        </div> 
                     </div>
                     <!-- FIM DA FINALIZAÇAO DA COMPRA -->
-                </div>
+                
                         
-                    </form>
+                    
                     <!-- FIM PRODUTO -->
                     <br>
                 </div>
@@ -175,3 +193,5 @@
         </div>
     </div>
 </div>
+    <br>
+    </div>
