@@ -23,6 +23,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 
@@ -39,8 +40,9 @@ public class PedidoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_CLIENTE")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "ID_CLIENTE")
+    @Transient
     private UsuarioModel cliente;
 
     @OneToMany(mappedBy = "pedido")
@@ -50,32 +52,39 @@ public class PedidoModel implements Serializable {
     @Column(name = "VALOR_TOTAL", precision = 6, scale = 2, nullable = false)
     private float valorTotal;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DATA_VENDA", nullable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @Column(name = "DATA_VENDA", nullable = false)
+    @Transient
     private Date dataVenda;
     
-    @Size(min = 1, max = 100, message = "Forma de pagamento inválida")
-    @Column(name = "FORMA_DE_PAGAMENTO", length = 100, nullable = false)
+//    @Size(min = 1, max = 100, message = "Forma de pagamento inválida")
+//    @Column(name = "FORMA_DE_PAGAMENTO", length = 100, nullable = false)
+    @Transient
     private String formaDePagamento;
     
-    @Size(min = 1, max = 100, message = "Número de cartão inválido")
-    @Column(name = "NUMERO_CARTAO", length = 100, nullable = true)
+//    @Size(min = 1, max = 100, message = "Número de cartão inválido")
+//    @Column(name = "NUMERO_CARTAO", length = 100, nullable = true)
+    @Transient
     private String numeroCartao;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DATA_VENCIMENTO_CARTAO", nullable = true)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @Column(name = "DATA_VENCIMENTO_CARTAO", nullable = true)
+    @Transient
     private Date dataVencimento;
     
-    @Size(min = 1, max = 100, message = "Nome no cartão inválido")
-    @Column(name = "NOME_CARTAO", length = 100, nullable = true)
+//    @Size(min = 1, max = 100, message = "Nome no cartão inválido")
+//    @Column(name = "NOME_CARTAO", length = 100, nullable = true)
+    @Transient
     private String nomeNoCartao;
     
-    @Digits(integer = 6, fraction = 0)
-    @Column(name = "CVV_CARTAO", precision = 6, nullable = true)
+//    @Digits(integer = 6, fraction = 0)
+//    @Column(name = "CVV_CARTAO", precision = 6, nullable = true)
+    @Transient
     private int CVV;
     
-    @Size(min = 1, max = 100, message = "status inválido")
-    @Column(name = "STATUS_PEDIDO", length = 100, nullable = false)
+//    @Size(min = 1, max = 100, message = "status inválido")
+//    @Column(name = "STATUS_PEDIDO", length = 100, nullable = false)
+    @Transient
     private String statusPedido;
 
     public PedidoModel() {

@@ -10,10 +10,12 @@ import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemPedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoTemp;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.service.PedidoService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -37,6 +39,9 @@ public class CarrinhoController implements Serializable {
 
     @Autowired
     private ProdutoService service;
+    
+    @Autowired
+    private PedidoService servicePedido;
 
 //    public List<ItemPedidoModel> itens = new ArrayList<>();
     public PedidoModel pedido = new PedidoModel();
@@ -80,6 +85,7 @@ public class CarrinhoController implements Serializable {
                 item.setProduto(p);
                 item.setQtd(1);
                 item.setValorParcial(p.getValorProduto());
+                item.setPedido(pedido);
 
                 this.pedido.setItem(item);
             }
@@ -87,6 +93,7 @@ public class CarrinhoController implements Serializable {
             item.setProduto(p);
             item.setQtd(1);
             item.setValorParcial(p.getValorProduto());
+            item.setPedido(pedido);
 
             this.pedido.setItem(item);
         }
@@ -110,6 +117,10 @@ public class CarrinhoController implements Serializable {
                 }
             }
         }
+        
+//        pedido.setDataVenda(new Date());
+
+        servicePedido.inserir(pedido);
 
         return new ModelAndView("redirect:/login");
     }
@@ -124,6 +135,8 @@ public class CarrinhoController implements Serializable {
                     break;
                 }
         }
+        
+        atualizaValorTotal();
 
         return new ModelAndView("redirect:/Carrinho");
     }

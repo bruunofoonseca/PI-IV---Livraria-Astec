@@ -13,11 +13,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author bruno.falmeida
  */
+@Repository
 public class PedidoServiceJpaImpl implements PedidoService {
 
     @PersistenceContext
@@ -45,7 +48,11 @@ public class PedidoServiceJpaImpl implements PedidoService {
     }
 
     @Override
+    @Transactional
     public void inserir(PedidoModel pedido) {
+        entityManager.persist(pedido);
+        entityManager.flush();
+
         for (ItemPedidoModel i : pedido.getItens()) {
             if (i.getId() == null) {
               entityManager.persist(i);
@@ -53,7 +60,5 @@ public class PedidoServiceJpaImpl implements PedidoService {
               entityManager.merge(i);
             }
         }
-
-        entityManager.persist(pedido);
     }
 }
