@@ -60,6 +60,14 @@ public class ItemPedidoModel implements Serializable {
         this.pedido = pedido;
     }
 
+    public PedidoModel getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(PedidoModel pedido) {
+        this.pedido = pedido;
+    }
+
     public ProdutoModel getProduto() {
         return produto;
     }
