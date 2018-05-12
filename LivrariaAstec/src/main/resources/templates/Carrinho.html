@@ -10,10 +10,17 @@
                                 <li class="breadcrumb-item">
                                     <a href="#">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Carrinho</li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">Carrinho</a>
+                                </li>
                             </ol>
                         </nav>
-                        <h3 style="margin-bottom:20px">Meu Carrinho </h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="95" aria-valuemin="0"
+                                 aria-valuemax="100" style="width: 95%">80% da Compra Concluida</div>
+                        </div>
+                        <br>
+                        <br>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <h5>Item(s)</h5>
@@ -111,9 +118,7 @@
                     <!-- INICIO DA FINALIZAÇAO DA COMPRA -->
                     <div class="col-sm-12 col-md-6  border-left border-primary">
                         <br>
-                        <div class="w-100"></div>                            
-                            <div class="col-12">
-                                <div class="form-row">
+                                <div class="form-row col-xs-6">
                                     <div class="input-group col-7">
                                            <input type="text" class="form-control" placeholder="Digite seu CEP" aria-describedby="basic-addon2" required="" id="cep" name="cep">
                                            <div class="input-group-append">
@@ -160,7 +165,64 @@
                                            </div>
                                        </div>  
                                 </div>
-                            </div>
+                                    <div class="container">
+        <div class="row" style="margin: 10px">
+            <div class="col-12 nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active border border-warning" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                   aria-controls="v-pills-home" aria-selected="true" style="width: 50%">Credito</a>
+                <a class="nav-link border border-warning" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                   aria-controls="v-pills-profile" aria-selected="false" style="width: 50%">Boleto</a>
+
+            </div>
+
+        </div>
+        <br>
+    </div>
+
+    <div class="tab-content col-xs-6 " id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="inputCustom">Cartão</label>
+                        <select id="inputCustom" class="form-control">
+                            <option selected>Escolha...</option>
+                            <option>Visa</option>
+                            <option>Mastercard</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCustom2">Numero do cartão</label>
+                        <input type="text" class="form-control" id="inputCustom2" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCustom3">Nome do titular</label>
+                        <input type="text" class="form-control" id="inputCustom3 " placeholder="">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputCustom4">Validade</label>
+                        <input type="text" class="form-control" id="inputCustom4" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCustom5">Codigo de Segurança</label>
+                        <input type="text" class="form-control" id="inputCustom5" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCustom6">CPF DO TITULAR</label>
+                        <input type="text" class="form-control" id="inputCustom6" placeholder="">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            ...
+        </div>
+    </div>
                         </div>
                     <div class="col-12" style="float: right;">
                         <div class="col" style="text-align:right;">
