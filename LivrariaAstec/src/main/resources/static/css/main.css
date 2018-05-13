@@ -206,3 +206,10 @@ hr{
     background: no-repeat center;
     height: 120px;
 }
+.ifVazio{
+    background: lightcyan;
+    color: darkslategray;
+    padding: 40px;
+    border-style: dashed solid;
+    border-color: darkslategray;
+}

@@ -21,10 +21,12 @@
 
                     </div>
 
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="95" aria-valuemin="0"
-                             aria-valuemax="100" style="width: 95%">80% da Compra Concluida</div>
+                    <div class="col-12">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80% da compra concluida</div>
+                        </div>
                     </div>
+
                     <br>
                     <br>
 
@@ -41,15 +43,12 @@
                     <div class="col-2 d-none d-md-block">
                         <h5>Subtotal</h5>
                     </div>
-                    <br>
-                    <br>
 
-                    <br>
                 </div>
                 <!-- FIM DA LISTAGEM DE PRODUTOS -->
                 <br>
                 <br>
-                <div th:if="${@carrinhoController.pedido.itens.isEmpty()} == true" >Vazio</div>
+                <div class="ifVazio" th:if="${@carrinhoController.pedido.itens.isEmpty()} == true" >Lista vazia</div>
                 <form action="/Carrinho/validandoPedido" method="POST" th:object="${ptemp}">
                     <div class="row">
 
@@ -106,8 +105,9 @@
                             <a class="material-icons" href="#" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
 
                         </div>
-
+                        
                         <div class="col-sm-12 col-md-6" style="margin-top:10px">
+                            
                             <div class="container">
                                 <div class="row">
                                     <!-- INICIO DO INPUT DE CEP -->
