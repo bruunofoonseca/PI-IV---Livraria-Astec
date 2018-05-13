@@ -116,8 +116,7 @@ public class CarrinhoController implements Serializable {
                     i.setValorParcial(i.getProduto().getValorProduto().multiply(BigDecimal.valueOf(w.getQtd())));
                 }
             }
-        }
-        
+        }       
 //        pedido.setDataVenda(new Date());
 
         servicePedido.inserir(pedido);

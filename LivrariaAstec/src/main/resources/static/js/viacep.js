@@ -29,8 +29,8 @@ console.log('viaCep');
 
         //Nova variável "cep" somente com dígitos.
         //var cep = valor.replace(/\D/g, '');
-        //var cep = '04803070';
-        var cep = document.getElementById('cep').value;
+        var cep = '04803070';
+        //var cep = document.getElementById('cep').value;
 
         //Verifica se campo cep possui valor informado.
         if (cep !== "") {
