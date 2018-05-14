@@ -4,7 +4,7 @@
             <div class="col-12">
 
                 <div class="row">
-                    <form action="">
+                    <form th:action="@{/Carrinho/validaPagamento}" th:object="${ped}" method="post">
                         <div class="col-12">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -61,38 +61,36 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-12">
                                                             <label for="inputCustom">Cartão</label>
-                                                            <select id="inputCustom" class="form-control">
-                                                                <option selected>Escolha...</option>
-                                                                <option>Visa</option>
-                                                                <option>Mastercard</option>
+                                                            <select id="inputCustom" class="form-control" th:field="*{bandeiraCartao}">
+                                                                <option value="" selected>Escolha...</option>
+                                                                <option value="Visa">Visa</option>
+                                                                <option value="MasterCard">MasterCard</option>
                                                             </select>
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label for="inputCustom2">Numero do cartão</label>
-                                                            <input type="text" class="form-control" id="inputCustom2" placeholder="">
+                                                            <input type="text" class="form-control" id="inputCustom2" placeholder="" th:field="*{numeroCartao}">
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label for="inputCustom3">Nome do titular</label>
-                                                            <input type="text" class="form-control" id="inputCustom3 " placeholder="">
+                                                            <input type="text" class="form-control" id="inputCustom3 " placeholder="" th:field="*{nomeNoCartao}">
                                                         </div>
-
 
                                                         <div class="form-group col-md-6">
                                                             <label for="inputCustom4">Validade</label>
-                                                            <input type="text" class="form-control" id="inputCustom4" placeholder="">
+                                                            <input type="text" class="form-control" id="inputCustom4" placeholder="" th:field="*{dataVencimento}">
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label for="inputCustom5">Cod. de segurança</label>
-                                                            <input type="text" class="form-control" id="inputCustom5" placeholder="">
+                                                            <input type="text" class="form-control" id="inputCustom5" placeholder="" th:field="*{CVV}">
                                                         </div>
                                                         <div class="form-group col-md-12">
                                                             <label for="inputCustom6">CPF DO TITULAR</label>
-                                                            <input type="text" class="form-control" id="inputCustom6" placeholder="">
+                                                            <input type="text" class="form-control" id="inputCustom6" placeholder="" th:field="*{CPFTitular}">
                                                         </div>
                                                     </div>
                                                     <br>
                                                     <br>
-
 
                                                 </div>
                                                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
