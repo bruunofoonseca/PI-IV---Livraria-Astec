@@ -3,7 +3,6 @@
         <div class="row-fluid" style="padding:0px;margin: 0px">
             <!-- INICIO DA LISTAGEM DE PRODUTOS -->
             <div class="col-12">
-                <div class="row">
                 <div class="row" style="width: 100%">
 
 
@@ -76,8 +75,7 @@
                                             <!-- <input type="hidden" th:value="${p.produto.id}" name="numero" th:field="*{idProduto}"/> -->
                                         </div>
                                         <div class="col  d-block d-md-none" style="text-align:right;margin-top:10px">
-                                            <label for="" style="color:lightgray;font-size:12px;text-decoration: line-through">De R$ 250,00</label>
-                                            <br>
+                                            
                                             <label style="color: #4CAF50">
                                                 <span style="font-size: 12px"th:text="|R$ ${p.produto.valorProduto}|">999,99</span></label>
                                         </div>
@@ -95,7 +93,7 @@
                                     <input type="number" min="1" max="100" th:field="*{items[__${status.index}__].qtd}"/>
                                 </div>
                                 <div class="col-md-2 d-none d-md-block">
-                                    <label for="" style="color:lightgray;font-size:12px;text-decoration: line-through">De R$ 500,00</label>
+                                    
                                     <br>
                                     <label style="color: #4CAF50;font-size: 25px">
                                         <span style="font-size: 25px" th:text="${p.valorParcial}"></span></label>
@@ -107,68 +105,9 @@
 
                         </div>
                         
-                        <div class="col-sm-12 col-md-6" style="margin-top:10px">
-                            
-                            <div class="container">
-                                <div class="row">
-                                    <!-- INICIO DO INPUT DE CEP -->
-                                    <div class="form-row col-xs-12"></div>
-                                    <div class="input-group col-12">
-                                        <input type="text" class="form-control" placeholder="Digite seu CEP" aria-describedby="basic-addon2" required="" id="cep"
-                                               name="cep">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="pesquisacep()">OK</button>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="col-md-6 mb-3">
-                                        <label>Rua</label>
-                                        <input class="form-control" type="text" id="rua" name="rua" disabled/>
-                                        <div class="valid-feedback">
-                                            ok!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label>Bairro</label>
-                                        <input class="form-control" type="text" id="bairro" name="bairro" disabled/>
-                                        <div class="valid-feedback">
-                                            ok!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label>Cidade</label>
-                                        <input class="form-control" type="text" id="cidade" name="cidade" disabled/>
-                                        <div class="valid-feedback">
-                                            ok!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label>Estado</label>
-                                        <input class="form-control" type="text" id="estado" name="estado" disabled/>
-                                        <div class="valid-feedback">
-                                            ok!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label>Numero</label>
-                                        <input class="form-control" type="text" id="numero" name="numero" />
-                                        <div class="valid-feedback">
-                                            ok!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label>Complemento</label>
-                                        <input class="form-control" type="text" id="complemento" name="complemento" />
-                                        <div class="valid-feedback">
-                                            ok!
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- FIM DO INPUT DE CEP -->
-                            </div>
-                            <a class="material-icons" href="#" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 offset-md-6  border-left border-primary">
+                        
+                        
+                        <div class="col-sm-12 offset-md-6 col-md-6 border-left border-primary" style="margin-top: 10px">
                             <br>
                             <div class="row">
                                 
@@ -200,6 +139,5 @@
             </div>
         </div>
     </div>
-</div>
 
 
