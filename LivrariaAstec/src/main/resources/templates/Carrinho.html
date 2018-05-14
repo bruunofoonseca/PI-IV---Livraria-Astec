@@ -75,7 +75,7 @@
                                             <!-- <input type="hidden" th:value="${p.produto.id}" name="numero" th:field="*{idProduto}"/> -->
                                         </div>
                                         <div class="col  d-block d-md-none" style="text-align:right;margin-top:10px">
-                                            
+
                                             <label style="color: #4CAF50">
                                                 <span style="font-size: 12px"th:text="|R$ ${p.produto.valorProduto}|">999,99</span></label>
                                         </div>
@@ -93,7 +93,7 @@
                                     <input type="number" min="1" max="100" th:field="*{items[__${status.index}__].qtd}"/>
                                 </div>
                                 <div class="col-md-2 d-none d-md-block">
-                                    
+
                                     <br>
                                     <label style="color: #4CAF50;font-size: 25px">
                                         <span style="font-size: 25px" th:text="${p.valorParcial}"></span></label>
@@ -104,18 +104,18 @@
                             <a class="material-icons" href="#" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
 
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="col-sm-12 offset-md-6 col-md-6 border-left border-primary" style="margin-top: 10px">
                             <br>
                             <div class="row">
-                                
+
                                 <div class="col">
                                     <label for="">Valor total a pagar:</label>
                                 </div>
                                 <div class="col" style="text-align:right">
-                                    
+
                                     <br>
                                     <label style="color: #4CAF50;font-size: 25px" th:text="|R$ ${@carrinhoController.pedido.valorTotal}|">
                                         444,00</label>
@@ -134,10 +134,8 @@
                 </form>
 
                 <!-- FIM PRODUTO -->
-                        <!-- FIM DA FINALIZAÇAO DA COMPRA -->
-                    </div>
+                <!-- FIM DA FINALIZAÇAO DA COMPRA -->
             </div>
         </div>
     </div>
-
-
+</div>

@@ -68,7 +68,8 @@ public class UsuarioModel implements Serializable {
     @Column(name = "STATUS", nullable = false)
     private boolean ativo;
     
-    @OneToMany(mappedBy = "usuario")
+//    @OneToMany(mappedBy = "usuario")
+    @Transient
     private Set<EnderecoModel> enderecos;
     
 //    @OneToMany(mappedBy = "cliente")

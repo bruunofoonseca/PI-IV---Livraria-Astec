@@ -50,6 +50,12 @@ public class PedidoServiceJpaImpl implements PedidoService {
     @Override
     @Transactional
     public void inserir(PedidoModel pedido) {
+        if(pedido.getEnderecoEntrega().getId() == null) {
+            entityManager.persist(pedido.getEnderecoEntrega());
+        } else {
+            entityManager.merge(pedido.getEnderecoEntrega());
+        }
+        entityManager.flush();
         entityManager.persist(pedido);
         entityManager.flush();
 

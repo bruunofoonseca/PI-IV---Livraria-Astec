@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 
@@ -38,7 +39,7 @@ public class EnderecoModel implements Serializable {
     private String logradouro;
 
     @Digits(integer = 6, fraction = 0)
-    @Column(name = "NUMERO", precision = 6, nullable = true)
+    @Column(name = "NUMERO", precision = 6, nullable = false)
     private int numero;
 
     @Size(min = 1, max = 100, message = "Complemento inválido")
@@ -61,12 +62,14 @@ public class EnderecoModel implements Serializable {
     @Column(name = "CIDADE", length = 100, nullable = false)
     private String cidade;
 
-    @Size(min = 1, max = 100, message = "Apelido inválido")
-    @Column(name = "APELIDO", length = 100, nullable = false)
+//    @Size(min = 1, max = 100, message = "Apelido inválido")
+//    @Column(name = "APELIDO", length = 100, nullable = false)
+    @Transient
     private String apelido;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_USUARIO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "ID_USUARIO")
+    @Transient
     private UsuarioModel usuario;
 
     @OneToMany(mappedBy = "enderecoEntrega")

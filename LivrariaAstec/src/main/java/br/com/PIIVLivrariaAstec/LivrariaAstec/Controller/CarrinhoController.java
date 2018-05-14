@@ -149,12 +149,14 @@ public class CarrinhoController implements Serializable {
     }
     
     @PostMapping("/validaEntrega")
-    public ModelAndView validaEndereco(@ModelAttribute("prod") @Valid EnderecoModel end,
+    public ModelAndView validaEndereco(@ModelAttribute("endereco") EnderecoModel end,
 	  BindingResult bindingResult,
 	  RedirectAttributes redirectAttributes) {
         
         pedido.setEnderecoEntrega(end);
         end.setPedido(pedido);
+        
+        servicePedido.inserir(pedido);
         
         return new ModelAndView("redirect:/");
     }
