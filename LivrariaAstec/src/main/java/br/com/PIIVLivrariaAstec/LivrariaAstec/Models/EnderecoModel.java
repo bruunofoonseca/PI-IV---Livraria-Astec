@@ -6,6 +6,7 @@
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
@@ -57,20 +59,47 @@ public class EnderecoModel implements Serializable {
     @Size(min = 1, max = 100, message = "Cidade inválido")
     @Column(name = "CIDADE", length = 100, nullable = false)
     private String cidade;
-    
+
     @Size(min = 1, max = 100, message = "Apelido inválido")
     @Column(name = "APELIDO", length = 100, nullable = false)
     private String apelido;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_USUARIO")
     private UsuarioModel usuario;
+
+    @OneToMany(mappedBy = "enderecoEntrega")
+    private Set<PedidoModel> pedido;
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
+    }
+
+    public UsuarioModel getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioModel usuario) {
+        this.usuario = usuario;
+    }
+
+    public Set<PedidoModel> getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Set<PedidoModel> pedido) {
+        this.pedido = pedido;
+    }
 
     public EnderecoModel() {
 
     }
 
-    public EnderecoModel(Long id, String logradouro, int numero, String complemento, String cep, String bairro, String estado, String cidade) {
+    public EnderecoModel(Long id, String logradouro, int numero, String complemento, String cep, String bairro, String estado, String cidade, String apelido, UsuarioModel usuario, Set<PedidoModel> pedido) {
         this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -79,6 +108,9 @@ public class EnderecoModel implements Serializable {
         this.bairro = bairro;
         this.estado = estado;
         this.cidade = cidade;
+        this.apelido = apelido;
+        this.usuario = usuario;
+        this.pedido = pedido;
     }
 
     public Long getId() {

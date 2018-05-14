@@ -1,6 +1,7 @@
 {
     "elements": {},
     "attributes": {
+        "aria-current": {},
         "th:text": {},
         "th:if": {
             "context": "div"
