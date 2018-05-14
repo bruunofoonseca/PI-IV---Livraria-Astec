@@ -20,6 +20,6 @@ public class GerenciamentoVendaController {
     
     @GetMapping("/listarVenda")
     public ModelAndView listarVenda(){
-        return new ModelAndView("");
+        return new ModelAndView("vendasRealizadas");
     }
 }
