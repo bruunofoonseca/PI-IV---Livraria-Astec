@@ -57,8 +57,7 @@ public class PedidoModel implements Serializable {
     private float valorTotal;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DATA_VENDA", nullable = true)
-//    @Transient
+    @Column(name = "DATA_VENDA", nullable = false)
     private Date dataVenda;
     
 //    @Size(min = 1, max = 100, message = "Forma de pagamento inválida")

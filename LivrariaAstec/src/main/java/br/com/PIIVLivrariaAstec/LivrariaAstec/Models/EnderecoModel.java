@@ -6,6 +6,7 @@
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -87,16 +88,20 @@ public class EnderecoModel implements Serializable {
         this.usuario = usuario;
     }
 
-    public Set<PedidoModel> getPedido() {
+    public Set<PedidoModel> getPedidos() {
         return pedido;
     }
 
-    public void setPedido(Set<PedidoModel> pedido) {
+    public void setPedidos(Set<PedidoModel> pedido) {
         this.pedido = pedido;
+    }
+    
+    public void setPedido(PedidoModel pedido) {
+        this.pedido.add(pedido);
     }
 
     public EnderecoModel() {
-
+        this.pedido = new LinkedHashSet<>();
     }
 
     public EnderecoModel(Long id, String logradouro, int numero, String complemento, String cep, String bairro, String estado, String cidade, String apelido, UsuarioModel usuario, Set<PedidoModel> pedido) {

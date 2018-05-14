@@ -5,6 +5,7 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.EnderecoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemIds;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemPedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
@@ -17,9 +18,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -116,12 +119,11 @@ public class CarrinhoController implements Serializable {
                     i.setValorParcial(i.getProduto().getValorProduto().multiply(BigDecimal.valueOf(w.getQtd())));
                 }
             }
-        }       
-//        pedido.setDataVenda(new Date());
+        }
 
-        servicePedido.inserir(pedido);
+        pedido.setDataVenda(new Date());
 
-        return new ModelAndView("redirect:/entrega");
+        return new ModelAndView("redirect:/Carrinho/entrega");
     }
     
     @GetMapping("/{id}")
@@ -134,18 +136,35 @@ public class CarrinhoController implements Serializable {
                     break;
                 }
         }
-        
+
         atualizaValorTotal();
 
         return new ModelAndView("redirect:/Carrinho");
     }
+
+    @GetMapping("/entrega")
+    public ModelAndView endereco() {
+        EnderecoModel endereco = new EnderecoModel();
+        return new ModelAndView("entrega").addObject("endereco", endereco);
+    }
     
+    @PostMapping("/validaEntrega")
+    public ModelAndView validaEndereco(@ModelAttribute("prod") @Valid EnderecoModel end,
+	  BindingResult bindingResult,
+	  RedirectAttributes redirectAttributes) {
+        
+        pedido.setEnderecoEntrega(end);
+        end.setPedido(pedido);
+        
+        return new ModelAndView("redirect:/");
+    }
+
     public void atualizaValorTotal() {
         float aux = 0;
         for(ItemPedidoModel i : this.pedido.getItens()) {
             aux += i.getValorParcial().floatValue();
         }
-        
+
         this.pedido.setValorTotal(aux);
     }
 }
