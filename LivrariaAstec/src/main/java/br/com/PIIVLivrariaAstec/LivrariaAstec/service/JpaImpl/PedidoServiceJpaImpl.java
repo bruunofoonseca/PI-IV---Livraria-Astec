@@ -8,6 +8,7 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemPedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.PedidoService;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -32,6 +33,16 @@ public class PedidoServiceJpaImpl implements PedidoService {
                 "SELECT p FROM PedidoModel p");
 
         List<PedidoModel> resultados = query.getResultList();
+
+        return resultados;
+    }
+    
+    @Override
+    public List<UsuarioModel> listarUsuário() {
+        Query query = entityManager.createQuery(
+                "SELECT p FROM UsuarioModel p");
+
+        List<UsuarioModel> resultados = query.getResultList();
 
         return resultados;
     }

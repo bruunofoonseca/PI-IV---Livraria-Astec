@@ -72,8 +72,8 @@ public class UsuarioModel implements Serializable {
     @Transient
     private Set<EnderecoModel> enderecos;
     
-//    @OneToMany(mappedBy = "cliente")
-    @Transient
+    @OneToMany(mappedBy = "cliente")
+//    @Transient
     private Set<PedidoModel> pedidos;
 
     // constructor

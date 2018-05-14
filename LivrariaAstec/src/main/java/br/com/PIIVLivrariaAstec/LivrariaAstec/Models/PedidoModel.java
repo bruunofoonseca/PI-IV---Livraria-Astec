@@ -40,9 +40,9 @@ public class PedidoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "ID_CLIENTE")
-    @Transient
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CLIENTE")
+//    @Transient
     private UsuarioModel cliente;
 
     @OneToMany(mappedBy = "pedido")

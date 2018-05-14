@@ -11,6 +11,7 @@ import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ItemPedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoTemp;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.PedidoService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
 import java.io.Serializable;
@@ -46,7 +47,6 @@ public class CarrinhoController implements Serializable {
     @Autowired
     private PedidoService servicePedido;
 
-//    public List<ItemPedidoModel> itens = new ArrayList<>();
     public PedidoModel pedido = new PedidoModel();
 
     @GetMapping
@@ -60,6 +60,9 @@ public class CarrinhoController implements Serializable {
                 temp.add(i);
             }
         }
+        
+        List<UsuarioModel> usuarios = servicePedido.listarUsuário();
+        pedido.setCliente(usuarios.get(0));
 
         PedidoTemp ptemp = new PedidoTemp();
         ptemp.setItems(temp);
