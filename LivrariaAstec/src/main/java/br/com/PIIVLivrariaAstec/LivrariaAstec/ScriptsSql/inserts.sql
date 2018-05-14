@@ -31,4 +31,4 @@ insert tb_produto values (6, 'CAPA DURA', 1.2, 'CONHEÇA A SUPREENDENTE HISTORIA
 insert tb_usuario values (1, true, '(11)93323-7155', '369.254.159-56', '2000-01-05', 'usuario@usuario.com', 'Solteiro', 'Usuario de Teste', 'M', '(11)3874-6245');
 
 /* ENDEREÇO */
-insert tb_endereco values (1, 'Endereço 1', 'Santo Amaro', '04578-124', 'São Paulo', 'Próximo ao Assaí Atacadista', 'SP', 'Av Engenheiro Stevaux', 823, 1);
+insert tb_endereco values (1, 'Santo Amaro', '04578-124', 'São Paulo', 'Próximo ao Assaí Atacadista', 'SP', 'Av Engenheiro Stevaux', 823);

@@ -161,7 +161,13 @@ public class CarrinhoController implements Serializable {
         
         servicePedido.inserir(pedido);
         
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/Carrinho/metodoPagamento");
+    }
+    
+    @GetMapping("/metodoPagamento")
+    public ModelAndView metodoPagamento(){
+        
+        return new ModelAndView("PagamentoTsuda");
     }
 
     public void atualizaValorTotal() {
