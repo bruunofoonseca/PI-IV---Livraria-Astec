@@ -121,7 +121,7 @@ public class CarrinhoController implements Serializable {
 
         servicePedido.inserir(pedido);
 
-        return new ModelAndView("redirect:/login");
+        return new ModelAndView("redirect:/entrega");
     }
     
     @GetMapping("/{id}")
