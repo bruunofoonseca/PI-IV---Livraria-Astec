@@ -30,7 +30,10 @@ public class PedidoServiceJpaImpl implements PedidoService {
     @Override
     public List<PedidoModel> listar() {
         Query query = entityManager.createQuery(
-                "SELECT p FROM PedidoModel p");
+                "SELECT DISTINCT p FROM PedidoModel p " +
+                "INNER JOIN FETCH p.cliente " +
+                "INNER JOIN FETCH p.enderecoEntrega " +
+                "LEFT JOIN FETCH p.itens");
 
         List<PedidoModel> resultados = query.getResultList();
 

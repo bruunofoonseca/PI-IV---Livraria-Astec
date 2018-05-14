@@ -90,8 +90,8 @@ public class PedidoModel implements Serializable {
 //    @Transient
     private int CVV;
     
-    @Digits(integer = 6, fraction = 0)
-    @Column(name = "CPF_TITULAR_CARTAO", precision = 6, nullable = true)
+    @Size(min = 1, max = 100, message = "status inválido")
+    @Column(name = "CPF_TITULAR_CARTAO", length = 100, nullable = true)
 //    @Transient
     private String CPFTitular;
     

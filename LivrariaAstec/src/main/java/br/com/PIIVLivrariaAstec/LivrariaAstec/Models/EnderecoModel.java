@@ -43,7 +43,7 @@ public class EnderecoModel implements Serializable {
     private int numero;
 
     @Size(min = 1, max = 100, message = "Complemento inválido")
-    @Column(name = "COMPLEMENTO", length = 100, nullable = false)
+    @Column(name = "COMPLEMENTO", length = 100, nullable = true)
     private String complemento;
 
     @Size(min = 1, max = 100, message = "CEP inválido")
