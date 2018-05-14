@@ -107,8 +107,8 @@ public class ProdutoModel implements Serializable {
     @OneToMany(mappedBy = "produto")
     private Set<ImagemProduto> imagens;
     
-    @OneToOne(mappedBy = "produto")
-    private ItemPedidoModel item;
+    @OneToMany(mappedBy = "produto")
+    private Set<ItemPedidoModel> item;
 
     // Constructor
     public ProdutoModel(){
@@ -288,6 +288,22 @@ public class ProdutoModel implements Serializable {
 
     public void setImagens(Set<ImagemProduto> imagens) {
         this.imagens = imagens;
+    }
+
+    public Date getDtCadastro() {
+        return dtCadastro;
+    }
+
+    public void setDtCadastro(Date dtCadastro) {
+        this.dtCadastro = dtCadastro;
+    }
+
+    public Set<ItemPedidoModel> getItem() {
+        return item;
+    }
+
+    public void setItem(Set<ItemPedidoModel> item) {
+        this.item = item;
     }
     
     @Override
