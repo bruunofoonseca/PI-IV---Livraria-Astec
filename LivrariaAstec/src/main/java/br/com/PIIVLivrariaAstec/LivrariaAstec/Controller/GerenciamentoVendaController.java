@@ -5,11 +5,14 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
+import br.com.PIIVLivrariaAstec.LivrariaAstec.service.PedidoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
+import java.util.List;
 /**
  *
  * @author diogo.Sfelix
@@ -18,8 +21,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/gerenciamento")
 public class GerenciamentoVendaController {
     
-    @GetMapping("/listarVenda")
+    @Autowired
+    private PedidoService servicePedido;
+    
+    @GetMapping()
     public ModelAndView listarVenda(){
-        return new ModelAndView("vendasRealizadas");
+        
+        List<PedidoModel> lista  = servicePedido.listar();
+        
+        return new ModelAndView("vendasRealizadas").addObject("vendas", lista);
     }
 }
