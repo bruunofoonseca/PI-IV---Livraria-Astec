@@ -25,61 +25,64 @@
 
             <!--- fomulario de entrega -->
             <form th:action="@{/Carrinho/validaEntrega}" th:object="${endereco}" method="post">
-                <div class="form-row col-xs-12"></div>
-                <div class="input-group col-12">
-                    <input type="text" class="form-control" placeholder="Digite seu CEP" aria-describedby="basic-addon2" required="" id="cep"
-                           name="cep" th:field="*{cep}">
-                    <div class="input-group-append">
-                        <a class="btn btn-primary" onclick="pesquisacep()">OK</a>
+                <div class="form-row col-xs-12">
+                    <div class="input-group col-12">
+                        <input type="text" class="form-control" placeholder="Digite seu CEP" aria-describedby="basic-addon2" required="" id="cep"
+                               name="cep" th:field="*{cep}">
+                        <div class="input-group-append">
+                            <a class="btn btn-primary" onclick="pesquisacep()">OK</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-6 mb-3">
+                        <label>Rua</label>
+                        <input class="form-control" type="text" id="rua" name="rua" th:field="*{logradouro}"/>
+                        <div class="valid-feedback">
+                            ok!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Bairro</label>
+                        <input class="form-control" type="text" id="bairro" name="bairro" th:field="*{bairro}"/>
+                        <div class="valid-feedback">
+                            ok!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Cidade</label>
+                        <input class="form-control" type="text" id="cidade" name="cidade" th:field="*{cidade}"/>
+                        <div class="valid-feedback">
+                            ok!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Estado</label>
+                        <input class="form-control" type="text" id="estado" name="estado" th:field="*{estado}"/>
+                        <div class="valid-feedback">
+                            ok!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Numero</label>
+                        <input class="form-control" type="text" id="numero" name="numero" th:field="*{numero}"/>
+                        <div class="valid-feedback">
+                            ok!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Complemento</label>
+                        <input class="form-control" type="text" id="complemento" name="complemento" th:field="*{complemento}"/>
+                        <div class="valid-feedback">
+                            ok!
+                        </div>
                     </div>
                 </div>
-                <br>
-                <div class="col-md-6 mb-3">
-                    <label>Rua</label>
-                    <input class="form-control" type="text" id="rua" name="rua" th:field="*{logradouro}"/>
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Bairro</label>
-                    <input class="form-control" type="text" id="bairro" name="bairro" th:field="*{bairro}"/>
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Cidade</label>
-                    <input class="form-control" type="text" id="cidade" name="cidade" th:field="*{cidade}"/>
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Estado</label>
-                    <input class="form-control" type="text" id="estado" name="estado" th:field="*{estado}"/>
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Numero</label>
-                    <input class="form-control" type="text" id="numero" name="numero" th:field="*{numero}"/>
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Complemento</label>
-                    <input class="form-control" type="text" id="complemento" name="complemento" th:field="*{complemento}"/>
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
-                </div>
-
                 <div class="col-12" style="text-align: right">
                     <button type="submit" class="btn btn-primary">Continuar</button>
                 </div>
+                <br>
+                <br>
+                <br>
             </form>
             <!-- fim do formulario de entrega -->
         </div>
