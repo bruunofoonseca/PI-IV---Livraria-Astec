@@ -48,6 +48,10 @@ public class PedidoModel implements Serializable {
     @OneToMany(mappedBy = "pedido")
     private Set<ItemPedidoModel> itens;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_ENDERECO")
+    private EnderecoModel enderecoEntrega;
+
     @Digits(integer = 6, fraction = 2)
     @Column(name = "VALOR_TOTAL", precision = 6, scale = 2, nullable = false)
     private float valorTotal;
@@ -87,13 +91,23 @@ public class PedidoModel implements Serializable {
     @Transient
     private String statusPedido;
 
+    public EnderecoModel getEnderecoEntrega() {
+        return enderecoEntrega;
+    }
+
+    public void setEnderecoEntrega(EnderecoModel enderecoEntrega) {
+        this.enderecoEntrega = enderecoEntrega;
+    }
+
     public PedidoModel() {
         this.itens = new LinkedHashSet<>();
     }
 
-    public PedidoModel(Integer id, Set<ItemPedidoModel> itens, float valorTotal, Date dataVenda, String formaDePagamento, String numeroCartao, Date dataVencimento, String nomeNoCartao, int CVV, String statusPedido) {
+    public PedidoModel(Integer id, UsuarioModel cliente, Set<ItemPedidoModel> itens, EnderecoModel enderecoEntrega, float valorTotal, Date dataVenda, String formaDePagamento, String numeroCartao, Date dataVencimento, String nomeNoCartao, int CVV, String statusPedido) {
         this.id = id;
+        this.cliente = cliente;
         this.itens = itens;
+        this.enderecoEntrega = enderecoEntrega;
         this.valorTotal = valorTotal;
         this.dataVenda = dataVenda;
         this.formaDePagamento = formaDePagamento;

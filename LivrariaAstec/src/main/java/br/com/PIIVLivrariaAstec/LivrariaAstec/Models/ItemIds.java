@@ -12,9 +12,9 @@ import java.io.Serializable;
  * @author diogo.sfelix
  */
 public class ItemIds implements Serializable {
-    
+
     private long idProduto;
-    
+
     private int qtd;
 
     public long getIdProduto() {
@@ -31,9 +31,5 @@ public class ItemIds implements Serializable {
 
     public void setQtd(int qtd) {
         this.qtd = qtd;
-    }
-
-
-
-    
+    }   
 }
