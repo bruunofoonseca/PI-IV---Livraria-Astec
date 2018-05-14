@@ -8,3 +8,6 @@ function ajustar(){
     $(".ajustar").css("margin-top",altura);
 }   
 
+$(":input").inputmask();
+
+$("#inputCustom6").inputmask({"mask": "999.999.999-99"});

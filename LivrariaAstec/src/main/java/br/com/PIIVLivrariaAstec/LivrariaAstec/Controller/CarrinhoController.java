@@ -159,6 +159,34 @@ public class CarrinhoController implements Serializable {
         pedido.setEnderecoEntrega(end);
         end.setPedido(pedido);
         
+//        servicePedido.inserir(pedido);
+        
+        return new ModelAndView("redirect:/Carrinho/pagamento");
+    }
+    
+    @GetMapping("/pagamento")
+    public ModelAndView pagamento() {
+        PedidoModel ped = new PedidoModel();
+        return new ModelAndView("PagamentoTsuda").addObject("ped", ped);
+    }
+    
+    @PostMapping("/validaPagamento")
+    public ModelAndView validaPagamento(@ModelAttribute("ped") PedidoModel ped,
+	  BindingResult bindingResult,
+	  RedirectAttributes redirectAttributes) {
+        
+        if(ped.getBandeiraCartao().equals("")){
+            this.pedido.setFormaDePagamento("Boleto");
+        } else {
+            this.pedido.setFormaDePagamento("Cartão");
+            this.pedido.setBandeiraCartao(ped.getBandeiraCartao());
+            this.pedido.setNumeroCartao(ped.getNumeroCartao());
+            this.pedido.setNomeNoCartao(ped.getNomeNoCartao());
+            this.pedido.setDataVencimento(ped.getDataVencimento());
+            this.pedido.setCVV(ped.getCVV());
+            this.pedido.setCPFTitular(ped.getCPFTitular());
+        }
+        
         servicePedido.inserir(pedido);
         
         return new ModelAndView("redirect:/Carrinho/metodoPagamento");
