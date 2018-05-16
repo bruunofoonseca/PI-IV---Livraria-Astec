@@ -5,7 +5,6 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.service;
 
-import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
 import java.io.Serializable;
 import java.util.List;
@@ -14,10 +13,15 @@ import java.util.List;
  *
  * @author bruno.falmeida
  */
-public interface PedidoService extends Serializable {
-    public List<PedidoModel> listar();
+public interface UsuarioService extends Serializable {
 
-    public PedidoModel obter(int id);
+    public List<UsuarioModel> listar();
 
-    public void inserir(PedidoModel pedido);
+    public UsuarioModel obter(String email, String senha);
+
+    public void inserir(UsuarioModel user);
+
+    public void alterar(UsuarioModel user);
+
+    public void remover(long idUsuario);
 }

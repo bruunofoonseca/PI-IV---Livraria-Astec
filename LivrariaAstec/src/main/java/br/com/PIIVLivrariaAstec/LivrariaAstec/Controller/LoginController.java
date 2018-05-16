@@ -5,6 +5,8 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/login")
+@Scope("session")
 public class LoginController {
+    
+    public UsuarioModel user = new UsuarioModel();
     
     @GetMapping
     public ModelAndView login(){
         return new ModelAndView("login");
     }
-    
-    
 }

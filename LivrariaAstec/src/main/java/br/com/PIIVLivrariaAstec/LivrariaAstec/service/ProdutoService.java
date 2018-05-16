@@ -34,15 +34,15 @@ import java.util.List;
  */
 public interface ProdutoService extends Serializable {
 
-  public List<ProdutoModel> listar(int offset, int quantidade);
+    public List<ProdutoModel> listar(int offset, int quantidade);
 
-  public List<ProdutoModel> listarPorCategoria(CategoriaModel categoria, int offset, int quantidade);
+    public List<ProdutoModel> listarPorCategoria(CategoriaModel categoria, int offset, int quantidade);
 
-  public ProdutoModel obter(long idProduto);
+    public ProdutoModel obter(long idProduto);
 
-  public void incluir(ProdutoModel p);
+    public void incluir(ProdutoModel p);
 
-  public void alterar(ProdutoModel p);
+    public void alterar(ProdutoModel p);
 
-  public void remover(long idProduto);
+    public void remover(long idProduto);
 }

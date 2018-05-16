@@ -7,8 +7,10 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.CategoriaModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.CategoriaService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.service.UsuarioService;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +33,15 @@ public class ProdutoController {
 
     @Autowired
     private CategoriaService categoriaService;
+    
+//    @Autowired
+//    private UsuarioService serviceUsuario;
 
     @GetMapping
     public ModelAndView listar() {
         List<ProdutoModel> lista = service.listar(0, 100);
+        
+//        UsuarioModel user = serviceUsuario.obter("usuario@usuario.com", "123456");
 
         List<CategoriaModel> categorias = categoriaService.listar();
 

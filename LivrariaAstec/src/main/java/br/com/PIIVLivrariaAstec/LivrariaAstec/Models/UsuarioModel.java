@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 
 /**
@@ -64,6 +65,14 @@ public class UsuarioModel implements Serializable {
     @Size(min = 1, max = 100, message = "Email inválido")
     @Column(name = "EMAIL", length = 100, nullable = false)
     private String email;
+    
+    @Size(min = 1, max = 100, message = "Email inválido")
+    @Column(name = "SENHA", length = 100, nullable = false)
+    private String senha;
+
+    @Digits(integer = 6, fraction = 0)
+    @Column(name = "PERMISSAO", precision = 6, scale = 2, nullable = false)
+    private int permissao;
 
     @Column(name = "STATUS", nullable = false)
     private boolean ativo;
@@ -73,7 +82,6 @@ public class UsuarioModel implements Serializable {
     private Set<EnderecoModel> enderecos;
     
     @OneToMany(mappedBy = "cliente")
-//    @Transient
     private Set<PedidoModel> pedidos;
 
     // constructor

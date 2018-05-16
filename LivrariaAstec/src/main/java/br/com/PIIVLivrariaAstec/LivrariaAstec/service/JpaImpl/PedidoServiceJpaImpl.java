@@ -39,16 +39,6 @@ public class PedidoServiceJpaImpl implements PedidoService {
 
         return resultados;
     }
-    
-    @Override
-    public List<UsuarioModel> listarUsuário() {
-        Query query = entityManager.createQuery(
-                "SELECT p FROM UsuarioModel p");
-
-        List<UsuarioModel> resultados = query.getResultList();
-
-        return resultados;
-    }
 
     @Override
     public PedidoModel obter(int id) {
