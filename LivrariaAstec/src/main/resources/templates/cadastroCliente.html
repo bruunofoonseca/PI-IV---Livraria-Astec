@@ -21,206 +21,204 @@
             <div class="col-12">
                 <form class="needs-validation" novalidate>
                     <fieldset id="fieldCad">
-                        
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom01">* Nome</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="Ex: José" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom02">* Sobrenome</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="Ex: Da Silva" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                        </div>
 
-                        <div class="col-12">
-                            <label for="validationCustomEmail">* E-mail</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend">
-                                        <i class="material-icons">mail_outline</i>
-                                    </span>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">* Nome</label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="Ex: José" required>
+                                <div class="valid-feedback">
+                                    ok!
                                 </div>
-                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
-                                       required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom02">* Sobrenome</label>
+                                <input type="text" class="form-control" id="validationCustom02" placeholder="Ex: Da Silva" required>
+                                <div class="valid-feedback">
+                                    ok!
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="validationCustomEmail">* E-mail</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                            <i class="material-icons">mail_outline</i>
+                                        </span>
+                                    </div>
+                                    <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Por favor coloque um e-mail valido. Ex: usuario@email.com
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationPassword">* Senha</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                            <i class="material-icons">vpn_key</i>
+                                        </span>
+                                    </div>
+                                    <input type="password" class="form-control" id="validationPassword" placeholder="Senha" required>
+                                    <div class="valid-feedback">
+                                        ok!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor coloque uma senha valida.
+                                    </div>
+                                </div   >
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationConfirmPassword">* Confirmar a Senha</label>
+                                <input type="password" class="form-control" id="validationConfirmPassword" placeholder="Confirme sua senha" required>
+                                <div class="valid-feedback">
+                                    ok!
+                                </div>
                                 <div class="invalid-feedback">
-                                    Por favor coloque um e-mail valido. Ex: usuario@email.com
+                                    Por favor certifique-se de que as senhas coincidem.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCPF">* Número do CPF</label>
+                                <input type="text" class="form-control" id="validationCPF" placeholder="Digite apenas números" required>
+                                <div class="valid-feedback">
+                                    ok!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor coloque um CPF válido.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationSexo">* Sexo</label>
+                                <select name="Estados" class="form-control" id="validationSexo"  required>
+                                    <option selected="" value="">Selecione...</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Feminino</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationDate">* Data de Nascimento</label>
+                                <input type="text" class="form-control" id="validationDate" placeholder="00/00/0000" required>
+                                <div class="valid-feedback">
+                                    ok!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom03">* Telefone</label>
+                                <input type="text" class="form-control" id="validationCustom03" placeholder="(00)0000-0000" required>
+                                <div class="valid-feedback">
+                                    ok!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom04">* Celular</label>
+                                <input type="text" class="form-control" id="validationCustom04" placeholder="(00)00000-0000" required>
+                                <div class="valid-feedback">
+                                    ok!
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationPassword">* Senha</label>
-                            <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend">
-                                    <i class="material-icons">vpn_key</i>
-                                </span>
-                            </div>
-                            <input type="password" class="form-control" id="validationPassword" placeholder="Senha" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                            <div class="invalid-feedback">
-                                Por favor coloque uma senha valida.
-                            </div>
-                            </div   >
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationConfirmPassword">* Confirmar a Senha</label>
-                            <input type="password" class="form-control" id="validationConfirmPassword" placeholder="Confirme sua senha" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                            <div class="invalid-feedback">
-                                Por favor certifique-se de que as senhas coincidem.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCPF">* Número do CPF</label>
-                            <input type="text" class="form-control" id="validationCPF" placeholder="Digite apenas números" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                            <div class="invalid-feedback">
-                                Por favor coloque um CPF válido.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationSexo">* Sexo</label>
-                            <select name="Estados" class="form-control" id="validationSexo"  required>
-                                <option selected="" value="">Selecione...</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationDate">* Data de Nascimento</label>
-                            <input type="date" class="form-control" id="validationDate" placeholder="DD/MM/AAAA" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustom03">* Telefone</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="Ex:(11)5631-4962" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustom04">* Celular</label>
-                            <input type="text" class="form-control" id="validationCustom04" placeholder="Ex:(11)91831-4962" required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                        </div>
-                    </div>
                         </br>
-                    <div class="form-row">
-                        
-                        <div class="col-12">
+                        <div class="form-row">
 
-                            <h3 style="margin-bottom:20px">Endereço</h3>
+                            <div class="col-12">
 
-                        </div>
-                        
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom05">* País</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="País" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque um país válido.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom06">* CEP</label>
-                            <input type="text" class="form-control" id="validationCustom06" placeholder="CEP" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque um CEP valido.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom07">* Endereço</label>
-                            <input type="text" class="form-control" id="validationCustom07" placeholder="Ex: Rua Tonis" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque um endereço valido.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom08">* Número</label>
-                            <input type="text" class="form-control" id="validationCustom08" placeholder="Ex: 260" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom09">Complemento</label>
-                            <input type="text" class="form-control" id="validationCustom09" placeholder="Bloco, andar...">
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom10">* Bairro</label>
-                            <input type="text" class="form-control" id="validationCustom10" placeholder="Bairro" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque um bairro valido.
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationEstado">* Estado</label>
-                            <select name="Estados" class="form-control" id="validationEstado"  required>
-                                <option selected="" value="">Selecione...</option>
-                                <option value="AC">Acre</option>
-                                <option value="AL">Alagoas</option>
-                                <option value="AP">Amapá</option>
-                                <option value="AM">Amazonas</option>
-                                <option value="BA">Bahia</option>
-                                <option value="CE">Ceará</option>
-                                <option value="DF">Distrito Federal</option>
-                                <option value="ES">Espírito Santo</option>
-                                <option value="GO">Goiás</option>
-                                <option value="MA">Maranhão</option>
-                                <option value="MT">Mato Grosso</option>
-                                <option value="MS">Mato Grosso do Sul</option>
-                                <option value="MG">Minas Gerais</option>
-                                <option value="PA">Pará</option>
-                                <option value="PB">Paraíba</option>
-                                <option value="PR">Paraná</option>
-                                <option value="PE">Pernambuco</option>
-                                <option value="PI">Piauí</option>
-                                <option value="RJ">Rio de Janeiro</option>
-                                <option value="RN">Rio Grande do Norte</option>
-                                <option value="RS">Rio Grande do Sul</option>
-                                <option value="RO">Rondônia</option>
-                                <option value="RR">Roraima</option>
-                                <option value="SC">Santa Catarina</option>
-                                <option value="SP">São Paulo</option>
-                                <option value="SE">Sergipe</option>
-                                <option value="TO">Tocantins</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom11">* Cidade</label>
-                            <input type="text" class="form-control" id="validationCustom11" placeholder="Cidade" required>
-                            <div class="invalid-feedback">
-                                Por favor coloque uma cidade valida.
-                            </div>
-                        </div>
-                    </div>
+                                <h3 style="margin-bottom:20px">Endereço</h3>
 
-                    <div class="form-group">
-                        <div class="form-check">
-                            </br>
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                <a href="#">Concordo com os termos de uso</a>
-                            </label>
-                            <div class="invalid-feedback">
-                                Você precisa concordar com os termos de uso para cadastrar-se.
+                            </div>
+
+
+                            <div class="col-12">
+                                <label for="validationCustom06">* CEP</label>
+                            </div>
+                            
+                            <div class="input-group col-md-3 mb-3">
+                                
+                                <input type="text" class="form-control" placeholder="00000-000" id="validationCep" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="button" onclick="pesquisar">Pesquisar</button>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="validationCustom07">* Endereço</label>
+                                <input type="text" class="form-control" id="validationCustom07" placeholder="Ex: Rua Tonis" required disabled>
+                                <div class="invalid-feedback">
+                                    Por favor coloque um endereço valido.
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom08">* Número</label>
+                                <input type="text" class="form-control" id="validationCustom08" placeholder="Ex: 260" required disabled>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom09">Complemento</label>
+                                <input type="text" class="form-control" id="validationCustom09" placeholder="Bloco, andar..." disabled>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom10">* Bairro</label>
+                                <input type="text" class="form-control" id="validationCustom10" placeholder="Bairro" required disabled>
+                                <div class="invalid-feedback">
+                                    Por favor coloque um bairro valido.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationEstado">* Estado</label>
+                                <select name="Estados" class="form-control" id="validationEstado"  required disabled>
+                                    <option selected="" value="">Selecione...</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom11">* Cidade</label>
+                                <input type="text" class="form-control" id="validationCustom11" placeholder="Cidade" required disabled>
+                                <div class="invalid-feedback">
+                                    Por favor coloque uma cidade valida.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button class="btn" type="submit" id="btnCancelar">Voltar</button>
-                    <button class="btn" type="submit" id="btnSalvar">Salvar</button>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                </br>
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    <a href="#">Concordo com os termos de uso</a>
+                                </label>
+                                <div class="invalid-feedback">
+                                    Você precisa concordar com os termos de uso para cadastrar-se.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn" type="submit" id="btnCancelar">Voltar</button>
+                        <button class="btn" type="submit" id="btnSalvar">Salvar</button>
                     </fieldset>
                 </form>
             </div>
