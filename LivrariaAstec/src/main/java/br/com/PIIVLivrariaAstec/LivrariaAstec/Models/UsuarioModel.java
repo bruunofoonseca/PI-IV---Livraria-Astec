@@ -7,6 +7,7 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,10 @@ public class UsuarioModel implements Serializable {
     @Size(min = 1, max = 100, message = "Nome inválido")
     @Column(name = "NOME", length = 100, nullable = false)
     private String nome;
+    
+    @Size(min = 1, max = 100, message = "Nome inválido")
+    @Column(name = "SOBRENOME", length = 100, nullable = false)
+    private String sobrenome;
 
     @Size(min = 1, max = 100, message = "Sexo inválido")
     @Column(name = "SEXO", length = 100, nullable = false)
@@ -69,6 +74,8 @@ public class UsuarioModel implements Serializable {
     @Size(min = 1, max = 100, message = "Email inválido")
     @Column(name = "SENHA", length = 100, nullable = false)
     private String senha;
+    
+    private String confirmarSenha;
 
     @Digits(integer = 6, fraction = 0)
     @Column(name = "PERMISSAO", precision = 6, scale = 2, nullable = false)
@@ -77,8 +84,8 @@ public class UsuarioModel implements Serializable {
     @Column(name = "STATUS", nullable = false)
     private boolean ativo;
     
-//    @OneToMany(mappedBy = "usuario")
-    @Transient
+    @OneToMany(mappedBy = "usuario")
+//    @Transient
     private Set<EnderecoModel> enderecos;
     
     @OneToMany(mappedBy = "cliente")
@@ -86,7 +93,58 @@ public class UsuarioModel implements Serializable {
 
     // constructor
     public UsuarioModel() {
+        EnderecoModel end = new EnderecoModel();
+        enderecos = new LinkedHashSet<>();
+        enderecos.add(end);
+        pedidos = new LinkedHashSet<>();
+    }
 
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getConfirmarSenha() {
+        return confirmarSenha;
+    }
+
+    public void setConfirmarSenha(String confirmarSenha) {
+        this.confirmarSenha = confirmarSenha;
+    }
+
+    public int getPermissao() {
+        return permissao;
+    }
+
+    public void setPermissao(int permissao) {
+        this.permissao = permissao;
+    }
+
+    public Set<EnderecoModel> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(Set<EnderecoModel> enderecos) {
+        this.enderecos = enderecos;
+    }
+
+    public Set<PedidoModel> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<PedidoModel> pedidos) {
+        this.pedidos = pedidos;
     }
 
     public UsuarioModel(

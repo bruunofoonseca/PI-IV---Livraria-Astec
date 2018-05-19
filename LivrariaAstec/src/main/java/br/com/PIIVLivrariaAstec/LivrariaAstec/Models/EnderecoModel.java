@@ -42,7 +42,7 @@ public class EnderecoModel implements Serializable {
     @Column(name = "NUMERO", precision = 6, nullable = false)
     private int numero;
 
-    @Size(min = 1, max = 100, message = "Complemento inválido")
+    @Size(min = 0, max = 100, message = "Complemento inválido")
     @Column(name = "COMPLEMENTO", length = 100, nullable = true)
     private String complemento;
 
@@ -67,9 +67,9 @@ public class EnderecoModel implements Serializable {
     @Transient
     private String apelido;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "ID_USUARIO")
-    @Transient
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_USUARIO")
+//    @Transient
     private UsuarioModel usuario;
 
     @OneToMany(mappedBy = "enderecoEntrega")

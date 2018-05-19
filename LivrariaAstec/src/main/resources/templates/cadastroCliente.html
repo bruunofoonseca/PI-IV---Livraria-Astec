@@ -16,19 +16,25 @@
             </div>
 
             <div class="col-12">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" th:action="@{/cadastroCliente/cadastrarCliente}" th:object="${cliente}" method="post">
                     <fieldset id="fieldCad">
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">* Nome</label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Ex: José" required>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom01" 
+                                       placeholder="Ex: José" required
+                                       th:field="*{nome}">
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom02">* Sobrenome</label>
-                                <input type="text" class="form-control" id="validationCustom02" placeholder="Ex: Da Silva" required>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom02" 
+                                       placeholder="Ex: Da Silva" required
+                                       th:field="*{sobrenome}">
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -42,8 +48,11 @@
                                             <i class="material-icons">mail_outline</i>
                                         </span>
                                     </div>
-                                    <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
-                                           required>
+                                    <input type="email" class="form-control" 
+                                           id="validationCustomEmail" 
+                                           placeholder="usuario@email.com" 
+                                           aria-describedby="inputGroupPrepend"
+                                           required th:field="*{email}">
                                     <div class="invalid-feedback">
                                         Por favor coloque um e-mail valido. Ex: usuario@email.com
                                     </div>
@@ -57,7 +66,10 @@
                                             <i class="material-icons">vpn_key</i>
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" id="validationPassword" placeholder="Senha" required>
+                                    <input type="password" class="form-control" 
+                                           id="validationPassword" 
+                                           placeholder="Senha" required
+                                           th:field="*{senha}">
                                     <div class="valid-feedback">
                                         ok!
                                     </div>
@@ -68,7 +80,10 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationConfirmPassword">* Confirmar a Senha</label>
-                                <input type="password" class="form-control" id="validationConfirmPassword" placeholder="Confirme sua senha" required>
+                                <input type="password" class="form-control" 
+                                       id="validationConfirmPassword" 
+                                       placeholder="Confirme sua senha" required
+                                       th:field="*{confirmarSenha}">
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -78,7 +93,11 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCPF">* Número do CPF</label>
-                                <input type="text" class="form-control" id="validationCPF" placeholder="Digite apenas números" required>
+                                <input type="text" class="form-control" 
+                                       id="validationCPF" 
+                                       placeholder="Digite apenas números" 
+                                       required
+                                       th:field="*{cpf}">
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -88,7 +107,9 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationSexo">* Sexo</label>
-                                <select name="Estados" class="form-control" id="validationSexo"  required>
+                                <select name="Estados" class="form-control" 
+                                        id="validationSexo"  required
+                                        th:field="*{sexo}">
                                     <option selected="" value="">Selecione...</option>
                                     <option value="M">Masculino</option>
                                     <option value="F">Feminino</option>
@@ -96,21 +117,30 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="validationDate">* Data de Nascimento</label>
-                                <input type="text" class="form-control" id="validationDate" placeholder="00/00/0000" required>
+                                <input type="text" class="form-control" 
+                                       id="validationDate" 
+                                       placeholder="00/00/0000" required
+                                       th:field="*{dataNascimento}">
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom03">* Telefone</label>
-                                <input type="text" class="form-control" id="validationCustom03" placeholder="(00)0000-0000" required>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom03" 
+                                       placeholder="(00)0000-0000" required
+                                       th:field="*{telefone}">
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom04">* Celular</label>
-                                <input type="text" class="form-control" id="validationCustom04" placeholder="(00)00000-0000" required>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom04" 
+                                       placeholder="(00)00000-0000" required
+                                       th:field="*{celular}">
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -118,50 +148,63 @@
                         </div>
                         </br>
                         <div class="form-row">
-
                             <div class="col-12">
-
                                 <h3 style="margin-bottom:20px">Endereço</h3>
-
                             </div>
-
 
                             <div class="col-12">
                                 <label for="validationCustom06">* CEP</label>
                             </div>
-                            
                             <div class="input-group col-md-3 mb-3">
-                                
-                                <input type="text" class="form-control" placeholder="00000-000" id="validationCep" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" 
+                                       placeholder="00000-000" 
+                                       id="validationCep" 
+                                       aria-describedby="basic-addon2"
+                                       th:field="*{enderecos[0].cep}">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-primary" type="button" onclick="pesquisar">Pesquisar</button>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label for="validationCustom07">* Endereço</label>
-                                <input type="text" class="form-control" id="validationCustom07" placeholder="Ex: Rua Tonis" required disabled>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom07" 
+                                       placeholder="Ex: Rua Tonis" 
+                                       required 
+                                       th:field="*{enderecos[0].logradouro}">
                                 <div class="invalid-feedback">
                                     Por favor coloque um endereço valido.
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom08">* Número</label>
-                                <input type="text" class="form-control" id="validationCustom08" placeholder="Ex: 260" required disabled>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom08" 
+                                       placeholder="Ex: 260" 
+                                       required th:field="*{enderecos[0].numero}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom09">Complemento</label>
-                                <input type="text" class="form-control" id="validationCustom09" placeholder="Bloco, andar..." disabled>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom09" 
+                                       placeholder="Bloco, andar..." 
+                                       th:field="*{enderecos[0].complemento}">
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom10">* Bairro</label>
-                                <input type="text" class="form-control" id="validationCustom10" placeholder="Bairro" required disabled>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom10" 
+                                       placeholder="Bairro" required 
+                                       th:field="*{enderecos[0].bairro}">
                                 <div class="invalid-feedback">
                                     Por favor coloque um bairro valido.
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="validationEstado">* Estado</label>
-                                <select name="Estados" class="form-control" id="validationEstado"  required disabled>
+                                <select name="Estados" class="form-control" 
+                                        id="validationEstado"  required 
+                                        th:field="*{enderecos[0].estado}">
                                     <option selected="" value="">Selecione...</option>
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
@@ -194,7 +237,10 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="validationCustom11">* Cidade</label>
-                                <input type="text" class="form-control" id="validationCustom11" placeholder="Cidade" required disabled>
+                                <input type="text" class="form-control" 
+                                       id="validationCustom11" 
+                                       placeholder="Cidade" required 
+                                       th:field="*{enderecos[0].cidade}">
                                 <div class="invalid-feedback">
                                     Por favor coloque uma cidade valida.
                                 </div>
@@ -204,7 +250,8 @@
                         <div class="form-group">
                             <div class="form-check">
                                 </br>
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <input class="form-check-input" type="checkbox" 
+                                       value="" id="invalidCheck">
                                 <label class="form-check-label" for="invalidCheck">
                                     <a href="#">Concordo com os termos de uso</a>
                                 </label>
