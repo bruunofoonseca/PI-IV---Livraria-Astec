@@ -9,19 +9,15 @@
                         </li>
                     </ol>
                 </nav>
-
             </div>
 
             <div class="col-12">
-
                 <h3 style="margin-bottom:20px">Cadastro</h3>
-
             </div>
 
             <div class="col-12">
                 <form class="needs-validation" novalidate>
                     <fieldset id="fieldCad">
-
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">* Nome</label>
@@ -226,4 +222,23 @@
         <br>
         <br>
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../js/jquery.formatter.min.js"></script>
+
+    <script>
+
+    $('#validationCPF').formatter({
+      'pattern': '{{999}}.{{999}}.{{999}}-{{99}}'
+    });
+
+    $('#validationCustom03').formatter({
+      'pattern': '({{99}}){{9999}}-{{9999}}',
+      'persistent': true // always displays the formatted character.
+    });
+
+    $('#validationCustom04').formatter({
+      'pattern': '({{99}}){{99999}}-{{9999}}',
+      'persistent': true // always displays the formatted character.
+    });
+    </script>
 </div>
