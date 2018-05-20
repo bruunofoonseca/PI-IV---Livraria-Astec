@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -22,7 +23,9 @@ public class UsuarioServiceJpaImpl implements UsuarioService {
     
     @PersistenceContext
     private EntityManager entityManager;
-
+    
+    
+    
     @Override
     public List<UsuarioModel> listar() {
         Query query = entityManager.createQuery("SELECT p FROM UsuarioModel p");
@@ -47,7 +50,7 @@ public class UsuarioServiceJpaImpl implements UsuarioService {
 
     @Override
     public void inserir(UsuarioModel user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.persist(user);
     }
 
     @Override
