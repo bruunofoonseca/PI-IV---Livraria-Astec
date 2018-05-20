@@ -42,10 +42,18 @@ public class ClienteController implements Serializable{
         BindingResult bindingResult,
         RedirectAttributes redirectAttributes) {
         
+        if (bindingResult.hasErrors()) {
+            return new ModelAndView("/cadastroCliente");
+        }
+        
+        System.out.println("Passou sem erros");
+        usuario.inserir(cliente);
+        /*
         UsuarioModel user = new UsuarioModel();
         user = cliente;
         usuario.inserir(user);
-        
-        return new ModelAndView("redirect:/");
+        */
+        //return new ModelAndView("redirect:/");
+        return new ModelAndView("/");
     }
 }

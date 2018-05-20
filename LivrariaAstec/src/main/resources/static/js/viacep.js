@@ -21,6 +21,7 @@ console.log('viaCep');
             //CEP não Encontrado.
             limpa_formulario_cep();
             alert("CEP não encontrado.");
+            console.log(document.getElementById('cep').value);
             document.getElementById('cep').value=("");
         }
     }
@@ -30,7 +31,8 @@ console.log('viaCep');
         //Nova variável "cep" somente com dígitos.
         //var cep = valor.replace(/\D/g, '');
 //        var cep = '04803070';
-        var cep = document.getElementById('cep').value;
+        var buscaCep = document.getElementById('cep').value;
+        var cep = buscaCep.replace("-","");
 
         //Verifica se campo cep possui valor informado.
         if (cep !== "") {
@@ -60,7 +62,7 @@ console.log('viaCep');
             else {
                 //cep é inválido.
                 limpa_formulario_cep();
-                alert("Formato de CEP inválido.");
+                alert("Formato de CEP inválido." + "Olha" + cep);
             }
         } //end if.
         else {

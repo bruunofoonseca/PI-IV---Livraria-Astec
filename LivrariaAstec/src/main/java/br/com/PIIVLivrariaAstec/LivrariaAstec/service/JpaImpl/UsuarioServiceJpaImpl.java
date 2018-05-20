@@ -24,7 +24,7 @@ public class UsuarioServiceJpaImpl implements UsuarioService {
     @PersistenceContext
     private EntityManager entityManager;
     
-    
+   
     
     @Override
     public List<UsuarioModel> listar() {

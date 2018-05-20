@@ -12,7 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
 import java.util.List;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 /**
  *
  * @author diogo.Sfelix
@@ -31,4 +38,25 @@ public class GerenciamentoVendaController {
         
         return new ModelAndView("vendasRealizadas").addObject("vendas", lista);
     }
+    
+    @GetMapping("/addProduto")
+    public ModelAndView cadastrarProduto(){
+        ProdutoModel produto = new ProdutoModel();
+        
+        return new ModelAndView("cadastroProduto").addObject("produto",produto);
+    }
+            
+    @PostMapping("/addProduto/gravar")
+    public ModelAndView gravarProduto(
+    @Valid @ModelAttribute("produto") ProdutoModel produto,
+        BindingResult bindingResult,
+        RedirectAttributes redirectAttributes
+    ){
+        if (bindingResult.hasErrors()) {
+            return new ModelAndView("/addProduto");
+        }
+        
+        return new ModelAndView("/");
+    }
+    
 }

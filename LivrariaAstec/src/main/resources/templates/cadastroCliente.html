@@ -23,8 +23,9 @@
                                 <label for="validationCustom01">* Nome</label>
                                 <input type="text" class="form-control" 
                                        id="validationCustom01" 
-                                       placeholder="Ex: José" required
+                                       placeholder="Ex: José"
                                        th:field="*{nome}">
+                                <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -33,8 +34,9 @@
                                 <label for="validationCustom02">* Sobrenome</label>
                                 <input type="text" class="form-control" 
                                        id="validationCustom02" 
-                                       placeholder="Ex: Da Silva" required
+                                       placeholder="Ex: Da Silva" 
                                        th:field="*{sobrenome}">
+                                <div th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></div>
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -52,7 +54,8 @@
                                            id="validationCustomEmail" 
                                            placeholder="usuario@email.com" 
                                            aria-describedby="inputGroupPrepend"
-                                           required th:field="*{email}">
+                                           th:field="*{email}">
+                                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                                     <div class="invalid-feedback">
                                         Por favor coloque um e-mail valido. Ex: usuario@email.com
                                     </div>
@@ -68,8 +71,9 @@
                                     </div>
                                     <input type="password" class="form-control" 
                                            id="validationPassword" 
-                                           placeholder="Senha" required
+                                           placeholder="Senha" 
                                            th:field="*{senha}">
+                                    <div th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></div>
                                     <div class="valid-feedback">
                                         ok!
                                     </div>
@@ -82,7 +86,7 @@
                                 <label for="validationConfirmPassword">* Confirmar a Senha</label>
                                 <input type="password" class="form-control" 
                                        id="validationConfirmPassword" 
-                                       placeholder="Confirme sua senha" required
+                                       placeholder="Confirme sua senha" 
                                        th:field="*{confirmarSenha}">
                                 <div class="valid-feedback">
                                     ok!
@@ -96,8 +100,9 @@
                                 <input type="text" class="form-control" 
                                        id="validationCPF" 
                                        placeholder="Digite apenas números" 
-                                       required
+                                       
                                        th:field="*{cpf}">
+                                <div th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></div>
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -108,19 +113,21 @@
                             <div class="col-md-6 mb-3">
                                 <label for="validationSexo">* Sexo</label>
                                 <select name="Estados" class="form-control" 
-                                        id="validationSexo"  required
+                                        id="validationSexo"  
                                         th:field="*{sexo}">
                                     <option selected="" value="">Selecione...</option>
                                     <option value="M">Masculino</option>
                                     <option value="F">Feminino</option>
                                 </select>
+                                <div th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}"></div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationDate">* Data de Nascimento</label>
-                                <input type="text" class="form-control" 
+                                <input type="date" class="form-control" 
                                        id="validationDate" 
-                                       placeholder="00/00/0000" required
-                                       th:field="*{dataNascimento}">
+                                       placeholder="00/00/0000" 
+                                       th:field="*{dataNascimento}"
+                                       />
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -129,8 +136,10 @@
                                 <label for="validationCustom03">* Telefone</label>
                                 <input type="text" class="form-control" 
                                        id="validationCustom03" 
-                                       placeholder="(00)0000-0000" required
+                                       placeholder="(00)0000-0000" 
                                        th:field="*{telefone}">
+                                <div th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></div>
+                                
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -139,8 +148,9 @@
                                 <label for="validationCustom04">* Celular</label>
                                 <input type="text" class="form-control" 
                                        id="validationCustom04" 
-                                       placeholder="(00)00000-0000" required
+                                       placeholder="(00)00000-0000" 
                                        th:field="*{celular}">
+                                <div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}"></div>
                                 <div class="valid-feedback">
                                     ok!
                                 </div>
@@ -158,19 +168,22 @@
                             <div class="input-group col-md-3 mb-3">
                                 <input type="text" class="form-control" 
                                        placeholder="00000-000" 
-                                       id="validationCep" 
+                                       id="cep" 
                                        aria-describedby="basic-addon2"
-                                       th:field="*{enderecos[0].cep}">
+                                       th:field="*{enderecos[0].cep}"/>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button" onclick="pesquisar">Pesquisar</button>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" 
+                                           onclick="pesquisacep()">OK</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label for="validationCustom07">* Endereço</label>
                                 <input type="text" class="form-control" 
-                                       id="validationCustom07" 
+                                       id="rua" 
                                        placeholder="Ex: Rua Tonis" 
-                                       required 
+                                       disabled 
                                        th:field="*{enderecos[0].logradouro}">
                                 <div class="invalid-feedback">
                                     Por favor coloque um endereço valido.
@@ -193,7 +206,8 @@
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom10">* Bairro</label>
                                 <input type="text" class="form-control" 
-                                       id="validationCustom10" 
+                                       id="bairro" 
+                                       disabled
                                        placeholder="Bairro" required 
                                        th:field="*{enderecos[0].bairro}">
                                 <div class="invalid-feedback">
@@ -202,43 +216,16 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="validationEstado">* Estado</label>
-                                <select name="Estados" class="form-control" 
-                                        id="validationEstado"  required 
-                                        th:field="*{enderecos[0].estado}">
-                                    <option selected="" value="">Selecione...</option>
-                                    <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espírito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraíba</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piauí</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RO">Rondônia</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="TO">Tocantins</option>
-                                </select>
+                               <input type="text" class="form-control"
+                                        id="estado"
+                                        disabled
+                                        th:field="*{enderecos[0].estado}"/>
                             </div>
                             <div class="col-md-6">
                                 <label for="validationCustom11">* Cidade</label>
                                 <input type="text" class="form-control" 
-                                       id="validationCustom11" 
+                                       id="cidade" 
+                                       disabled
                                        placeholder="Cidade" required 
                                        th:field="*{enderecos[0].cidade}">
                                 <div class="invalid-feedback">
@@ -285,6 +272,10 @@
 
     $('#validationCustom04').formatter({
       'pattern': '({{99}}){{99999}}-{{9999}}',
+      'persistent': true // always displays the formatted character.
+    });
+    $('#cep').formatter({
+      'pattern': '{{99999}}-{{999}}',
       'persistent': true // always displays the formatted character.
     });
     </script>

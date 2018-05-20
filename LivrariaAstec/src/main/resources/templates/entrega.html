@@ -27,8 +27,12 @@
             <form th:action="@{/Carrinho/validaEntrega}" th:object="${endereco}" method="post">
                 <div class="form-row col-xs-12">
                     <div class="input-group col-12">
-                        <input type="text" class="form-control" placeholder="Digite seu CEP" aria-describedby="basic-addon2" required="" id="cep"
-                               name="cep" th:field="*{cep}">
+                        <input type="text" 
+                               class="form-control" 
+                               placeholder="Digite seu CEP" 
+                               aria-describedby="basic-addon2" required="" id="cep"
+                               name="cep" 
+                               th:field="*{cep}">
                         <div class="input-group-append">
                             <a class="btn btn-primary" onclick="pesquisacep()">OK</a>
                         </div>

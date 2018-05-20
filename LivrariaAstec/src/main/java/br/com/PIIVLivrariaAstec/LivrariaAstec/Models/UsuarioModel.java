@@ -35,11 +35,12 @@ public class UsuarioModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    
     @Size(min = 1, max = 100, message = "Nome inválido")
     @Column(name = "NOME", length = 100, nullable = false)
     private String nome;
     
-    @Size(min = 1, max = 100, message = "Nome inválido")
+    @Size(min = 1, max = 100, message = "Sobre nome inválido")
     @Column(name = "SOBRENOME", length = 100, nullable = false)
     private String sobrenome;
 
@@ -59,11 +60,11 @@ public class UsuarioModel implements Serializable {
     @Column(name = "CPF", length = 100, nullable = false)
     private String cpf;
 
-    @Size(min = 1, max = 100, message = "Telefone inválido")
+    @Size(min = 1, max = 100, message = "Telefone não informado")
     @Column(name = "TELEFONE", length = 100, nullable = false)
     private String telefone;
 
-    @Size(min = 1, max = 100, message = "Celular inválido")
+    @Size(min = 1, max = 100, message = "Celular não informado")
     @Column(name = "CELULAR", length = 100, nullable = false)
     private String celular;
 
@@ -71,7 +72,7 @@ public class UsuarioModel implements Serializable {
     @Column(name = "EMAIL", length = 100, nullable = false)
     private String email;
     
-    @Size(min = 1, max = 100, message = "Email inválido")
+    @Size(min = 1, max = 100, message = "Senha inválido")
     @Column(name = "SENHA", length = 100, nullable = false)
     private String senha;
     

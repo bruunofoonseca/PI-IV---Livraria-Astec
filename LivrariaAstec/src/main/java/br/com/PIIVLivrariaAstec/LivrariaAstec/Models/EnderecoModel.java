@@ -46,7 +46,7 @@ public class EnderecoModel implements Serializable {
     @Column(name = "COMPLEMENTO", length = 100, nullable = true)
     private String complemento;
 
-    @Size(min = 1, max = 100, message = "CEP inválido")
+    @Size(min = 1, max = 100, message = "CEP precisa ser preenchido")
     @Column(name = "CEP", length = 100, nullable = false)
     private String cep;
 
