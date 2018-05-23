@@ -52,7 +52,7 @@ public class PedidoModel implements Serializable {
     @JoinColumn(name = "ID_ENDERECO")
     private EnderecoModel enderecoEntrega;
 
-    @Digits(integer = 6, fraction = 2)
+    @Digits(integer = 6, fraction = 20)
     @Column(name = "VALOR_TOTAL", precision = 6, scale = 2, nullable = false)
     private float valorTotal;
 
