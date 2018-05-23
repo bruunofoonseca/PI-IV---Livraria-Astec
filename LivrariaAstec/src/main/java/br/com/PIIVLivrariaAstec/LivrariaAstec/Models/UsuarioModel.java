@@ -48,13 +48,13 @@ public class UsuarioModel implements Serializable {
     @Column(name = "SEXO", length = 100, nullable = false)
     private String sexo;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Size(min = 1, max = 100, message = "Data de Nascimento inválida")
     @Column(name = "DATA_NASCIMENTO", nullable = false)
-    private Date dataNascimento;
+    private String dataNascimento;
 
-    @Size(min = 1, max = 100, message = "Estado Civil inválido")
-    @Column(name = "ESTADO_CIVIL", length = 100, nullable = false)
-    private String estadoCivil;
+//    @Size(min = 1, max = 100, message = "Estado Civil inválido")
+//    @Column(name = "ESTADO_CIVIL", length = 100, nullable = false)
+//    private String estadoCivil;
 
     @Size(min = 1, max = 100, message = "CPF inválido")
     @Column(name = "CPF", length = 100, nullable = false)
@@ -139,6 +139,10 @@ public class UsuarioModel implements Serializable {
     public void setEnderecos(Set<EnderecoModel> enderecos) {
         this.enderecos = enderecos;
     }
+    
+    public void setEndereco(EnderecoModel enderecos) {
+        this.enderecos.add(enderecos);
+    }
 
     public Set<PedidoModel> getPedidos() {
         return pedidos;
@@ -149,14 +153,13 @@ public class UsuarioModel implements Serializable {
     }
 
     public UsuarioModel(
-            String nome, String sexo, Date dataNascimento,
-            String estadoCivil, String cpf, String telefone,
+            String nome, String sexo, String dataNascimento,
+            String cpf, String telefone,
             String celular, String email
     ) {
         this.nome = nome;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
-        this.estadoCivil = estadoCivil;
         this.cpf = cpf;
         this.telefone = telefone;
         this.celular = celular;
@@ -187,20 +190,12 @@ public class UsuarioModel implements Serializable {
         this.sexo = sexo;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
     }
 
     public String getCpf() {

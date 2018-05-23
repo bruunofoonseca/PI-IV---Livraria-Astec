@@ -182,8 +182,7 @@
                                 <label for="validationCustom07">* Endereço</label>
                                 <input type="text" class="form-control" 
                                        id="rua" 
-                                       placeholder="Ex: Rua Tonis" 
-                                       disabled 
+                                       placeholder="Ex: Rua Tonis"  
                                        th:field="*{enderecos[0].logradouro}">
                                 <div class="invalid-feedback">
                                     Por favor coloque um endereço valido.
@@ -207,7 +206,6 @@
                                 <label for="validationCustom10">* Bairro</label>
                                 <input type="text" class="form-control" 
                                        id="bairro" 
-                                       disabled
                                        placeholder="Bairro" required 
                                        th:field="*{enderecos[0].bairro}">
                                 <div class="invalid-feedback">
@@ -218,14 +216,12 @@
                                 <label for="validationEstado">* Estado</label>
                                <input type="text" class="form-control"
                                         id="estado"
-                                        disabled
                                         th:field="*{enderecos[0].estado}"/>
                             </div>
                             <div class="col-md-6">
                                 <label for="validationCustom11">* Cidade</label>
                                 <input type="text" class="form-control" 
                                        id="cidade" 
-                                       disabled
                                        placeholder="Cidade" required 
                                        th:field="*{enderecos[0].cidade}">
                                 <div class="invalid-feedback">

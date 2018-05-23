@@ -46,14 +46,20 @@ public class ClienteController implements Serializable{
             return new ModelAndView("/cadastroCliente");
         }
         
-        System.out.println("Passou sem erros");
-        usuario.inserir(cliente);
-        /*
         UsuarioModel user = new UsuarioModel();
         user = cliente;
+        
+        EnderecoModel aux = new EnderecoModel();
+        for(EnderecoModel end : user.getEnderecos()) {
+            aux = end;
+        }
+        
+        user.getEnderecos().removeAll(user.getEnderecos());
+        aux.setUsuario(user);
+        user.setEndereco(aux);
+
         usuario.inserir(user);
-        */
-        //return new ModelAndView("redirect:/");
-        return new ModelAndView("/");
+        
+        return new ModelAndView("redirect:/");
     }
 }

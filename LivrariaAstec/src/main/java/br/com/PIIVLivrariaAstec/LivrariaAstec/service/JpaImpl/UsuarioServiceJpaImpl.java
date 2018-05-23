@@ -5,12 +5,14 @@
  */
 package br.com.PIIVLivrariaAstec.LivrariaAstec.service.JpaImpl;
 
+import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.EnderecoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.UsuarioService;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -49,7 +51,12 @@ public class UsuarioServiceJpaImpl implements UsuarioService {
     }
 
     @Override
+    @Transactional
     public void inserir(UsuarioModel user) {
+        for(EnderecoModel end : user.getEnderecos()) {
+            entityManager.persist(end);
+        }
+
         entityManager.persist(user);
     }
 
