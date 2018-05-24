@@ -28,7 +28,7 @@ insert tb_produto values (5, 'CAPA DURA', 1.2, 'PORQUE FAZEMOS O QUE FAZEMOS, VO
 insert tb_produto values (6, 'CAPA DURA', 1.2, 'CONHEÇA A SUPREENDENTE HISTORIA POR DE TRAS DA MAIOR SERIE DE TERROR DOS ULTIMOS TEMPOS', '2015-05-01 18:45', '2014-08-15 10:00', 'EDITORA PANINI', 'PORTUGUES', 23.5, 'THE WALKING DEAD - A HISTORIA', 521, 1, 12.5, 25, TRUE, 118.78, 4);
 
 /* USUARIO */
-insert tb_usuario values (1, true, '(11)93323-7155', '369.254.159-56', '2000-01-05', 'usuario@usuario.com', 'Solteiro', 'Usuario de Teste', '123456', 'M', '(11)3874-6245');
+insert tb_usuario values (1, true, '(11)93323-7155', '123456', '369.254.159-56', '2000-01-05', 'usuario@usuario.com', 'Usuario', 1, '123456','M','Teste', '(11)3874-6245');
 
 /* ENDEREÇO */
 insert tb_endereco values (1, 'Santo Amaro', '04578-124', 'São Paulo', 'Próximo ao Assaí Atacadista', 'SP', 'Av Engenheiro Stevaux', 823);

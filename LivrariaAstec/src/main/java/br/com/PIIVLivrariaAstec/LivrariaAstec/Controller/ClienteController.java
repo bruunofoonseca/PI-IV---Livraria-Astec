@@ -34,7 +34,7 @@ public class ClienteController implements Serializable{
     @GetMapping
     public ModelAndView cadastroCliente(){
         UsuarioModel cliente = new UsuarioModel();
-        return new ModelAndView("cadastroCliente").addObject("cliente", cliente);
+        return new ModelAndView("/cadastroCliente").addObject("cliente", cliente);
     }
 
     @PostMapping("/cadastrarCliente")

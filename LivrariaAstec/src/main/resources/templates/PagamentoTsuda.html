@@ -59,7 +59,7 @@
                                                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
                                                     <div class="form-row">
-                                                        <div class="form-group col-md-12">
+                                                       <!-- <div class="form-group col-md-12">
                                                             <label for="inputCustom">Cartão</label>
                                                             <select id="inputCustom" class="form-control" th:field="*{bandeiraCartao}">
                                                                 <option value="" selected>Escolha...</option>
@@ -68,26 +68,30 @@
                                                                 <option value="Elo">Elo</option>
                                                             </select>
                                                         </div>
+                                                       -->
                                                         <div class="form-group col-md-6">
-                                                            <label for="inputCustom2">Numero do cartão</label>
-                                                            <input type="text" class="form-control" id="inputCustom2" placeholder="" th:field="*{numeroCartao}">
+                                                            <label for="qtdCodigoCartao">Numero do cartão</label>
+                                                            <input type="text" class="form-control" id="qtdCodigoCartao" th:field="*{numeroCartao}" onblur="calcular()">
                                                         </div>
+                                                        <div class="form-group col-md-6" id="resultado">
+                                                            
+                                                        </div>                                                       
                                                         <div class="form-group col-md-6">
                                                             <label for="inputCustom3">Nome do titular</label>
                                                             <input type="text" class="form-control" id="inputCustom3 " placeholder="" th:field="*{nomeNoCartao}">
                                                         </div>
 
                                                         <div class="form-group col-md-6">
-                                                            <label for="inputCustom4">Validade</label>
-                                                            <input type="text" class="form-control" id="inputCustom4" placeholder="" th:field="*{dataVencimento}">
+                                                            <label for="valCartao">Validade</label>
+                                                            <input type="text" class="form-control" id="valCartao"  th:field="*{dataVencimento}">
                                                         </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label for="inputCustom5">Cod. de segurança</label>
-                                                            <input type="text" class="form-control" id="inputCustom5" placeholder="" th:field="*{CVV}">
-                                                        </div>
+                                                       <div class="form-group col-md-6">
+                                                           <label for="teste">Cod. de Segurança</label>
+                                                           <input type="text" class="form-control" id="codSeg" th:field="*{CVV}">
+                                                       </div>                                                       
                                                         <div class="form-group col-md-12">
                                                             <label for="inputCustom6">CPF DO TITULAR</label>
-                                                            <input type="text" class="form-control" id="inputCustom6" placeholder="" th:field="*{CPFTitular}">
+                                                            <input type="text" class="form-control" id="validationCPF" placeholder="" th:field="*{CPFTitular}">
                                                         </div>
                                                     </div>
                                                     <br>
@@ -115,7 +119,10 @@
 
                     </form>
                 </div>
-                <script src="../js/pagamento.js"></script>
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script src="../js/jquery.formatter.min.js"></script>
+                <script src="../js/verificandoBandeiraCartao.js"></script>
+                <script src="../js/validandoInputs.js"></script>
             </div>
         </div>
     </div>

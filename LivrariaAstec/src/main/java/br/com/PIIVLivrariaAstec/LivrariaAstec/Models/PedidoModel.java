@@ -85,8 +85,8 @@ public class PedidoModel implements Serializable {
 //    @Transient
     private String nomeNoCartao;
     
-    @Digits(integer = 6, fraction = 0)
-    @Column(name = "CVV_CARTAO", precision = 6, nullable = true)
+    @Size(min = 1, max = 3, message = "Codigo segurança invalido")
+    @Column(name = "CVV_CARTAO", precision = 3, nullable = true)
 //    @Transient
     private int CVV;
     
