@@ -10,10 +10,8 @@
             </div>
 
             <div class="col-xs-6" id="oi">
-                <form class="needs-validation" novalidate>
-                        
+                <form class="needs-validation" th:action="@{/login}" th:object="${user}" method="post">
                     <div class="form-row">
-                        
                         <div class="col-md-11">
                             <label for="validationCustomEmail">* E-mail</label>
                             <div class="input-group">
@@ -22,7 +20,12 @@
                                         <i class="material-icons">mail_outline</i>
                                     </span>
                                 </div>
-                                <input type="email" class="form-control" id="validationCustomEmail" placeholder="usuario@email.com" aria-describedby="inputGroupPrepend"
+                                <input type="email" 
+                                       class="form-control" 
+                                       id="validationCustomEmail" 
+                                       placeholder="usuario@email.com" 
+                                       aria-describedby="inputGroupPrepend"
+                                       th:field="*{email}"
                                        required>
                                 <div class="invalid-feedback">
                                     Por favor coloque um e-mail valido.
@@ -38,7 +41,12 @@
                                     <i class="material-icons">vpn_key</i>
                                 </span>
                             </div>
-                            <input type="password" class="form-control" id="validationPassword" placeholder="Senha" required>
+                            <input type="password" 
+                                   class="form-control" 
+                                   id="validationPassword" 
+                                   placeholder="Senha" 
+                                   th:field="*{senha}" 
+                                   required>
                             <div class="valid-feedback">
                                 ok!
                             </div>

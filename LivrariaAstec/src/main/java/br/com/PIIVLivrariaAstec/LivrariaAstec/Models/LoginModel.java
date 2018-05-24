@@ -15,8 +15,17 @@ public class LoginModel {
     
     private int idUsuario;
     private String login;
+    private String senha;
     private String nome;
-    private List<ModuloModel> modulos;
+//    private List<ModuloModel> modulos;
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     
     public int getIdUsuario() {
         return idUsuario;
@@ -40,13 +49,5 @@ public class LoginModel {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public List<ModuloModel> getModulos() {
-        return modulos;
-    }
-
-    public void setModulos(List<ModuloModel> modulos) {
-        this.modulos = modulos;
     }
 }

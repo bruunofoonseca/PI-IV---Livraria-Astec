@@ -115,8 +115,6 @@ public class PedidoModel implements Serializable {
     public void setCPFTitular(String CPFTitular) {
         this.CPFTitular = CPFTitular;
     }
-    
-    
 
     public EnderecoModel getEnderecoEntrega() {
         return enderecoEntrega;

@@ -42,24 +42,24 @@ public class ClienteController implements Serializable{
         BindingResult bindingResult,
         RedirectAttributes redirectAttributes) {
         
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors() && (cliente.getSenha().equals(cliente.getConfirmarSenha()))) {
             return new ModelAndView("/cadastroCliente");
         }
-        
+
         UsuarioModel user = new UsuarioModel();
         user = cliente;
-        
+
         EnderecoModel aux = new EnderecoModel();
         for(EnderecoModel end : user.getEnderecos()) {
             aux = end;
         }
-        
+
         user.getEnderecos().removeAll(user.getEnderecos());
         aux.setUsuario(user);
         user.setEndereco(aux);
 
         usuario.inserir(user);
-        
+
         return new ModelAndView("redirect:/");
     }
 }

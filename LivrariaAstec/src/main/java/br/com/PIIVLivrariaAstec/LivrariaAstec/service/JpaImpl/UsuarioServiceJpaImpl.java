@@ -42,6 +42,7 @@ public class UsuarioServiceJpaImpl implements UsuarioService {
         Query query = entityManager.createQuery(
             "SELECT DISTINCT user FROM UsuarioModel user "
             + "LEFT JOIN FETCH user.pedidos "
+            + "LEFT JOIN FETCH user.enderecos "
             + "WHERE user.email = :email AND user.senha = :senha");
         query.setParameter("email", email);
         query.setParameter("senha", senha);
