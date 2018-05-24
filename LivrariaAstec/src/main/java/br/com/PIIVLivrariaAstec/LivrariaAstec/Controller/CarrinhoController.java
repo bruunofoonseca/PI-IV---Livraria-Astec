@@ -64,9 +64,9 @@ public class CarrinhoController implements Serializable {
                 temp.add(i);
             }
         }
-        
-        List<UsuarioModel> usuarios = serviceUsuario.listar();
-        pedido.setCliente(usuarios.get(0));
+
+//        List<UsuarioModel> usuarios = serviceUsuario.listar();
+//        pedido.setCliente(usuarios.get(0));
 
         PedidoTemp ptemp = new PedidoTemp();
         ptemp.setItems(temp);

@@ -124,9 +124,11 @@
                                 <div class="w-100"></div>
                                 <div class="col">
                                     <div th:if="${!@carrinhoController.pedido.itens.isEmpty()}">
-                                    <div style="padding: 20px;">
-                                        <button type="submit" class="btn btn-success btn-block">Finalizar Compra</button>
-                                    </div>
+                                        <div th:if="${@loginController.user != null}">
+                                            <div style="padding: 20px;">
+                                                <button type="submit" class="btn btn-success btn-block">Finalizar Compra</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -28,15 +28,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope("session")
 public class LoginController {
 
-    public UsuarioModel user = new UsuarioModel();
-    
+    public UsuarioModel user;
+
     @Autowired
     private UsuarioService usuarioService;
 
     @GetMapping
     public ModelAndView login(){
-        UsuarioModel user = new UsuarioModel();
-        return new ModelAndView("login").addObject("user", user);
+        UsuarioModel user1 = new UsuarioModel();
+        return new ModelAndView("login").addObject("user", user1);
     }
 
     @PostMapping
