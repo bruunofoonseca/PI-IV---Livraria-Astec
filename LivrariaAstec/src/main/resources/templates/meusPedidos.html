@@ -1,0 +1,166 @@
+<div layout:decorate="~{index2}" layout:fragment="conteudo">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+
+                <li class="breadcrumb-item active" aria-current="page">Gerenciamento</li>
+            </ol>
+        </nav>
+
+
+        <h3 style="margin-bottom:20px">Minha Conta</h3>
+    </div>
+
+    <div class="col-sm-12 col-md-4">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab">Meus Dados</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab">Meus Endereços</a>
+            <a class="nav-link active" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab">Meus Pedidos</a>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div class="col-sm-12 col-md-8">
+        <h4>Meus Pedidos</h4>
+
+        <br>
+
+        <form>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="inputCod">Pesquisa por codigo</label>
+                </div>
+
+                <div class="form-group col-6 text-right">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="material-icons">
+                            search
+                        </i>
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+
+                    <input type="number" class="form-control" placeholder="00000000">
+                </div>
+                <div class="form-group col-md-4">
+                    <select id="inputQuantPedido" class="form-control">
+                        <option selected>Todos os pedidos</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+
+                    <select id="inputTempo" class="form-control">
+                        <option selected>Todos os meses</option>
+                        <option>...</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+        </form>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-12 pedidos">
+
+                <div class="row">
+                    <div class="col-3">
+                        <h6>Nº
+                            <span>0000</span>
+                        </h6>
+                        <span style="font-size: 12px">dd/mm/yyyy</span>
+                    </div>
+                    <div class="col-3">
+                        <h6>R$
+                            <span>00,00</span>
+                        </h6>
+                        <span style="font-size: 12px">Cartão de credito</span>
+                    </div>
+                    <div class="col-3">
+                        <h6>Entrega</h6>
+                        <span style="font-size: 12px">Previsão:</span>
+                        <span style="font-size: 12px">dd/mm/yyyy</span>
+                    </div>
+                    <div class="col-3 text-right">
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalPedido0000">
+                            <i class="material-icons">
+                                find_in_page
+                            </i>
+                        </button>
+                    </div>
+                    <div class="modal fade" id="modalPedido0000" tabindex="-1" role="dialog" aria-labelledby="modalPedido0000Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header btn-warning">
+                                    <h5 class="modal-title" id="modalPedido0000Label" style="color:white">Pedido Nº
+                                        <span>0000</span>
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="containe">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="row">
+
+                                                    <div class="col-4">
+                                                        <label>Produto</label>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <label style="font-size: 10px">Quantidade</label>
+                                                    </div>
+                                                    <div class="col-4 text-center">
+                                                        <label style="font-size: 10px">Valor</label>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <hr>
+                                                    <div class="col-2">
+                                                        <img class="img-fluid" src="./imagens/products/15.jpg" alt="Card image cap">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <p>Nome do Livro</p>
+                                                        <span style="font-size: 10px">- autor</span>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <h6>00</h6>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <h6>R$
+                                                            <span>00,00</span>
+                                                        </h6>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
