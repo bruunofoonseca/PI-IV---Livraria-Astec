@@ -213,3 +213,28 @@ hr{
     border-style: dashed solid;
     border-color: darkslategray;
 }
+.confirmacao{
+    background: lightcyan;
+    color: #28a745;
+    padding: 40px;
+    border-style: dashed solid;
+    border-color: #28a745;
+    text-align: center;
+}
+.opcoesGer{
+    margin-top: 10px;
+    
+}
+.pedidos{
+    background: #f8f9fa;
+    margin-top:5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    border-style: solid;
+    border-color:#007bff;
+    border-width: 1px;
+}
+.dropdown-toggle::after {
+    display:none
+}
