@@ -247,8 +247,10 @@
                         <!-- botao mobile CARRINHO E LOGIN -->
                         <div class="col-3 d-block d-md-none justify-content-end" id="mobileCarLog">
                             <div class="row">
-                                <div class="col-6">
-                                    <i class="material-icons log">input</i>
+                                <div class="col-6" th:if="${@loginController.user != null}">
+                                    <a href="/login/logout">
+                                        <i class="material-icons align-self-center mr-3">input</i>
+                                    </a>>
                                 </div>
                                 <div class="col-6">
                                     <div>
@@ -264,7 +266,9 @@
                         <!-- botao desktop LOGIN -->
                         <div class="col-3 col-md-3 order-11 d-none d-md-block">
                             <div class="media float-md-right">
-                                <i class="material-icons align-self-center mr-3">input</i>
+                                <a href="/login/logout" th:if="${@loginController.user != null}">
+                                    <i class="material-icons align-self-center mr-3">input</i>
+                                </a>
                                 <div class="media-body">
                                     <h5 class="mt-0"></h5>
                                     <button type="button" class="btn btn-primary">

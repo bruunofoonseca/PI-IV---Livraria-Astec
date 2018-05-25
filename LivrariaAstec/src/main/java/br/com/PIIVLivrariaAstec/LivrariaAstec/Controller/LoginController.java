@@ -43,9 +43,15 @@ public class LoginController {
     public ModelAndView doLogin(@Valid @ModelAttribute("user") UsuarioModel user,
         BindingResult bindingResult,
         RedirectAttributes redirectAttributes) {
-        
+
         this.user = usuarioService.obter(user.getEmail(), user.getSenha());
 
-        return new ModelAndView("login");
+        return new ModelAndView("redirect:/login");
+    }
+    
+    @GetMapping("/logout")
+    public ModelAndView logout(RedirectAttributes redirectAttributes){
+        this.user = null;
+        return new ModelAndView("redirect:/login");
     }
 }
