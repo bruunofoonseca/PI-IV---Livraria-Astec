@@ -50,6 +50,19 @@ public class UsuarioServiceJpaImpl implements UsuarioService {
         UsuarioModel user = (UsuarioModel) query.getSingleResult();
         return user;
     }
+    
+    @Override
+    public UsuarioModel obterById(Long id) {
+        Query query = entityManager.createQuery(
+            "SELECT DISTINCT user FROM UsuarioModel user "
+            + "LEFT JOIN FETCH user.pedidos "
+            + "LEFT JOIN FETCH user.enderecos "
+            + "WHERE user.id = :id");
+        query.setParameter("id", id);
+
+        UsuarioModel user = (UsuarioModel) query.getSingleResult();
+        return user;
+    }
 
     @Override
     @Transactional

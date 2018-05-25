@@ -86,7 +86,6 @@ public class UsuarioModel implements Serializable {
     private boolean ativo;
     
     @OneToMany(mappedBy = "usuario")
-//    @Transient
     private Set<EnderecoModel> enderecos;
     
     @OneToMany(mappedBy = "cliente")
@@ -150,6 +149,10 @@ public class UsuarioModel implements Serializable {
 
     public void setPedidos(Set<PedidoModel> pedidos) {
         this.pedidos = pedidos;
+    }
+    
+    public void setPedido(PedidoModel pedido) {
+        this.pedidos.add(pedido);
     }
 
     public UsuarioModel(

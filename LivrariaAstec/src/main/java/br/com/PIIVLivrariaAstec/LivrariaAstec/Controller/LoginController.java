@@ -46,9 +46,9 @@ public class LoginController {
 
         this.user = usuarioService.obter(user.getEmail(), user.getSenha());
 
-        return new ModelAndView("redirect:/login");
+        return new ModelAndView("redirect:/");
     }
-    
+
     @GetMapping("/logout")
     public ModelAndView logout(RedirectAttributes redirectAttributes){
         this.user = null;

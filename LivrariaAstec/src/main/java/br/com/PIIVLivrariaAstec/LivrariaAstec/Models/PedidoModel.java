@@ -62,37 +62,30 @@ public class PedidoModel implements Serializable {
     
     @Size(min = 1, max = 100, message = "Forma de pagamento inválida")
     @Column(name = "FORMA_DE_PAGAMENTO", length = 100, nullable = false)
-//    @Transient
     private String formaDePagamento;
     
     @Size(min = 1, max = 100, message = "Bandeira do cartão inválido")
     @Column(name = "BANDEIRA_CARTAO", length = 100, nullable = true)
-//    @Transient
     private String bandeiraCartao;
     
     @Size(min = 1, max = 100, message = "Número de cartão inválido")
     @Column(name = "NUMERO_CARTAO", length = 100, nullable = true)
-//    @Transient
     private String numeroCartao;
     
-    @Temporal(TemporalType.TIMESTAMP)
+    @Size(min = 1, max = 100, message = "Data de Vencimento inválida")
     @Column(name = "DATA_VENCIMENTO_CARTAO", nullable = true)
-//    @Transient
-    private Date dataVencimento;
+    private String dataVencimento;
     
     @Size(min = 1, max = 100, message = "Nome no cartão inválido")
     @Column(name = "NOME_CARTAO", length = 100, nullable = true)
-//    @Transient
     private String nomeNoCartao;
     
     @Size(min = 1, max = 3, message = "Codigo segurança invalido")
     @Column(name = "CVV_CARTAO", precision = 3, nullable = true)
-//    @Transient
     private int CVV;
     
     @Size(min = 1, max = 100, message = "status inválido")
     @Column(name = "CPF_TITULAR_CARTAO", length = 100, nullable = true)
-//    @Transient
     private String CPFTitular;
     
     @Size(min = 1, max = 100, message = "status inválido")
@@ -128,7 +121,16 @@ public class PedidoModel implements Serializable {
         this.itens = new LinkedHashSet<>();
     }
 
-    public PedidoModel(Integer id, UsuarioModel cliente, Set<ItemPedidoModel> itens, EnderecoModel enderecoEntrega, float valorTotal, Date dataVenda, String formaDePagamento, String numeroCartao, Date dataVencimento, String nomeNoCartao, int CVV, String statusPedido) {
+    public PedidoModel(Integer id, UsuarioModel cliente, 
+            Set<ItemPedidoModel> itens, 
+            EnderecoModel enderecoEntrega, 
+            float valorTotal, Date dataVenda, 
+            String formaDePagamento, 
+            String numeroCartao, 
+            String dataVencimento, 
+            String nomeNoCartao, 
+            int CVV, 
+            String statusPedido) {
         this.id = id;
         this.cliente = cliente;
         this.itens = itens;
@@ -195,11 +197,11 @@ public class PedidoModel implements Serializable {
         this.numeroCartao = numeroCartao;
     }
 
-    public Date getDataVencimento() {
+    public String getDataVencimento() {
         return dataVencimento;
     }
 
-    public void setDataVencimento(Date dataVencimento) {
+    public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
 

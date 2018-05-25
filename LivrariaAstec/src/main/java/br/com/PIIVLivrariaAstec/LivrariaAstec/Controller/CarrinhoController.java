@@ -65,9 +65,6 @@ public class CarrinhoController implements Serializable {
             }
         }
 
-//        List<UsuarioModel> usuarios = serviceUsuario.listar();
-//        pedido.setCliente(usuarios.get(0));
-
         PedidoTemp ptemp = new PedidoTemp();
         ptemp.setItems(temp);
         return new ModelAndView("Carrinho").addObject("ptemp", ptemp);
@@ -160,8 +157,14 @@ public class CarrinhoController implements Serializable {
 	  BindingResult bindingResult,
 	  RedirectAttributes redirectAttributes) {
         
+        UsuarioModel aux = serviceUsuario.obterById(end.getUsuario().getId());
+        aux.setEndereco(end);
+        aux.setPedido(pedido);
+        
+        pedido.setCliente(aux);
         pedido.setEnderecoEntrega(end);
         end.setPedido(pedido);
+        end.setUsuario(aux);
         
         return new ModelAndView("redirect:/Carrinho/pagamento");
     }

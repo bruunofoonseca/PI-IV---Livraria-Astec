@@ -12,6 +12,7 @@ public interface UsuarioService{
 
     public List<UsuarioModel> listar();
     public UsuarioModel obter(String email, String senha);
+    public UsuarioModel obterById(Long id);
     public void inserir(UsuarioModel user);
     public void alterar(UsuarioModel user);
     public void remover(long idUsuario);
