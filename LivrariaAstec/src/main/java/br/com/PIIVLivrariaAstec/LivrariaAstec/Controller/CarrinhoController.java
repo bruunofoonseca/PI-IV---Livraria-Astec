@@ -154,8 +154,8 @@ public class CarrinhoController implements Serializable {
     
     @PostMapping("/validaEntrega")
     public ModelAndView validaEndereco(@ModelAttribute("endereco") EnderecoModel end,
-	  BindingResult bindingResult,
-	  RedirectAttributes redirectAttributes) {
+        BindingResult bindingResult,
+        RedirectAttributes redirectAttributes) {
         
         UsuarioModel aux = serviceUsuario.obterById(end.getUsuario().getId());
         aux.setEndereco(end);
@@ -177,14 +177,14 @@ public class CarrinhoController implements Serializable {
     
     @PostMapping("/validaPagamento")
     public ModelAndView validaPagamento(@ModelAttribute("ped") PedidoModel ped,
-	  BindingResult bindingResult,
-	  RedirectAttributes redirectAttributes) {
+        BindingResult bindingResult,
+        RedirectAttributes redirectAttributes) {
 
-        if(ped.getBandeiraCartao().equals("")){
+        if(ped.getNumeroCartao().equals("")) {
             this.pedido.setFormaDePagamento("Boleto");
         } else {
             this.pedido.setFormaDePagamento("Cartão");
-            this.pedido.setBandeiraCartao(ped.getBandeiraCartao());
+//            this.pedido.setBandeiraCartao(ped.getBandeiraCartao());
             this.pedido.setNumeroCartao(ped.getNumeroCartao());
             this.pedido.setNomeNoCartao(ped.getNomeNoCartao());
             this.pedido.setDataVencimento(ped.getDataVencimento());

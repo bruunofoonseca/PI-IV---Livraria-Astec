@@ -38,7 +38,18 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
 
     @Override
     public List<ProdutoModel> listarPorCategoria(CategoriaModel categoria, int offset, int quantidade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = entityManager.createQuery(
+            "SELECT DISTINCT p FROM ProdutoModel p "
+            + "LEFT JOIN FETCH p.categoria "
+            + "LEFT JOIN FETCH p.imagens "
+            + "INNER JOIN p.categoria c "
+            + "WHERE c.nome LIKE :nmCat")
+            .setParameter("nmCat", categoria.getNome())
+            .setFirstResult(offset)
+            .setMaxResults(quantidade);
+        List<ProdutoModel> resultados = query.getResultList();
+
+        return resultados;
     }
 
     @Override

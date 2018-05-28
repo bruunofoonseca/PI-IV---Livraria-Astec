@@ -26,11 +26,12 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "TB_CATEGORIA")
 @NamedQueries({
-  @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM CategoriaModel c"),
+    @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM CategoriaModel c")
+    ,
   @NamedQuery(name = "Categoria.findById", query = "SELECT c FROM CategoriaModel c WHERE c.id = :idCat")
 })
 public class CategoriaModel implements Serializable {
-    
+
     @Id
     @Column(name = "ID_CATEGORIA")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,53 +49,57 @@ public class CategoriaModel implements Serializable {
     }
 
     public CategoriaModel(Long id, String nome) {
-      this.id = id;
-      this.nome = nome;
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public CategoriaModel(String nome) {
+        this.nome = nome;
     }
 
     public Long getId() {
-      return id;
+        return id;
     }
 
     public void setId(Long id) {
-      this.id = id;
+        this.id = id;
     }
 
     public String getNome() {
-      return nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-      this.nome = nome;
+        this.nome = nome;
     }
 
     @Override
     public String toString() {
-      return "CategoriaModel{" + "id=" + id + ", nome=" + nome + '}';
+        return "CategoriaModel{" + "id=" + id + ", nome=" + nome + '}';
     }
 
     @Override
     public int hashCode() {
-      int hash = 3;
-      hash = 47 * hash + Objects.hashCode(this.id);
-      return hash;
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.id);
+        return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-      if (obj == null) {
-        return false;
-      }
+        if (obj == null) {
+            return false;
+        }
 
-      if (getClass() != obj.getClass()) {
-        return false;
-      }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
 
-      final CategoriaModel other = (CategoriaModel) obj;
-      if (!Objects.equals(this.id, other.id)) {
-        return false;
-      }
+        final CategoriaModel other = (CategoriaModel) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
 
-      return true;
+        return true;
     }
 }

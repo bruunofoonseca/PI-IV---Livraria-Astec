@@ -7,17 +7,15 @@ package br.com.PIIVLivrariaAstec.LivrariaAstec.Controller;
 
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.CategoriaModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
-import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.UsuarioModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.CategoriaService;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
-import br.com.PIIVLivrariaAstec.LivrariaAstec.service.UsuarioService;
 import java.util.List;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -33,18 +31,31 @@ public class ProdutoController {
 
     @Autowired
     private CategoriaService categoriaService;
-    
+
 //    @Autowired
 //    private UsuarioService serviceUsuario;
 
     @GetMapping
     public ModelAndView listar() {
         List<ProdutoModel> lista = service.listar(0, 100);
-        
-//        UsuarioModel user = serviceUsuario.obter("usuario@usuario.com", "123456");
 
         List<CategoriaModel> categorias = categoriaService.listar();
 
+        return new ModelAndView("listagemProdutos")
+            .addObject("produtos", lista)
+            .addObject("categorias", categorias);
+    }
+
+    @GetMapping("/cat/{categoria}")
+    public ModelAndView listarPorCategoria(
+            @PathVariable("categoria") String categoria,
+            @RequestParam(value = "pag", defaultValue = "0") int pagina,
+            @RequestParam(value = "qt", defaultValue = "6") int quantidade) {
+
+        List<CategoriaModel> categorias = categoriaService.listar();
+
+        List<ProdutoModel> lista
+                = service.listarPorCategoria(new CategoriaModel(categoria), pagina, quantidade);
         return new ModelAndView("listagemProdutos")
                 .addObject("produtos", lista)
                 .addObject("categorias", categorias);

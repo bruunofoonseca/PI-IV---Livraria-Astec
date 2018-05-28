@@ -64,7 +64,7 @@ public class PedidoModel implements Serializable {
     @Column(name = "FORMA_DE_PAGAMENTO", length = 100, nullable = false)
     private String formaDePagamento;
     
-    @Size(min = 1, max = 100, message = "Bandeira do cartão inválido")
+    @Size(min = 0, max = 100, message = "Bandeira do cartão inválido")
     @Column(name = "BANDEIRA_CARTAO", length = 100, nullable = true)
     private String bandeiraCartao;
     

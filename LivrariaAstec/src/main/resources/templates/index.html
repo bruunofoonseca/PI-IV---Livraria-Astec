@@ -6,8 +6,6 @@
         <title>Livraria Astec - Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        
-        
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -247,17 +245,16 @@
                         <!-- botao mobile CARRINHO E LOGIN -->
                         <div class="col-3 d-block d-md-none justify-content-end" id="mobileCarLog">
                             <div class="row">
-                                <div class="col-6"> <!--th:if="${@loginController.user != null}" --->
+                                <div class="col-6" th:if="${@loginController.user != null}">
                                     <a href="/login/logout">
                                         <i class="material-icons align-self-center mr-3">input</i>
-                                    </a>>
+                                    </a>
                                 </div>
                                 <div class="col-6">
                                     <div>
                                         <button class="btn" id="btnCarApp">
                                             <a href="/Carrinho"><i class="material-icons" style="font-size: 30px;margin:0px;padding:0px;color:#ffffff">shopping_cart</i></a>
                                         </button>
-                                    
                                     </div>
                                 </div>
                             </div>
@@ -266,7 +263,7 @@
                         <!-- botao desktop LOGIN -->
                         <div class="col-3 col-md-3 order-11 d-none d-md-block">
                             <div class="media float-md-right">
-                                <a href="/login/logout"> <!--th:if="${@loginController.user != null}" --->
+                                <a href="/login/logout" th:if="${@loginController.user != null}">
                                     <i class="material-icons align-self-center mr-3">input</i>
                                 </a>
                                 <div class="media-body">
@@ -274,14 +271,13 @@
                                     <button type="button" class="btn btn-primary">
                                         <a href="/login" id="entreCad">Entre ou Cadastre-se</a>
                                     </button>
-
                                 </div>
                             </div>
                         </div>
                         <!-- botao desktop  CARRINHO-->
                         <div class="col-1 col-md-1 order-12 d-none d-md-block">
                             <div>
-                                
+
                                 <button type="submit" class="btn" id="btnCarDesk" >
                                     <a href="/Carrinho"><i class="material-icons">shopping_cart</i></a>
                                 </button>
@@ -301,7 +297,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </nav>
             <!-- Fim do navbar Principal -->

@@ -83,27 +83,27 @@ public class ProdutoModel implements Serializable {
     @Digits(integer = 6, fraction = 2)
     @Column(name = "LARGURA_PRODUTO", precision = 6, scale = 2, nullable = false)
     private BigDecimal largura;
-    
+
     @Digits(integer = 6, fraction = 2)
     @Column(name = "PROFUNDIDADE_PRODUTO", precision = 6, scale = 2, nullable = false)
     private BigDecimal profundidade;
-    
+
     @Digits(integer = 6, fraction = 0)
     @Column(name = "NUMPAGES_PRODUTO", precision = 6, nullable = false)
     private int numPaginas;
-    
+
     @Size(min = 1, max = 100, message = "Idioma inválido")
     @Column(name = "IDIOMA_PRODUTO", length = 100, nullable = false)
     private String idioma;
-    
+
     @Size(min = 1, max = 100, message = "Acabamento inválido")
     @Column(name = "ACABAMENTO_PRODUTO", length = 100, nullable = false)
     private String acabamento;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CATEGORIA")
     private CategoriaModel categoria;
-      
+
     @OneToMany(mappedBy = "produto")
     private Set<ImagemProduto> imagens;
     
