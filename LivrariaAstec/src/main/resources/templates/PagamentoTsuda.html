@@ -72,26 +72,32 @@
                                                         <div class="form-group col-md-6">
                                                             <label for="qtdCodigoCartao">Numero do cartão</label>
                                                             <input type="text" class="form-control" id="qtdCodigoCartao" th:field="*{numeroCartao}" onblur="calcular()">
+                                                            <div th:if="${#fields.hasErrors('numeroCartao')}" th:errors="*{numeroCartao}"></div>
+                                                            <input type="hidden" name="valorBandeira" th:field="*{bandeiraCartao}" id="valorBandeira">
                                                         </div>
                                                         <div class="form-group col-md-6" id="resultado">
                                                             
                                                         </div>                                                       
                                                         <div class="form-group col-md-6">
                                                             <label for="inputCustom3">Nome do titular</label>
-                                                            <input type="text" class="form-control" id="inputCustom3 " placeholder="" th:field="*{nomeNoCartao}">
+                                                            <input type="text" class="form-control" id="inputCustom3 " placeholder="" th:field="*{nomeNoCartao}" disabled="false">
+                                                            <div th:if="${#fields.hasErrors('nomeNoCartao')}" th:errors="*{nomeNoCartao}"></div>
                                                         </div>
 
                                                         <div class="form-group col-md-6">
                                                             <label for="valCartao">Validade</label>
                                                             <input type="text" class="form-control" id="valCartao"  th:field="*{dataVencimento}">
+                                                            <div th:if="${#fields.hasErrors('dataVencimento')}" th:errors="*{dataVencimento}"></div>
                                                         </div>
                                                        <div class="form-group col-md-6">
                                                            <label for="teste">Cod. de Segurança</label>
-                                                           <input type="text" class="form-control" id="codSeg" th:field="*{CVV}">
+                                                           <input type="number" class="form-control" id="codSeg" th:field="*{CVV}">
+                                                           <div th:if="${#fields.hasErrors('CVV')}" th:errors="*{CVV}"></div>
                                                        </div>                                                       
                                                         <div class="form-group col-md-12">
                                                             <label for="inputCustom6">CPF DO TITULAR</label>
                                                             <input type="text" class="form-control" id="validationCPF" placeholder="" th:field="*{CPFTitular}">
+                                                            <div th:if="${#fields.hasErrors('CPFTitular')}" th:errors="*{CPFTitular}"></div>
                                                         </div>
                                                     </div>
                                                     <br>

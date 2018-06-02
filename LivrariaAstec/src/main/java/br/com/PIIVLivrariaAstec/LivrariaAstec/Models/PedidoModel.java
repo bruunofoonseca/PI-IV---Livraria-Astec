@@ -84,6 +84,7 @@ public class PedidoModel implements Serializable {
     @Column(name = "CVV_CARTAO", precision = 3, nullable = true)
     private int CVV;
     
+    
     @Size(min = 1, max = 100, message = "status inválido")
     @Column(name = "CPF_TITULAR_CARTAO", length = 100, nullable = true)
     private String CPFTitular;

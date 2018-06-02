@@ -1,5 +1,6 @@
 <div layout:decorate="~{index}" layout:fragment="conteudo">
     <div class="container">
+    <div class="row">
     <div class="col-12">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -93,62 +94,45 @@
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom03">* I.S.B.N</label>
                     <input type="text" class="form-control" id="validationCustom03" placeholder="000000000" required>
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom04">* Peso</label>
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" id="validationCustom04" placeholder=" 0,00 kg"
                            th:field="*{peso}">
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
+                    <div th:if="${#fields.hasErrors('peso')}" th:errors="*{peso}"></div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom05">* Altura</label>
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" id="validationCustom05" placeholder="0,00 cm"
                            th:field="*{altura}">
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
+                    <div th:if="${#fields.hasErrors('peso')}" th:errors="*{peso}"></div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom06">* Largura</label>
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" id="validationCustom06" placeholder=" 0,00 cm"
                            th:field="*{largura}">
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
+                    <div th:if="${#fields.hasErrors('largura')}" th:errors="*{largura}"></div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom07">* Profundidade</label>
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" id="validationCustom07" placeholder="0,00 cm"
                            th:field="*{profundidade}">
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
+                    <div th:if="${#fields.hasErrors('profundidade')}" th:errors="*{profundidade}"></div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom08">* Numero de Paginas</label>
                     <input type="number" min="0.00" class="form-control" id="validationCustom08" placeholder="00" th:field="*{numPaginas}">
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
+                    <div th:if="${#fields.hasErrors('numPaginas')}" th:errors="*{numPaginas}"></div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom09">* Idioma</label>
                     <input type="text" class="form-control" id="validationCustom09" placeholder="Português(Brasil)" th:field="*{idioma}">
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
+                    <div th:if="${#fields.hasErrors('idioma')}" th:errors="*{idioma}"></div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom10">* Acabamento</label>
                     <input type="text" class="form-control" id="validationCustom10" placeholder="Capa dura" th:field="acabamento">
-                    <div class="valid-feedback">
-                        ok!
-                    </div>
+                    <div th:if="${#fields.hasErrors('acabamento')}" th:errors="*{acabamento}"></div>
                 </div>
                 <div class="col-md-12 input-group mb-3">
 
@@ -202,4 +186,6 @@
     </div>
     <br>
     </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </div>

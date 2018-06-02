@@ -195,11 +195,12 @@
                                        required th:field="*{enderecos[0].numero}">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="validationCustom09">Complemento</label>
+                                <label for="validationCustom09">* Complemento</label>
                                 <input type="text" class="form-control" 
                                        id="validationCustom09" 
                                        placeholder="Bloco, andar..." 
-                                       th:field="*{enderecos[0].complemento}">
+                                       th:field="*{enderecos[0].complemento}"
+                                       required>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom10">* Bairro</label>
@@ -254,4 +255,5 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../js/jquery.formatter.min.js"></script>
     <script src="../js/validandoInputs.js"></script>
+    <script src="../js/viacep.js"></script>
 </div>
