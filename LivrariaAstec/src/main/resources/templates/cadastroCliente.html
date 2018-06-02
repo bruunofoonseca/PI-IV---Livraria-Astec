@@ -36,10 +36,7 @@
                                        id="validationCustom02" 
                                        placeholder="Ex: Da Silva" 
                                        th:field="*{sobrenome}">
-                                <div th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></div>
-                                <div class="valid-feedback">
-                                    ok!
-                                </div>
+                                <div class="erroValidacao" th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></div>
                             </div>
 
                             <div class="col-12">
@@ -55,10 +52,7 @@
                                            placeholder="usuario@email.com" 
                                            aria-describedby="inputGroupPrepend"
                                            th:field="*{email}">
-                                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-                                    <div class="invalid-feedback">
-                                        Por favor coloque um e-mail valido. Ex: usuario@email.com
-                                    </div>
+                                    <div class="erroValidacao" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -73,13 +67,7 @@
                                            id="validationPassword" 
                                            placeholder="Senha" 
                                            th:field="*{senha}">
-                                    <div th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></div>
-                                    <div class="valid-feedback">
-                                        ok!
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor coloque uma senha valida.
-                                    </div>
+                                    <div class="erroValidacao" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></div>
                                 </div   >
                             </div>
                             <div class="col-md-6 mb-3">
@@ -88,12 +76,6 @@
                                        id="validationConfirmPassword" 
                                        placeholder="Confirme sua senha" 
                                        th:field="*{confirmarSenha}">
-                                <div class="valid-feedback">
-                                    ok!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Por favor certifique-se de que as senhas coincidem.
-                                </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCPF">* Número do CPF</label>
@@ -101,13 +83,7 @@
                                        id="validationCPF" 
                                        placeholder="Digite apenas números" 
                                        th:field="*{cpf}">
-                                <div th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></div>
-                                <div class="valid-feedback">
-                                    ok!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Por favor coloque um CPF válido.
-                                </div>
+                                <div class="erroValidacao" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationSexo">* Sexo</label>
@@ -118,7 +94,7 @@
                                     <option value="M">Masculino</option>
                                     <option value="F">Feminino</option>
                                 </select>
-                                <div th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}"></div>
+                                <div  class="erroValidacao" th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}"></div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationDate">* Data de Nascimento</label>
@@ -127,9 +103,6 @@
                                        placeholder="00/00/0000" 
                                        th:field="*{dataNascimento}"
                                        />
-                                <div class="valid-feedback">
-                                    ok!
-                                </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom03">* Telefone</label>
@@ -137,11 +110,7 @@
                                        id="validationCustom03" 
                                        placeholder="(00)0000-0000" 
                                        th:field="*{telefone}">
-                                <div th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></div>
-                                
-                                <div class="valid-feedback">
-                                    ok!
-                                </div>
+                                <div class="erroValidacao" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom04">* Celular</label>
@@ -149,10 +118,7 @@
                                        id="validationCustom04" 
                                        placeholder="(00)00000-0000" 
                                        th:field="*{celular}">
-                                <div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}"></div>
-                                <div class="valid-feedback">
-                                    ok!
-                                </div>
+                                <div class="erroValidacao" th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}"></div>
                             </div>
                         </div>
                         </br>
@@ -169,7 +135,8 @@
                                        placeholder="00000-000" 
                                        id="cep" 
                                        aria-describedby="basic-addon2"
-                                       th:field="*{enderecos[0].cep}"/>
+                                       th:field="*{enderecos[0].cep}"
+                                       required/>
                                 <div class="input-group-append">
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" 
@@ -183,9 +150,7 @@
                                        id="rua" 
                                        placeholder="Ex: Rua Tonis"  
                                        th:field="*{enderecos[0].logradouro}">
-                                <div class="invalid-feedback">
-                                    Por favor coloque um endereço valido.
-                                </div>
+                                <div class="erroValidacao" th:if="${#fields.hasErrors('logradouro')}" th:errors="*{logradouro}"></div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom08">* Número</label>

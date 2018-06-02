@@ -238,3 +238,8 @@ hr{
 .dropdown-toggle::after {
     display:none
 }
+
+.erroValidacao{
+    background: red;
+    color: white;
+}
