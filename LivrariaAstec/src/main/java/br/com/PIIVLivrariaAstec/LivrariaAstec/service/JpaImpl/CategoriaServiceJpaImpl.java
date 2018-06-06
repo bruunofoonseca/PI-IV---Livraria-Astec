@@ -30,7 +30,7 @@ public class CategoriaServiceJpaImpl implements CategoriaService {
   }
 
   @Override
-  public CategoriaModel obter(int id) {
+  public CategoriaModel obter(Long id) {
     Query query = entityManager.createNamedQuery("Categoria.findById")
 	    .setParameter("idCat", id);
     return (CategoriaModel) query.getSingleResult();

@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.PedidoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.Models.ProdutoModel;
 import br.com.PIIVLivrariaAstec.LivrariaAstec.service.CategoriaService;
+import br.com.PIIVLivrariaAstec.LivrariaAstec.service.ProdutoService;
+import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
@@ -35,6 +37,9 @@ public class GerenciamentoVendaController {
 
     @Autowired
     private CategoriaService serviceCategoria;
+
+    @Autowired
+    private ProdutoService serviceProduto;
 
     @GetMapping()
     public ModelAndView listarVenda() {
@@ -67,6 +72,13 @@ public class GerenciamentoVendaController {
                 .addObject("categorias", categorias);
         }
 
-        return new ModelAndView("/");
+        produto.setCategoria(serviceCategoria.obter(produto.getCategoria().getId()));
+        produto.setDtCadastro(new Date());
+        produto.setDtFabricacao(new Date());
+        produto.setStatus(true);
+
+        serviceProduto.incluir(produto);
+
+        return new ModelAndView("redirect:/");
     }
 }

@@ -35,5 +35,5 @@ public interface CategoriaService extends Serializable {
 
   public List<CategoriaModel> listar();
 
-  public CategoriaModel obter(int id);
+  public CategoriaModel obter(Long id);
 }

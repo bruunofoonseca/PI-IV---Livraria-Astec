@@ -71,13 +71,13 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
     @Override
     @Transactional
     public void incluir(ProdutoModel p) {
-        for (ImagemProduto img : p.getImagens()) {
-            if (img.getId() == null) {
-                entityManager.persist(img);
-            } else {
-                entityManager.merge(img);
-            }
-        }
+//        for (ImagemProduto img : p.getImagens()) {
+//            if (img.getId() == null) {
+//                entityManager.persist(img);
+//            } else {
+//                entityManager.merge(img);
+//            }
+//        }
 
         entityManager.persist(p);
     }
@@ -85,13 +85,13 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
     @Override
     @Transactional
     public void alterar(ProdutoModel p) {
-        for (ImagemProduto img : p.getImagens()) {
-            if (img.getId() == null) {
-                entityManager.persist(img);
-            } else {
-                entityManager.merge(img);
-            }
-        }
+//        for (ImagemProduto img : p.getImagens()) {
+//            if (img.getId() == null) {
+//                entityManager.persist(img);
+//            } else {
+//                entityManager.merge(img);
+//            }
+//        }
 
         entityManager.merge(p);
     }

@@ -139,7 +139,7 @@
                         <div class="input-group col-md-6 mb-3">
                             <select class="custom-select" id="inputGroupSelect04" th:field="*{categoria.id}">
                                 <option value="0" selected>Escolha a categoria...</option>
-                                <option th:each="cat : ${categorias}"  th:text="${cat.nome}" value="${cat.id}">One</option>
+                                <option th:each="cat : ${categorias}"  th:text="${cat.nome}" th:value="${cat.id}">One</option>
                             </select>
 <!--                            <div class="input-group-append">
                                 <button class="btn btn-danger" type="button">
