@@ -25,7 +25,7 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
     
     @PersistenceContext
     private EntityManager entityManager;
-      
+
     @Override
     public List<ProdutoModel> listar(int offset, int quantidade) {
         Query query = entityManager.createQuery(
@@ -35,6 +35,7 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
 	    .setMaxResults(quantidade);
 
         List<ProdutoModel> resultados = query.getResultList();
+
         return resultados;
     }
 
@@ -63,6 +64,7 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
                 + "WHERE p.id = :idProd");
         query.setParameter("idProd", idProduto);
         ProdutoModel p = (ProdutoModel) query.getSingleResult();
+
         return p;
     }
 

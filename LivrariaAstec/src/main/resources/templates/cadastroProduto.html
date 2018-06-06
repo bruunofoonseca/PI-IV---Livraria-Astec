@@ -116,7 +116,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom10">* Acabamento</label>
-                    <input type="text" class="form-control" id="validationCustom10" placeholder="Capa dura" th:field="acabamento">
+                    <input type="text" class="form-control" id="validationCustom10" placeholder="Capa dura" th:field="*{acabamento}">
                     <div class="erroValidacao" th:if="${#fields.hasErrors('acabamento')}" th:errors="*{acabamento}"></div>
                 </div>
                 <div class="col-md-12 input-group mb-3">
