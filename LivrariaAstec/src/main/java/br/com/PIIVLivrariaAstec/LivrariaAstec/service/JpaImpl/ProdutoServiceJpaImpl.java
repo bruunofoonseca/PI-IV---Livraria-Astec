@@ -22,7 +22,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class ProdutoServiceJpaImpl implements ProdutoService {
-    
+
     @PersistenceContext
     private EntityManager entityManager;
 

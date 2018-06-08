@@ -264,6 +264,7 @@
                         <!-- botao desktop LOGIN -->
                         <div class="col-3 col-md-3 order-11 d-none d-md-block">
                             <div class="media float-md-right">
+
                                 <div  th:if="${@loginController.user != null}">
                                     <!-- <i class="material-icons align-self-center mr-3">input</i> -->
                                     <div class="dropdown">
@@ -276,6 +277,7 @@
                                             <a class="dropdown-item" href="#" style="color: gray">Meus Pedidos</a>
                                             <a class="dropdown-item" href="#" style="color: gray">Gerenciamento</a>
                                             <a class="dropdown-item" href="/login/logout" style="color: gray">Sair</a>
+
                                         </div>
                                     </div>
                                 </div>
