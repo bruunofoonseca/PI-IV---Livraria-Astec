@@ -204,8 +204,26 @@
                         <!-- botao mobile CARRINHO E LOGIN -->
                         <div class="col-3 d-block d-md-none justify-content-end" id="mobileCarLog">
                             <div class="row">
-                                <div class="col-6" th:if="${@loginController.user != null}">
-                                    <a href="/login/logout">
+                                <div  th:if="${@loginController.user != null}">
+                                    <!-- <i class="material-icons align-self-center mr-3">input</i> -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-light dropdown-toggle rounded-circle" type="button" id="dropdownMenuUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 30px;height: 30px">
+                                            <i class="material-icons" style="font-size: 15px;color: #ffc107">person</i>
+                                        </button>
+                                        <div class="dropdown-menu menu-usuario" aria-labelledby="dropdownMenuUsuario" >
+                                            <a class="dropdown-item" href="#" style="color: gray">Meus Dados</a>
+                                            <a class="dropdown-item" href="#" style="color: gray">Meus Endereços</a>
+                                            <a class="dropdown-item" href="#" style="color: gray">Meus Pedidos</a>
+                                            <a class="dropdown-item" href="#" style="color: gray">Gerenciamento</a>
+                                            <a class="dropdown-item" href="/login/logout" style="color: gray">Sair</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-6" th:if="${@loginController.user == null}">
+                                    <a href="/login">
                                         <i class="material-icons align-self-center mr-3">input</i>
                                     </a>
                                 </div>
