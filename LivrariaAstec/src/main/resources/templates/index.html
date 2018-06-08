@@ -90,7 +90,7 @@
                     </div>
                     <div class="row">
                         <!-- Card -->
-                        
+
                         <div layout:fragment="conteudo">
 
                         </div>
@@ -264,18 +264,20 @@
                         <!-- botao desktop LOGIN -->
                         <div class="col-3 col-md-3 order-11 d-none d-md-block">
                             <div class="media float-md-right">
-                                <div th:if="${@loginController.user != null}">
+
+                                <div  th:if="${@loginController.user != null}">
                                     <!-- <i class="material-icons align-self-center mr-3">input</i> -->
                                     <div class="dropdown">
-                                        <button class="btn btn-outline-light dropdown-toggle rounded-circle" type="button" id="dropdownMenuUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 50px; height: 50px">
-                                            <i class="material-icons" style="font-size: 30px">person</i>
+                                        <button class="btn btn-outline-light dropdown-toggle rounded-circle" type="button" id="dropdownMenuUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 50px;height: 50px">
+                                            <i class="material-icons" style="font-size: 30px;color: #ffc107">person</i>
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuUsuario">
-                                            <a class="dropdown-item" href="#">Meus Dados</a>
-                                            <a class="dropdown-item" href="#">Meus Endereços</a>
-                                            <a class="dropdown-item" href="#">Meus Pedidos</a>
-                                            <a class="dropdown-item" href="#">Gerenciamento</a>
-                                            <a class="dropdown-item" href="/login/logout">Sair</a>
+                                        <div class="dropdown-menu menu-usuario" aria-labelledby="dropdownMenuUsuario" >
+                                            <a class="dropdown-item" href="#" style="color: gray">Meus Dados</a>
+                                            <a class="dropdown-item" href="#" style="color: gray">Meus Endereços</a>
+                                            <a class="dropdown-item" href="#" style="color: gray">Meus Pedidos</a>
+                                            <a class="dropdown-item" href="#" style="color: gray">Gerenciamento</a>
+                                            <a class="dropdown-item" href="/login/logout" style="color: gray">Sair</a>
+
                                         </div>
                                     </div>
                                 </div>
