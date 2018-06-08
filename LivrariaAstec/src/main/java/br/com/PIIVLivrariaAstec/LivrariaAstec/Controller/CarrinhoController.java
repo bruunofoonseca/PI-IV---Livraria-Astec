@@ -184,7 +184,7 @@ public class CarrinhoController implements Serializable {
             this.pedido.setFormaDePagamento("Boleto");
         } else {
             this.pedido.setFormaDePagamento("Cartão");
-//            this.pedido.setBandeiraCartao(ped.getBandeiraCartao());
+            this.pedido.setBandeiraCartao(ped.getBandeiraCartao());
             this.pedido.setNumeroCartao(ped.getNumeroCartao());
             this.pedido.setNomeNoCartao(ped.getNomeNoCartao());
             this.pedido.setDataVencimento(ped.getDataVencimento());

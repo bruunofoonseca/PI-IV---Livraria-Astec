@@ -150,7 +150,7 @@
                                        id="rua" 
                                        placeholder="Ex: Rua Tonis"  
                                        th:field="*{enderecos[0].logradouro}">
-                                <div class="erroValidacao" th:if="${#fields.hasErrors('logradouro')}" th:errors="*{logradouro}"></div>
+                                <div class="erroValidacao" th:if="${#fields.hasErrors('enderecos[0].logradouro')}" th:errors="*{enderecos[0].logradouro}"></div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom08">* Número</label>
@@ -164,8 +164,7 @@
                                 <input type="text" class="form-control" 
                                        id="validationCustom09" 
                                        placeholder="Bloco, andar..." 
-                                       th:field="*{enderecos[0].complemento}"
-                                       required>
+                                       th:field="*{enderecos[0].complemento}">
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom10">* Bairro</label>

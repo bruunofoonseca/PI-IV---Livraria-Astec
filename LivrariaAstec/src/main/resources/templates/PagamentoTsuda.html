@@ -72,7 +72,7 @@
 
                                                         <div class="form-group col-md-12">
                                                             <label for="inputCustom3">Bandeira</label>
-                                                            <select class="form-control">
+                                                            <select class="form-control" th:field="*{bandeiraCartao}">
                                                                 <option value="visa">VISA</option>
                                                                 <option value="elo">ELO</option>
                                                                 <option value="mastercard">MASTERCARD</option>
@@ -81,14 +81,14 @@
                                                         
                                                         <div class="form-group col-md-6">
                                                             <label for="qtdCodigoCartao">Numero do cartão</label>
-                                                            <input type="text" class="form-control" id="qtdCodigoCartao" th:field="*{numeroCartao}" onblur="calcular()">
+                                                            <input type="text" class="form-control" id="qtdCodigoCartao" th:field="*{numeroCartao}">
                                                             <div th:if="${#fields.hasErrors('numeroCartao')}" th:errors="*{numeroCartao}"></div>
-                                                            <input type="hidden" name="valorBandeira" th:field="*{bandeiraCartao}" id="valorBandeira">
+                                                            <!--<input type="hidden" name="valorBandeira" th:field="*{bandeiraCartao}" id="valorBandeira">-->
                                                         </div>
 
                                                         <div class="form-group col-md-6">
                                                             <label for="inputCustom3">Nome do titular</label>
-                                                            <input type="text" class="form-control" id="inputCustom3 " placeholder="" th:field="*{nomeNoCartao}" disabled="false">
+                                                            <input type="text" class="form-control" id="inputCustom3 " placeholder="" th:field="*{nomeNoCartao}">
                                                             <div th:if="${#fields.hasErrors('nomeNoCartao')}" th:errors="*{nomeNoCartao}"></div>
                                                         </div>
 

@@ -24,6 +24,6 @@
       'persistent': true // always displays the formatted character.
     });
     $('#qtdCodigoCartao').formatter({
-      'pattern': '{{9999}.{{9999}}.{{9999}.{{9999}',
+      'pattern': '{{9999}}.{{9999}}.{{9999}}.{{9999}}',
       'persistent': true // always displays the formatted character.
     });
