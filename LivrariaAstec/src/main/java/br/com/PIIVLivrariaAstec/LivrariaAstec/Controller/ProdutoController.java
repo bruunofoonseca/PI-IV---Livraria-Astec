@@ -64,6 +64,11 @@ public class ProdutoController {
     @GetMapping("/{id}")
     public ModelAndView mostrarDetalhe(@PathVariable("id") Long id) {
         ProdutoModel p = service.obter(id);
-        return new ModelAndView("detalheProduto").addObject("produto", p);
+
+        List<CategoriaModel> categorias = categoriaService.listar();
+
+        return new ModelAndView("detalheProduto")
+                .addObject("produto", p)
+                .addObject("categorias", categorias);
     }
 }

@@ -20,70 +20,27 @@
         <link href="../css/main.css" rel="stylesheet" media="screen"  />
 
         <script src="../js/main.js"></script>
-
     </head>
 
     <body>
-
         <div class="ajustar">
             <br>
         </div>
         <div class="container">
             <div class="row">
-
                 <!-- inicio do slider-->
 
-
                 <!-- fim do slider -->
-
                 <div class="col-12">
                     <hr>
                     <div class="row">
-                        <div class="col-sm-12 col-md-6">
-
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 d-sm-none d-md-block">
-
-                        </div>
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6 d-sm-none d-md-block"></div>
                     </div>
                     <div class="row">
                         <!-- Card -->
-                        <div layout:fragment="conteudo"style="width: 100%">
-
-                        </div>
+                        <div layout:fragment="conteudo"style="width: 100%"></div>
                         <!--FIm do card -->
-                        <!-- <div class="col-sm-12 col-md-4 col-lg-3">
-                                                <div class="card text-center">
-                                                    <img class="" src="./imagens/products/15.jpg" alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Eu robo</h5>
-                                                        <p class="card-text d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus ultrices elementum.
-                                                            Duis vel est nec libero venenatis accumsan ut vel ex. </p>
-                                                        <p class="card-text d-block d-md-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <label for="">R$</label>
-                                                            </div>
-                                                            <div class="col-9">
-                                                                <h5 class="preco-produto">222,50</h5>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <a href="#" class="btn btn-outline-primary btn-large btn-block">Detalhes</a>
-                                                            </div>
-                                                            <div class="col-12">
-                        
-                                                                <a href="#" class="btn btn-primary btn-grid-carrinho btn-block">
-                                                                    <i class="material-icons">add_circle_outlineshopping_cart</i>
-                                                                    <span class="frase-btn-carrinho">Add ao carrinho</span>
-                        
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
                     </div>
                 </div>
             </div>
@@ -220,8 +177,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="col-6" th:if="${@loginController.user == null}">
                                     <a href="/login">
                                         <i class="material-icons align-self-center mr-3">input</i>
@@ -241,22 +196,18 @@
                         <!-- botao desktop LOGIN -->
                         <div class="col-3 col-md-3 order-11 d-none d-md-block">
                             <div class="media float-md-right">
-
                                 <div  th:if="${@loginController.user != null}">
-
                                     <!-- <i class="material-icons align-self-center mr-3">input</i> -->
                                     <div class="dropdown">
                                         <button class="btn btn-outline-light dropdown-toggle rounded-circle" type="button" id="dropdownMenuUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 50px;height: 50px">
                                             <i class="material-icons" style="font-size: 30px;color: #ffc107">person</i>
                                         </button>
-
                                         <div class="dropdown-menu menu-usuario" aria-labelledby="dropdownMenuUsuario" >
                                             <a class="dropdown-item" href="#" style="color: gray">Meus Dados</a>
                                             <a class="dropdown-item" href="#" style="color: gray">Meus Endereços</a>
                                             <a class="dropdown-item" href="#" style="color: gray">Meus Pedidos</a>
                                             <a class="dropdown-item" href="#" style="color: gray">Gerenciamento</a>
                                             <a class="dropdown-item" href="/login/logout" style="color: gray">Sair</a>
-
                                         </div>
                                     </div>
                                 </div>
@@ -291,13 +242,11 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </nav>
             <!-- Fim do navbar Principal -->
 
             <!-- Inicio do nav das categorias -->
-
             <nav class="nav nav-pills nav-fill d-none d-md-block border-bottom border-primary" style="background:#f8f9fa">
                 <ul class="nav nav-item nav-pills">
 
@@ -306,53 +255,34 @@
                         <div class="dropdown-menu">
                             <div class="row">
                                 <div class="col" th:each="c :${categorias}">
-                                    <a href="#" class="dropdown-item" th:text="${c.nome}">Drama</a>
-                                    <!--                                <a href="#" class="dropdown-item">Romance</a>
-                                                                    <a href="#" class="dropdown-item">Suspense</a>
-                                                                    <a href="#" class="dropdown-item">Ficção Cientifica</a>
-                                    
-                                                                    <a href="#" class="dropdown-item">Religiosos</a>
-                                                                    <a href="#" class="dropdown-item">Estudos</a>-->
+                                    <a th:href="@{/cat/{categoria}(categoria=${c.nome})}" class="dropdown-item" th:text="${c.nome}">Drama</a>
                                 </div>
-                                <!--                            <div class="col">
-                                                                <a href="#" class="dropdown-item">Fantasia</a>
-                                                                <a href="#" class="dropdown-item">Aventura</a>
-                                                                <a href="#" class="dropdown-item">Comédia</a>
-                                                                <a href="#" class="dropdown-item">Terror</a>
-                                                                <a href="#" class="dropdown-item">Autoajuda</a>
-                                                            </div>
-                                                            <div class="col">
-                                
-                                
-                                                            </div>-->
                             </div>
                         </div>
                     </li>
                     <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                        <a class="nav-link" href="#">Romance</a>
+                        <a class="nav-link" href="/cat/{Romance}">Romance</a>
                     </li>
                     <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                        <a class="nav-link" href="#">Drama</a>
+                        <a class="nav-link" href="/cat/{Drama}">Drama</a>
                     </li>
                     <li class="nav-item nav-link ">
-                        <a class="nav-link" href="#">Fantasia</a>
+                        <a class="nav-link" href="/cat/{Fantasia}">Fantasia</a>
                     </li>
                     <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                        <a class="nav-link" href="#">Aventura</a>
+                        <a class="nav-link" href="/cat/{Aventura}">Aventura</a>
                     </li>
                     <li class="nav-item nav-link d-none d-xl-block">
-                        <a class="nav-link" href="#">Ficção cientifica</a>
+                        <a class="nav-link" href="/cat/{Ficção Cientifica}">Ficção cientifica</a>
                     </li>
                     <li class="nav-item nav-link">
-                        <a class="nav-link" href="#">Suspense</a>
+                        <a class="nav-link" href="/cat/{Suspense}">Suspense</a>
                     </li>
                     <li class="nav-item nav-link">
-                        <a class="nav-link" href="#">Estudos</a>
+                        <a class="nav-link" href="/cat/{Estudos}">Estudos</a>
                     </li>
                 </ul>
             </nav>
-
-
             <!-- fim do nav das categorias -->
         </div>
         <script src="../js/viacep.js"></script>

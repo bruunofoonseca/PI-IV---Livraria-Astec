@@ -343,49 +343,32 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas as Categorias</a>
                         <div class="dropdown-menu">
                             <div class="row">
-                                <div class="col" th:each="c :${categorias}">
-                                    <a href="#" class="dropdown-item" th:text="${c.nome}">Drama</a>
-                                    <!--                                <a href="#" class="dropdown-item">Romance</a>
-                                                                    <a href="#" class="dropdown-item">Suspense</a>
-                                                                    <a href="#" class="dropdown-item">Ficção Cientifica</a>
-                                    
-                                                                    <a href="#" class="dropdown-item">Religiosos</a>
-                                                                    <a href="#" class="dropdown-item">Estudos</a>-->
+                                <div class="col" th:each="c : ${categorias}">
+                                    <a th:href="@{/cat/{categoria}(categoria=${c.nome})}" class="dropdown-item" th:text="${c.nome}">Drama</a>
                                 </div>
-                                <!--                            <div class="col">
-                                                                <a href="#" class="dropdown-item">Fantasia</a>
-                                                                <a href="#" class="dropdown-item">Aventura</a>
-                                                                <a href="#" class="dropdown-item">Comédia</a>
-                                                                <a href="#" class="dropdown-item">Terror</a>
-                                                                <a href="#" class="dropdown-item">Autoajuda</a>
-                                                            </div>
-                                                            <div class="col">
-                                
-                                
-                                                            </div>-->
                             </div>
                         </div>
                     </li>
                     <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                        <a class="nav-link" href="#">Romance</a>
+                        <a class="nav-link" href="/cat/{Romance}">Romance</a>
                     </li>
                     <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                        <a class="nav-link" href="#">Drama</a>
+                        <a class="nav-link" href="/cat/{Drama}">Drama</a>
                     </li>
                     <li class="nav-item nav-link ">
-                        <a class="nav-link" href="#">Fantasia</a>
+                        <a class="nav-link" href="/cat/{Fantasia}">Fantasia</a>
                     </li>
                     <li class="nav-item nav-link d-none d-lg-block d-xl-none">
-                        <a class="nav-link" href="#">Aventura</a>
+                        <a class="nav-link" href="/cat/{Aventura}">Aventura</a>
                     </li>
                     <li class="nav-item nav-link d-none d-xl-block">
-                        <a class="nav-link" href="#">Ficção cientifica</a>
+                        <a class="nav-link" href="/cat/{Ficção Cientifica}">Ficção cientifica</a>
                     </li>
                     <li class="nav-item nav-link">
-                        <a class="nav-link" href="#">Suspense</a>
+                        <a class="nav-link" href="/cat/{Suspense}">Suspense</a>
                     </li>
                     <li class="nav-item nav-link">
-                        <a class="nav-link" href="#">Estudos</a>
+                        <a class="nav-link" href="/cat/{Estudos}">Estudos</a>
                     </li>
                 </ul>
             </nav>
