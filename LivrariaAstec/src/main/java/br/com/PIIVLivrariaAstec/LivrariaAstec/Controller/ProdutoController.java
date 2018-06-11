@@ -13,7 +13,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -59,6 +61,17 @@ public class ProdutoController {
         return new ModelAndView("listagemProdutos")
                 .addObject("produtos", lista)
                 .addObject("categorias", categorias);
+    }
+
+    @PostMapping("/busca")
+    public ModelAndView buscaByName(@ModelAttribute("prod") String produto) {
+        List<ProdutoModel> lista = service.obterByName(produto, 0, 100);
+
+        List<CategoriaModel> categorias = categoriaService.listar();
+
+        return new ModelAndView("listagemProdutos")
+            .addObject("produtos", lista)
+            .addObject("categorias", categorias);
     }
 
     @GetMapping("/{id}")

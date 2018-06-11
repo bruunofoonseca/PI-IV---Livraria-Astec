@@ -320,14 +320,16 @@
 
                         <!-- SEARCHR BAR-->
                         <div class="col-sm-12 col-md-6">
-                            <div class="input-group mb-3">
-                                <input type="search" class="form-control" placeholder="O que procura?" aria-label="busca" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-light" type="button">
-                                        <i class="material-icons">search</i>
-                                    </button>
-                                </div>
-                            </div>
+                            <!--<div class="input-group mb-3">-->
+                                <form method="post" th:action="@{/busca}" class="input-group mb-3">
+                                    <input name="prod" id="prod" type="search" class="form-control" placeholder="O que procura?" aria-label="busca" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-light" type="submit">
+                                            <i class="material-icons">search</i>
+                                        </button>
+                                    </div>
+                                </form>
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>

@@ -12,8 +12,6 @@
                 <img class="" src="../imagens/products/15.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${prod.nome}">Nao foi possivel carregar</h5>
-                    <!--<p class="card-text d-none d-md-block" th:text="${prod.descricao}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus ultrices elementum.
-                        Duis vel est nec libero venenatis accumsan ut vel ex. </p> -->
                     <div class="row ajuste-dos-botoes">
                         <div class="col-3">
                             <label for="">R$</label>
@@ -23,7 +21,6 @@
                         </div>
 
                         <div class="col-12">
-                            <!-- <a href="#" class="btn btn-outline-primary btn-large btn-block">Detalhes</a> -->
                             <a href="detalheProduto.html" th:href="@{/{id}(id=${prod.id})}" class="btn btn-outline-primary btn-large btn-block">Detalhes</a>
                         </div>
                         <form th:action="@{/Carrinho}" method="post" style="padding: 0px;width: 100%">
@@ -35,14 +32,6 @@
                                 </button>
                             </div>
                         </form>
-                        <div class="col-12">
-                            <!--
-                            <a href="#" class="btn btn-primary btn-grid-carrinho btn-block">
-                                <i class="material-icons">add_circle_outlineshopping_cart</i>
-                                <span class="frase-btn-carrinho">Add ao carrinho</span>
-                            </a>
-                            -->
-                        </div>
                     </div>
                 </div>
             </div>

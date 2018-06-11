@@ -39,6 +39,8 @@ public interface ProdutoService extends Serializable {
     public List<ProdutoModel> listarPorCategoria(CategoriaModel categoria, int offset, int quantidade);
 
     public ProdutoModel obter(long idProduto);
+    
+    public List<ProdutoModel> obterByName(String produto, int offset, int quantidade);
 
     public void incluir(ProdutoModel p);
 

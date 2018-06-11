@@ -67,6 +67,21 @@ public class ProdutoServiceJpaImpl implements ProdutoService {
 
         return p;
     }
+    
+    @Override
+    public List<ProdutoModel> obterByName(String produto, int offset, int quantidade) {
+        Query query = entityManager.createQuery(
+                "SELECT p FROM ProdutoModel p "
+                + "LEFT JOIN FETCH p.categoria "
+                + "LEFT JOIN FETCH p.imagens "
+                + "WHERE p.nome LIKE :produto");
+        query.setParameter("produto", "%" + produto + "%")
+            .setFirstResult(offset)
+            .setMaxResults(quantidade);;
+        List<ProdutoModel> resultados = query.getResultList();
+
+        return resultados;
+    }
 
     @Override
     @Transactional
