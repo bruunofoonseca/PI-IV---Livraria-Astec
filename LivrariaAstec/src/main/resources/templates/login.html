@@ -1,12 +1,8 @@
 <div layout:decorate="~{index2}" layout:fragment="conteudo"> 
     <div class="container">
         <div class="row" style="background-color:#f8f9fa">
-           
-
             <div class="col-12">
-
                 <h3 style="margin-bottom:20px">Login</h3>
-
             </div>
 
             <div class="col-xs-6" id="oi">
@@ -36,27 +32,27 @@
                             </br>
                             <label for="validationPassword">* Senha</label>
                             <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend">
-                                    <i class="material-icons">vpn_key</i>
-                                </span>
-                            </div>
-                            <input type="password" 
-                                   class="form-control" 
-                                   id="validationPassword" 
-                                   placeholder="Senha" 
-                                   th:field="*{senha}" 
-                                   required>
-                            <div class="valid-feedback">
-                                ok!
-                            </div>
-                            <div class="invalid-feedback">
-                                Por favor coloque uma senha valida.
-                            </div>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">
+                                        <i class="material-icons">vpn_key</i>
+                                    </span>
+                                </div>
+                                <input type="password" 
+                                       class="form-control" 
+                                       id="validationPassword" 
+                                       placeholder="Senha" 
+                                       th:field="*{senha}" 
+                                       required>
+                                <div class="valid-feedback">
+                                    ok!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor coloque uma senha valida.
+                                </div>
                             </div>
                         </div>
                     </div>
-                        </br>
+                    </br>
                     <button class="btn" type="submit" id="btnLogin">
                         <a id="letraCad">Login</a>
                     </button>
@@ -72,10 +68,11 @@
                 <button class="btn" type="submit" id="btnSalvar">
                     <a href="/cadastroCliente" id="letraCad">Cadastre-se</a>
                 </button>
+            </div>
+            <br>
+            <br>
         </div>
         <br>
         <br>
     </div>
-    <br>
-    <br>
 </div>

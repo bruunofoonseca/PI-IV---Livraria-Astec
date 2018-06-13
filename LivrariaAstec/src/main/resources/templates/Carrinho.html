@@ -4,32 +4,24 @@
             <!-- INICIO DA LISTAGEM DE PRODUTOS -->
             <div class="col-12">
                 <div class="row" style="width: 100%">
-
-
-
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="#">Home</a>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">Carrinho</li>
                             </ol>
                         </nav>
                         <h3 style="margin-bottom:20px">Meu Carrinho (x Itens)</h3>
-
                     </div>
-
                     <div class="col-12">
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60% da compra concluida</div>
                         </div>
                     </div>
-
                     <br>
                     <br>
-
-
                     <div class="col-sm-12 col-md-6">
                         <h5>Item(s)</h5>
                     </div>
@@ -42,7 +34,6 @@
                     <div class="col-2 d-none d-md-block">
                         <h5>Subtotal</h5>
                     </div>
-
                 </div>
                 <!-- FIM DA LISTAGEM DE PRODUTOS -->
                 <br>
@@ -50,37 +41,29 @@
                 <div class="ifVazio" th:if="${@carrinhoController.pedido.itens.isEmpty()} == true" >Lista vazia</div>
                 <form action="/Carrinho/validandoPedido" method="POST" th:object="${ptemp}">
                     <div class="row">
-
                         <!-- INICIO PRODUTO -->
-
                         <div th:each="p, status : ${@carrinhoController.pedido.itens}" class="col-12 product border-top border-bottom" style="width: 100%;margin-left:0px;margin-right:0px; padding:3px;">
                             <div class="row" style="width: 100%;margin-left:0px;margin-right:0px">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="row" style="width:100%;margin-left:0px;margin-right:0px">
                                         <div class="col-4">
-                                            <img class="img-fluid" src="./imagens/products/15.jpg" alt="Card image cap">
+                                            <img class="img-fluid" src="../imagens/products/15.jpg" alt="Card image cap">
                                         </div>
                                         <div class="col-8">
                                             <h5 class="card-title" style="font-size:17px"th:text="${p.produto.nome}">Aqui vai o Titulo do Livro</h5>
                                             <h6 style="font-size:12px;color: darkgrey" th:text="${p.produto.fabricante}">-Autor do livro</h6>
-
                                         </div>
-
                                         <div class="w-100"></div>
                                         <div class="col offset-4  d-block d-md-none">
-
                                             <label for="" class="nomeAtributo">Quantidade</label>
                                             <input type="number" name="" id="" step="1" style="width: 100%">
-                                            <!-- <input type="number" name="qtd" min="1" max="100" th:value="${p.qtd}" th:field="*{quantidade}"/> -->
-                                            <!-- <input type="hidden" th:value="${p.produto.id}" name="numero" th:field="*{idProduto}"/> -->
                                         </div>
                                         <div class="col  d-block d-md-none" style="text-align:right;margin-top:10px">
-
                                             <label style="color: #4CAF50">
-                                                <span style="font-size: 12px"th:text="|R$ ${p.produto.valorProduto}|">999,99</span></label>
+                                                <span style="font-size: 12px"th:text="|R$ ${p.produto.valorProduto}|">999,99</span>
+                                            </label>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="col-md-2 d-none d-md-block">
 
@@ -90,23 +73,16 @@
                                 </div>
                                 <div class="col-md-2 d-none d-md-block">
                                     <input type="hidden" th:field="*{items[__${status.index}__].idProduto}">
-                                    <input type="number" min="1" max="100" th:field="*{items[__${status.index}__].qtd}"/>
+                                    <input type="number" min="1" max="100" th:field="*{items[__${status.index}__].qtd}" onchange="qtdChange()"/>
                                 </div>
                                 <div class="col-md-2 d-none d-md-block">
-
                                     <br>
                                     <label style="color: #4CAF50;font-size: 25px">
                                         <span style="font-size: 25px" th:text="${p.valorParcial}"></span></label>
                                 </div>
-
                             </div>
-
                             <a class="material-icons" href="#" style="color:red;position: absolute; top:3px;right:7px">delete_forever</a>
-
                         </div>
-
-
-
                         <div class="col-sm-12 offset-md-6 col-md-6 border-left border-primary" style="margin-top: 10px">
                             <br>
                             <div class="row">
@@ -135,10 +111,36 @@
                         </div>
                     </div>
                 </form>
-
                 <!-- FIM PRODUTO -->
                 <!-- FIM DA FINALIZAÇAO DA COMPRA -->
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function qtdChange() {
+            /*<![CDATA[*/
+
+//            var id = /*[[${@loginController.user.id}]]*/ 'default';
+//            console.log(id);
+//            document.getElementById("idUsuario").value = id;
+
+            /*]]>*/
+            
+            
+//            $.ajax({
+//                type: 'GET',
+//                url: '/Carrinho',
+//                success : function(data){
+//                    console.log(data);
+//                    document.open();
+//                    document.write(data);
+//                    document.close();
+//                }
+//            }).done(function() {
+//                console.log("success");
+//            }).fail(function() {
+//                console.log("error");
+//            });
+        }
+    </script>
 </div>

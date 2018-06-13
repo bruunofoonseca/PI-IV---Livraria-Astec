@@ -35,11 +35,10 @@ public class UsuarioModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
     @Size(min = 1, max = 100, message = "Nome inválido")
     @Column(name = "NOME", length = 100, nullable = false)
     private String nome;
-    
+
     @Size(min = 1, max = 100, message = "Sobre nome inválido")
     @Column(name = "SOBRENOME", length = 100, nullable = false)
     private String sobrenome;

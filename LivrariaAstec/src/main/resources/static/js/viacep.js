@@ -81,8 +81,3 @@ function formatar(mascara, documento){
   }
   
 }
-
-
-
-
-

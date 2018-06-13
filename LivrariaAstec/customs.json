@@ -14,6 +14,9 @@
         "th:field": {
             "context": "input"
         },
+        "th:inline": {
+            "context": "script"
+        },
         "layout:fragment": {}
     }
 }

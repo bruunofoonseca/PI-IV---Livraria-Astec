@@ -10,6 +10,7 @@
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
@@ -90,42 +91,8 @@
                     </div>
                     <div class="row">
                         <!-- Card -->
-
-                        <div layout:fragment="conteudo">
-
-                        </div>
+                        <div layout:fragment="conteudo"></div>
                         <!--FIm do card -->
-                        <!-- <div class="col-sm-12 col-md-4 col-lg-3">
-                                                <div class="card text-center">
-                                                    <img class="" src="./imagens/products/15.jpg" alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Eu robo</h5>
-                                                        <p class="card-text d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus ultrices elementum.
-                                                            Duis vel est nec libero venenatis accumsan ut vel ex. </p>
-                                                        <p class="card-text d-block d-md-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <label for="">R$</label>
-                                                            </div>
-                                                            <div class="col-9">
-                                                                <h5 class="preco-produto">222,50</h5>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <a href="#" class="btn btn-outline-primary btn-large btn-block">Detalhes</a>
-                                                            </div>
-                                                            <div class="col-12">
-                        
-                                                                <a href="#" class="btn btn-primary btn-grid-carrinho btn-block">
-                                                                    <i class="material-icons">add_circle_outlineshopping_cart</i>
-                                                                    <span class="frase-btn-carrinho">Add ao carrinho</span>
-                        
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
                     </div>
                 </div>
             </div>
@@ -253,10 +220,10 @@
                                             <i class="material-icons" style="font-size: 15px;color: #ffc107">person</i>
                                         </button>
                                         <div class="dropdown-menu menu-usuario" aria-labelledby="dropdownMenuUsuario" >
-                                            <a class="dropdown-item" href="#" style="color: gray">Meus Dados</a>
-                                            <a class="dropdown-item" href="#" style="color: gray">Meus Endereços</a>
-                                            <a class="dropdown-item" href="#" style="color: gray">Meus Pedidos</a>
-                                            <a class="dropdown-item" href="#" style="color: gray">Gerenciamento</a>
+                                            <a class="dropdown-item" href="/menu/meusDados" style="color: gray">Meus Dados</a>
+                                            <a class="dropdown-item" href="/menu/meusEnderecos" style="color: gray">Meus Endereços</a>
+                                            <a class="dropdown-item" href="/menu/meusPedidos" style="color: gray">Meus Pedidos</a>
+                                            <a class="dropdown-item" href="/gerenciamento" style="color: gray">Gerenciamento</a>
                                             <a class="dropdown-item" href="/login/logout" style="color: gray">Sair</a>
 
                                         </div>
@@ -290,10 +257,10 @@
                                             <i class="material-icons" style="font-size: 30px;color: #ffc107">person</i>
                                         </button>
                                         <div class="dropdown-menu menu-usuario" aria-labelledby="dropdownMenuUsuario" >
-                                            <a class="dropdown-item" href="#" style="color: gray">Meus Dados</a>
-                                            <a class="dropdown-item" href="#" style="color: gray">Meus Endereços</a>
-                                            <a class="dropdown-item" href="#" style="color: gray">Meus Pedidos</a>
-                                            <a class="dropdown-item" href="#" style="color: gray">Gerenciamento</a>
+                                            <a class="dropdown-item" href="/menu/meusDados" style="color: gray">Meus Dados</a>
+                                            <a class="dropdown-item" href="/menu/meusEnderecos" style="color: gray">Meus Endereços</a>
+                                            <a class="dropdown-item" href="/menu/meusPedidos" style="color: gray">Meus Pedidos</a>
+                                            <a class="dropdown-item" href="/gerenciamento" style="color: gray">Gerenciamento</a>
                                             <a class="dropdown-item" href="/login/logout" style="color: gray">Sair</a>
 
                                         </div>

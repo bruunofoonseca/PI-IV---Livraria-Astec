@@ -5,7 +5,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="#">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li class="breadcrumb-item">
                             <a href="#">Carrinho</a>
@@ -26,9 +26,9 @@
             <!--- fomulario de entrega -->
             <form th:action="@{/Carrinho/validaEntrega}" th:object="${endereco}" method="post">
                 <input type="hidden" 
-                        id="idUsuario"
-                        name="idUsuario" 
-                        th:field="*{usuario.id}">
+                       id="idUsuario"
+                       name="idUsuario" 
+                       th:field="*{usuario.id}">
                 <div class="form-row col-xs-12">
                     <div class="input-group col-12">
                         <input type="text" 
@@ -97,13 +97,13 @@
             <script src="../js/jquery.formatter.min.js"></script>
             <script src="../js/validandoInputs.js"></script>
             <script th:inline="javascript">
-                /*<![CDATA[*/
+                                /*<![CDATA[*/
 
-                    var id = /*[[${@loginController.user.id}]]*/ 'default';
-                    console.log(id);
-                    document.getElementById("idUsuario").value = id;
+                                var id = /*[[${@loginController.user.id}]]*/ 'default';
+                                console.log(id);
+                                document.getElementById("idUsuario").value = id;
 
-                /*]]>*/
+                                /*]]>*/
             </script>
         </div>
     </div>
